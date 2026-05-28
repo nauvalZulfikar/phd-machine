@@ -1,0 +1,47 @@
+{
+  "ref": null,
+  "title": "PhD in LaCoCo Lab — LLM Theory & Interpretability (Michael Hahn)",
+  "institution": "Saarland University",
+  "department": "Department of Language Science and Technology / Saarland Informatics Campus",
+  "supervisor": "Dr. Michael Hahn (LaCoCo lab director)",
+  "supervisor_email": "mhahn@lst.uni-saarland.de",
+  "deadline": null,
+  "deadline_estimate": "rolling — direct supervisor pathway; or via IMPRS-TRUST / Saarbrücken Graduate School annual deadlines",
+  "start_date": "flexible (negotiable with supervisor)",
+  "duration": "3-4 years",
+  "funding": "Fully funded (DFG Emmy Noether + Heinz Maier Leibnitz Preis grants)",
+  "portal_url": "https://lacoco-lab.github.io/joining/",
+  "submission_method": "direct_email_supervisor",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "other: motivation statement referencing 1+ recent LaCoCo publications"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "language_certificate"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "MSc by PhD start date",
+    "Strong background in NLP / ML / linguistics / CS",
+    "Demonstrated research aptitude (publications or projects)",
+    "English fluency"
+  ],
+  "research_themes": [
+    "LLM theory",
+    "Transformer interpretability",
+    "Mechanistically reverse-engineering model internals",
+    "Learning biases of language models",
+    "Computational cognition (bridge with neuroscience)"
+  ],
+  "notes": "STRONG FIT for the same profile as Copenhagen/Cambridge/Tübingen. Hahn's lab publishes at NeurIPS/ICLR/ICML/COLM. References letters via 2-3 contacts. Open co-advised position with Alexander Koller had deadline 11 May 2026 (CLOSED) — but direct rolling pathway open.",
+  "url": "https://lacoco-lab.github.io/joining/"
+}

@@ -1,0 +1,10 @@
+{
+  "_systemfield_name": "Nauval Zulfikar",
+  "_systemfield_email": "zulfikar.nauval1998@gmail.com",
+  "idx-cb-3": "Milan, Italy (open to UK/EU/Remote)",
+  "60e2e714-bfba-4636-99d5-f039160e44d3": "https://github.com/NauvalZulfikar",
+  "9ea3f46d-49ef-48a6-9bb5-c053a17727bd": "https://linkedin.com/in/nauval-zulfikar",
+  "e56b9091-0129-45f9-90e1-5a1ba9a60762": "https://github.com/NauvalZulfikar",
+  "3e32dfe5-0d96-44a5-ac2f-edab5f5b338b": "In my CV-JD Suitability Checker repo (DeBERTa-v3 + RAG), I'd add an AI-driven evaluation harness: use Claude to auto-generate 100+ paired (CV, JD) test cases across edge scenarios (career pivots, multi-domain backgrounds, gap years), then run the harness against each commit to track regression in match-quality. Current evaluation is ad-hoc — automating with Claude tool-use would let me iterate the retrieval prompt weekly with confidence, and surface failure modes I'd otherwise miss.",
+  "965e2855-ce64-4014-a83e-4cf649c72606__systemfield_data_consent_ack-labeled-checkbox-0": "Yes"
+}

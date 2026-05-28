@@ -1,0 +1,179 @@
+[
+  {
+    "id": "_systemfield_name",
+    "label": "Name",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_name\"]",
+    "entryIdx": 0
+  },
+  {
+    "id": "_systemfield_email",
+    "label": "Email",
+    "type": "email",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_email\"]",
+    "entryIdx": 1
+  },
+  {
+    "id": "70824e11-dbc3-490a-85e4-39b334e46fc8",
+    "label": "Phone",
+    "type": "tel",
+    "required": true,
+    "selectorHint": "[id=\"70824e11-dbc3-490a-85e4-39b334e46fc8\"]",
+    "entryIdx": 2
+  },
+  {
+    "id": "idx-cb-3",
+    "label": "Location",
+    "type": "typeahead",
+    "required": true,
+    "selectorHint": ".ashby-application-form-field-entry:nth-of-type(4) input[role=\"combobox\"], .ashby-application-form-field-entry:nth-of-type(4) input[placeholder*=\"Start typing\" i]",
+    "entryIdx": 3
+  },
+  {
+    "id": "_systemfield_resume",
+    "label": "Resume",
+    "type": "file",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_resume\"]",
+    "entryIdx": 4
+  },
+  {
+    "id": "18651cb5-069f-4c2e-8a71-4538a242ed38",
+    "label": "Linkedin Profile (optional)",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"18651cb5-069f-4c2e-8a71-4538a242ed38\"]",
+    "entryIdx": 5
+  },
+  {
+    "id": "btnq-6",
+    "label": "Are you legally authorized to work in the country this role is located in?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 6
+  },
+  {
+    "id": "btnq-7",
+    "label": "Do you currently or will you in the future require visa sponsorship to continue working in the country in which this role is located in?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 7
+  },
+  {
+    "id": "6d41a6cf-6479-48ca-b722-e75bda429d19",
+    "label": "Please share your blockchain experience",
+    "type": "textarea",
+    "required": true,
+    "selectorHint": "[id=\"6d41a6cf-6479-48ca-b722-e75bda429d19\"]",
+    "entryIdx": 8
+  },
+  {
+    "id": "d165913c-5c7a-4d0f-9459-cba149beedfc",
+    "label": "What is your favorite platform to analyze crypto data on?",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"d165913c-5c7a-4d0f-9459-cba149beedfc\"]",
+    "entryIdx": 9
+  },
+  {
+    "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_gender",
+    "label": "Male",
+    "type": "radio-group",
+    "required": false,
+    "options": [
+      {
+        "value": "on",
+        "label": "Male",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_gender-labeled-radio-0"
+      },
+      {
+        "value": "on",
+        "label": "Female",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_gender-labeled-radio-1"
+      },
+      {
+        "value": "on",
+        "label": "Decline to self-identify",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_gender-labeled-radio-2"
+      }
+    ],
+    "selectorHint": "[name=\"8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_gender\"]"
+  },
+  {
+    "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race",
+    "label": "Hispanic or Latino",
+    "type": "radio-group",
+    "required": false,
+    "options": [
+      {
+        "value": "on",
+        "label": "Hispanic or Latino",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race-labeled-radio-0"
+      },
+      {
+        "value": "on",
+        "label": "White (Not Hispanic or Latino)",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race-labeled-radio-1"
+      },
+      {
+        "value": "on",
+        "label": "Black or African American (Not Hispanic or Latino)",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race-labeled-radio-2"
+      },
+      {
+        "value": "on",
+        "label": "Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race-labeled-radio-3"
+      },
+      {
+        "value": "on",
+        "label": "Asian (Not Hispanic or Latino)",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race-labeled-radio-4"
+      },
+      {
+        "value": "on",
+        "label": "American Indian or Alaska Native (Not Hispanic or Latino)",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race-labeled-radio-5"
+      },
+      {
+        "value": "on",
+        "label": "Two or More Races (Not Hispanic or Latino)",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race-labeled-radio-6"
+      },
+      {
+        "value": "on",
+        "label": "Decline to self-identify",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race-labeled-radio-7"
+      }
+    ],
+    "selectorHint": "[name=\"8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_race\"]"
+  },
+  {
+    "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_veteran_status",
+    "label": "I identify as one or more of the classifications of protected veteran listed above",
+    "type": "radio-group",
+    "required": false,
+    "options": [
+      {
+        "value": "on",
+        "label": "I identify as one or more of the classifications of protected veteran listed above",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_veteran_status-labeled-radio-0"
+      },
+      {
+        "value": "on",
+        "label": "I am not a protected veteran",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_veteran_status-labeled-radio-1"
+      },
+      {
+        "value": "on",
+        "label": "I decline to self-identify for protected veteran status",
+        "id": "8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_veteran_status-labeled-radio-2"
+      }
+    ],
+    "selectorHint": "[name=\"8aca8927-2595-43a5-aa94-be1700e7b123__systemfield_eeoc_veteran_status\"]"
+  }
+]

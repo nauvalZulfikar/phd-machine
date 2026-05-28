@@ -1,0 +1,70 @@
+
+  career-ops dashboard
+
+  → http://localhost:4280/
+
+  Endpoints:
+    GET  /                  dashboard (auto-regenerates)
+    GET  /tmp/runs/...      run artefacts (cv.pdf, screenshots, jd.md)
+    GET  /api/status        JSON list of runs + stages
+    POST /api/status        { slug, stage, note? } update status.yml
+    POST /api/regen         force regenerate dashboard.html
+
+  Press Ctrl+C to stop.
+
+
+  career-ops dashboard
+
+  → http://localhost:4280/
+
+  Endpoints:
+    GET  /                  dashboard (auto-regenerates)
+    GET  /tmp/runs/...      run artefacts (cv.pdf, screenshots, jd.md)
+    GET  /api/status        JSON list of runs + stages
+    POST /api/status        { slug, stage, note? } update status.yml
+    POST /api/regen         force regenerate dashboard.html
+
+  Press Ctrl+C to stop.
+
+
+  career-ops dashboard
+
+  → http://localhost:4280/
+
+  Endpoints:
+    GET  /                  dashboard (auto-regenerates)
+    GET  /tmp/runs/...      run artefacts (cv.pdf, screenshots, jd.md)
+    GET  /api/status        JSON list of runs + stages
+    POST /api/status        { slug, stage, note? } update status.yml
+    POST /api/regen         force regenerate dashboard.html
+
+  Press Ctrl+C to stop.
+
+
+  career-ops dashboard
+
+  → http://localhost:4280/
+
+  Endpoints:
+    GET  /                  dashboard (auto-regenerates)
+    GET  /tmp/runs/...      run artefacts (cv.pdf, screenshots, jd.md)
+    GET  /api/status        JSON list of runs + stages
+    POST /api/status        { slug, stage, note? } update status.yml
+    POST /api/regen         force regenerate dashboard.html
+
+  Press Ctrl+C to stop.
+
+
+  career-ops dashboard
+
+  → http://localhost:4280/
+
+  Endpoints:
+    GET  /                  dashboard (auto-regenerates)
+    GET  /tmp/runs/...      run artefacts (cv.pdf, screenshots, jd.md)
+    GET  /api/status        JSON list of runs + stages
+    POST /api/status        { slug, stage, note? } update status.yml
+    POST /api/regen         force regenerate dashboard.html
+
+  Press Ctrl+C to stop.
+

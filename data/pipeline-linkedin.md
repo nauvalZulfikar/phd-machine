@@ -1,0 +1,82 @@
+## LinkedIn Jobs (scanned 2026-05-15)
+
+> NOTE: LinkedIn does not submit via career-ops pipeline. Apply manually.
+
+- [ ] https://id.linkedin.com/jobs/view/senior-data-analyst-at-flip-4412710793 | Flip | Senior Data Analyst  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/senior-financial-data-analyst-id26002-at-acclime-4409743460 | Acclime | Senior Financial Data Analyst - ID26002  · South Jakarta, Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-scientist-contract-banking-industry-at-adecco-4413877291 | Adecco | Data Scientist (Contract), Banking Industry  · South Jakarta, Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-science-manager-southeast-asia-at-women-s-world-banking-4414203664 | Women's World Banking | Data Science Manager, Southeast Asia  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-science-director-at-artefact-4402420449 | Artefact | Data Science Director  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/software-engineer-platform-jakarta-indonesia-at-speechify-4413231813 | Speechify | Software Engineer, Platform - Jakarta, Indonesia  · Jakarta Metropolitan Area
+- [ ] https://id.linkedin.com/jobs/view/software-engineer-python-go-%2480-hr-remote-at-crossing-hurdles-4400710749 | Crossing Hurdles | Software Engineer - Python &amp; Go | $80/hr Remote  · Indonesia
+- [ ] https://id.linkedin.com/jobs/view/senior-data-engineer-%EF%BB%BF-data-infrastructure-business-insights-at-cove-4413538424 | Cove | Senior Data Engineer (Data Infrastructure &amp; Business Insights)  · Jakarta Metropolitan Area
+- [ ] https://id.linkedin.com/jobs/view/software-engineer-aaa-games-at-keywords-studios-4413277555 | Keywords Studios | Software Engineer - AAA Games  · Indonesia
+- [ ] https://id.linkedin.com/jobs/view/software-engineer-at-glints-4414449094 | Glints | Software Engineer  · Indonesia
+- [ ] https://id.linkedin.com/jobs/view/junior-data-engineer-at-house-of-people-4413924623 | House of People | Junior Data Engineer  · Indonesia
+- [ ] https://id.linkedin.com/jobs/view/software-engineer-data-infrastructure-acquisition-yogyakarta-indonesia-at-speechify-4412631633 | Speechify | Software Engineer, Data Infrastructure &amp; Acquisition - Yogyakarta, Indonesia  · Yogyakarta, Yogyakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-engineer-at-bjak-4412444753 | BJAK | Data Engineer  · Jakarta, Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/senior-software-engineer-core-experiences-surabaya-indonesia-at-speechify-4413275527 | Speechify | Senior Software Engineer, Core Experiences - Surabaya, Indonesia  · Bluburlimbangan, West Java, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-engineer-at-bjak-4415000482 | BJAK | Data Engineer  · Indonesia
+- [ ] https://id.linkedin.com/jobs/view/machine-learning-engineer-at-kredivo-group-4268217099 | Kredivo Group | Machine Learning Engineer  · Jakarta Metropolitan Area
+- [ ] https://id.linkedin.com/jobs/view/senior-machine-learning-engineer-at-glints-4413535418 | Glints | Senior Machine Learning Engineer  · Bali, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/sr-ai-ml-engineer-at-synapsis-4401444463 | Synapsis | Sr. AI/ML Engineer  · Gambir, Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/machine-learning-engineer-at-krom-4406147784 | Krom | Machine Learning Engineer  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/ai-ml-engineer-at-artajasa-pembayaran-elektronis-4406947863 | Artajasa Pembayaran Elektronis | AI/ML Engineer  · Kota Tangerang Selatan, Banten, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/staff-machine-learning-engineer-india-based-relocation-provided-at-agoda-4302587821 | Agoda | Staff Machine Learning Engineer (India based, relocation provided)  · Bali, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/associate-machine-learning-engineer-at-tiket-com-4398122027 | tiket.com | Associate Machine Learning Engineer  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/ai-ml-nlp-engineer-at-bibit-id-4409285507 | Bibit.id | AI/ML - NLP Engineer  · Jakarta, Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/ai-engineer-at-bernhard-heckmann-4403529866 | Bernhard Heckmann | AI Engineer  · Jakarta, Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/senior-staff-machine-learning-engineer-bidding-bangkok-based-relocation-provided-at-agoda-4308408084 | Agoda | Senior/Staff Machine Learning Engineer - Bidding (Bangkok based, relocation provided)  · Bali, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/senior-data-analyst-at-pt-bank-neo-commerce-tbk-4401406947 | PT Bank Neo Commerce Tbk | Senior Data Analyst  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/sr-specialist-reporting-data-analyst-at-pt-amman-mineral-nusa-tenggara-4412621317 | PT Amman Mineral Nusa Tenggara | Sr. Specialist - Reporting &amp; Data Analyst  · Sumbawa Barat, West Nusa Tenggara, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/senior-data-analyst-network-resolution-engagement-at-amartha-financial-4413942002 | Amartha Financial | Senior Data Analyst - Network Resolution &amp; Engagement  · Jakarta Metropolitan Area
+- [ ] https://id.linkedin.com/jobs/view/senior-data-analyst-based-in-medan-at-averis-4403905941 | Averis | Senior Data Analyst (Based in Medan)  · Kota Medan, North Sumatra, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-analyst-medior-senior-at-seven-retail-4410130828 | Seven Retail | Data Analyst (Medior/Senior)  · Jakarta Metropolitan Area
+- [ ] https://id.linkedin.com/jobs/view/data-scientist-at-tiket-com-4398114060 | tiket.com | Data Scientist  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-scientist-business-intelligence-at-shopee-4320394831 | Shopee | Data Scientist, Business Intelligence  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-scientist-associate-triatra-at-pt-astra-international-tbk-4414233678 | PT Astra International Tbk | Data Scientist Associate - TRIATRA  · Jakarta, Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/avp-data-scientist-business-solution-at-pt-indosat-tbk-4400917736 | PT. Indosat Tbk | AVP-Data Scientist Business Solution  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/principal-database-engineer-at-frontline-data-solutions-4412984114 | Frontline Data Solutions | Principal Database Engineer  · Indonesia
+- [ ] https://id.linkedin.com/jobs/view/ai-solution-engineer-at-shopee-4366473965 | Shopee | AI Solution Engineer  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/data-engineering-at-pt-indosat-tbk-4397748791 | PT. Indosat Tbk | Data Engineering  · Jakarta, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/artificial-intelligence-engineer-at-easy-outsource-4322741443 | Easy Outsource | Artificial Intelligence Engineer  · Indonesia
+- [ ] https://id.linkedin.com/jobs/view/machine-learning-ml-ops-engineer-at-pt-daya-cipta-mandiri-solusi-4407192932 | PT DAYA CIPTA MANDIRI SOLUSI | Machine Learning (ML) Ops Engineer  · Bandung, Banten, Indonesia
+- [ ] https://id.linkedin.com/jobs/view/ai-ml-computer-vision-engineer-at-bibit-id-4409279570 | Bibit.id | AI/ML - Computer Vision Engineer  · Jakarta, Jakarta, Indonesia
+- [ ] https://sg.linkedin.com/jobs/view/senior-data-analyst-ai-compliance-at-binance-4366865530 | Binance | Senior Data Analyst (AI Compliance)  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-data-analyst-recommendation-feeds-growth-ai-llm-at-binance-4344430612 | Binance | Senior Data Analyst - Recommendation, Feeds, Growth (AI/LLM)  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/data-scientist-search-recommendation-at-binance-4386837552 | Binance | Data Scientist (Search &amp; Recommendation)  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/business-intelligence-data-scientist-at-binance-4406211110 | Binance | Business Intelligence / Data Scientist  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-data-scientist-analyst-ai-llm-at-binance-4317169691 | Binance | Senior Data Scientist / Analyst (AI/LLM)  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/business-intelligence-data-scientist-at-binance-4391138500 | Binance | Business Intelligence / Data Scientist  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/data-scientist-at-silent-eight-4407848081 | Silent Eight | Data Scientist  · Singapore
+- [ ] https://sg.linkedin.com/jobs/view/data-scientist-apac-at-zurich-insurance-4367202466 | Zurich Insurance | Data Scientist, APAC  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/pioneer-talent-program-research-data-scientist-at-binance-4403917076 | Binance | Pioneer Talent Program - Research Data Scientist  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/data-scientist-market-growth-lifecycle-at-binance-4323528922 | Binance | Data Scientist, Market Growth (Lifecycle)  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-machine-learning-engineer-at-a1-4412376816 | A1 | Senior Machine Learning Engineer  · Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-machine-learning-engineer-at-viridien-4373112991 | Viridien | Senior Machine Learning Engineer  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-ai-machine-learning-engineer-at-sginnovate-4403339774 | SGInnovate | Senior AI &amp; Machine Learning Engineer  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-machine-learning-engineer-machine-learning-expert-at-patsnap-4354272318 | Patsnap | Senior Machine Learning Engineer / Machine Learning Expert  · Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-machine-learning-engineer-at-ambition-4410190110 | Ambition | Senior Machine Learning Engineer  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-machine-learning-engineer-at-pluang-4401178770 | Pluang | Senior Machine Learning Engineer  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/sr-machine-learning-engineer-%E2%80%94-agentic-systems-at-paypal-4401773558 | PayPal | Sr Machine Learning Engineer — Agentic Systems  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-machine-learning-engineer-compliance-at-okx-4387958567 | OKX | Senior Machine Learning Engineer, Compliance  · Singapore, Singapore
+- [ ] https://sg.linkedin.com/jobs/view/senior-staff-machine-learning-engineer-at-zendesk-4411190817 | Zendesk | Senior Staff Machine Learning Engineer  · Singapore
+- [ ] https://sg.linkedin.com/jobs/view/principal-machine-learning-engineer-at-physicsx-4360627060 | PhysicsX | Principal Machine Learning Engineer  · Singapore
+- [ ] https://www.linkedin.com/jobs/view/data-science-manager-growth-at-stripe-4413497488 | Stripe | Data Science Manager, Growth  · United States
+- [ ] https://de.linkedin.com/jobs/view/data-science-manager-at-auxo-talent-4413819203 | Auxo Talent | Data Science Manager  · Germany
+- [ ] https://www.linkedin.com/jobs/view/director-data-science-at-headspace-4410185988 | Headspace | Director, Data Science  · San Francisco, CA
+- [ ] https://www.linkedin.com/jobs/view/director-data-science-at-headspace-4410194907 | Headspace | Director, Data Science  · Seattle, WA
+- [ ] https://www.linkedin.com/jobs/view/director-data-science-at-headspace-4410185986 | Headspace | Director, Data Science  · New York, NY
+- [ ] https://www.linkedin.com/jobs/view/director-data-science-at-headspace-4410194905 | Headspace | Director, Data Science  · Los Angeles, CA
+- [ ] https://uk.linkedin.com/jobs/view/senior-data-scientist-marketing-and-growth-at-monzo-4386832598 | Monzo | Senior Data Scientist - Marketing and Growth  · London, England, United Kingdom
+- [ ] https://fr.linkedin.com/jobs/view/senior-data-scientist-eu-timezones-only-at-fabulous-4411874512 | Fabulous | Senior Data Scientist (EU Timezones Only)  · Paris, Île-de-France, France
+- [ ] https://uk.linkedin.com/jobs/view/staff-data-scientist-supply-chain-forecasting-%E2%80%93-contract-%E2%80%93-outside-ir35-%E2%80%93-remote-uk-at-oliver-bernard-4409258632 | Oliver Bernard | Staff Data Scientist (Supply Chain Forecasting) – Contract – Outside IR35 – Remote (UK)  · United Kingdom
+- [ ] https://ca.linkedin.com/jobs/view/senior-data-scientist-city-and-vehicle-tech-at-lime-4406233881 | Lime | Senior Data Scientist, City and Vehicle Tech  · Canada
+- [ ] https://pl.linkedin.com/jobs/view/ai-ml-engineer-at-docusketch-4406955962 | DocuSketch | AI/ML Engineer  · Poland
+- [ ] https://www.linkedin.com/jobs/view/senior-ai-ml-engineer-at-velir-4413467103 | Velir | Senior AI/ML Engineer  · Boston, MA
+- [ ] https://rs.linkedin.com/jobs/view/ml-ai-engineer-at-expert-executive-recruiters-eer-global-4413523881 | Expert Executive Recruiters (EER Global) | ML/ AI Engineer  · Serbia
+- [ ] https://uk.linkedin.com/jobs/view/data-scientist-at-maxwell-bond-4410190670 | Maxwell Bond | Data Scientist  · United Kingdom
+- [ ] https://in.linkedin.com/jobs/view/data-scientist-at-forbes-advisor-4325461135 | Forbes Advisor | Data Scientist  · Mumbai Metropolitan Region
+- [ ] https://ca.linkedin.com/jobs/view/senior-software-engineer-data-platform-at-stackadapt-4413446482 | StackAdapt | Senior Software Engineer, Data Platform  · Toronto, Ontario, Canada
+- [ ] https://ca.linkedin.com/jobs/view/staff-senior-staff-software-engineer-user-profile-at-stackadapt-4413702148 | StackAdapt | Staff / Senior Staff Software Engineer, User Profile  · Toronto, Ontario, Canada
+- [ ] https://www.linkedin.com/jobs/view/senior-software-engineer-data-platform-at-stackadapt-4413447408 | StackAdapt | Senior Software Engineer, Data Platform  · United States

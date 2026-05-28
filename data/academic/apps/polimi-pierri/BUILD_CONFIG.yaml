@@ -1,0 +1,19 @@
+template: uk-academic
+filename_pattern: nauval_zulfikar_polimi_{doc}.pdf
+max_file_size_mb: 5
+docs:
+- name: cv
+  source: drafts/cv.md
+  kind: cv
+  title: Curriculum Vitae
+  max_pages: 2
+- name: cover_letter
+  source: drafts/cover_letter.md
+  kind: full
+  title: Cover Letter
+  max_pages: 2
+- name: research_statement
+  source: drafts/research_statement.md
+  kind: full
+  title: Research Statement
+  max_pages: 8

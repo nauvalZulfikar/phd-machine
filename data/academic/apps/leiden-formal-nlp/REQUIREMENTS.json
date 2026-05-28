@@ -1,0 +1,47 @@
+{
+  "ref": null,
+  "title": "PhD Candidate — Formal Methods in Natural Language Processing",
+  "institution": "Leiden University",
+  "department": "Leiden Institute of Advanced Computer Science (LIACS)",
+  "supervisor": "Dr. Gijs Wijnholds (daily supervisor) + Prof. Suzan Verberne (promotor)",
+  "supervisor_email": "g.j.wijnholds@liacs.leidenuniv.nl",
+  "deadline": "2026-06-26",
+  "start_date": "2026-09-01",
+  "duration": "4 years (Dutch PhD)",
+  "funding": "Fully funded (Dutch CAO: €3,059-€3,881/mo + 8% holiday + 8.3% year-end)",
+  "portal_url": "https://careers.universiteitleiden.nl/job/PhD-Candidate,-Formal-methods-in-Natural-Language-Processing",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "research_statement",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "reference_letters",
+    "language_certificate"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "other: writing sample (MSc thesis)"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "MSc in CS / AI / Computational Linguistics / Logic / Mathematics or related",
+    "Strong background in NLP and programming (Python)",
+    "Interest in formal/type-theoretic methods for language",
+    "Fluent English"
+  ],
+  "research_themes": [
+    "Formal methods for LLMs",
+    "Efficiency + transparency of LLMs",
+    "Type theory / categorial grammar",
+    "Interpretability of language models"
+  ],
+  "notes": "Strong fit — formal methods + interpretability sits at intersection of MSc transformer-fine-tune work + Cambridge/Saarland themes. Verberne is well-known IR/NLP researcher.",
+  "url": "https://careers.universiteitleiden.nl/job/PhD-Candidate,-Formal-methods-in-Natural-Language-Processing"
+}

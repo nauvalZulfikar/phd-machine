@@ -1,0 +1,134 @@
+# Academic profile for opportunity scoring
+# Used by auto/score.mjs to rank PhD / postdoc / research opportunities
+
+name: Nauval Zulfikar
+email: zulfikar.nauval1998@gmail.com
+
+# ─── ACADEMIC HISTORY ─────────────────────────────────────────────────
+education:
+  - degree: MSc Business Analytics
+    institution: Aston University, Birmingham, UK
+    classification: 1:1 First Class (Distinction)
+    year_completed: 2024
+    distinctions:
+      - Decision Models (MILP, MNL, scheduling)
+      - Effective Management Consultancy
+      - Software Analytics (simulation, system design)
+    scholarship: Aston Enterprise Scholarship 2023 (full tuition)
+    dissertation:
+      title: "Enhancing Supply Chain Information Sharing Systems Through Blockchain: Integrated Customer Reviews LLM Analysis: A Smart Contract Approach"
+      supervisor: Dr Ammar Al-Bazi
+
+  - degree: BBA Marketing
+    institution: Ritsumeikan Asia Pacific University, Beppu, Japan
+    year_completed: 2019
+    distinctions:
+      - Business Data Analysis
+      - Consumer Behaviour
+      - Marketing Research
+
+# ─── LANGUAGE PROOF ────────────────────────────────────────────────────
+english:
+  ielts:
+    overall: 7.0
+    listening: 8.0
+    writing: 7.5
+    reading: 6.0
+    speaking: 6.5
+    date: 2023-02-28
+  msc_english_medium: true  # MSc completed in UK English-medium 2023-2024
+
+# ─── TARGET FIELDS (priority order) ────────────────────────────────────
+target_fields:
+  primary:
+    - Digital Twin for transport/logistics
+    - Crowd-shipping / Vehicle Routing with Occasional Drivers (VRPOD)
+    - Agent-based modelling (ABM) for behavioural simulation
+    - Integrated Passenger-Freight Transport
+    - Urban logistics / last-mile delivery
+
+  secondary:
+    - Large Language Models (LLM) in operations research
+    - Retrieval-augmented generation (RAG) over scientific literature
+    - Discrete-choice modelling (MNL, mixed logit)
+    - Mixed-Integer Linear Programming (MILP) for routing
+    - Supply chain analytics
+    - Behavioural transport economics
+    - Sharing economy / gig platforms
+
+  related:
+    - Smart city / urban computing
+    - Multimodal transport optimisation
+    - Demand-responsive transport
+    - Blockchain for supply chain
+    - Healthcare operations research
+
+# ─── METHODS PROVEN (will be referenced in scoring) ────────────────────
+methods_proven:
+  programming: [Python, SQL, R, TypeScript, JavaScript]
+  ml_frameworks: [PyTorch, TensorFlow, scikit-learn, HuggingFace Transformers]
+  simulation: [mesa (ABM), simpy (DES), AnyLogic (in-progress)]
+  optimisation: [scipy.optimize.milp, HiGHS, Pyomo (basic)]
+  llm: [OpenAI GPT-4o, gpt-4o-mini, DeBERTa-v3, RAG with sentence-transformers]
+  web: [FastAPI, Streamlit, Playwright, Plotly, Folium]
+  data: [pandas, numpy, PySpark]
+  ml_methods: [NLP, sentiment analysis, classification, regression, time-series, clustering, attribution modelling]
+
+# ─── PUBLIC PORTFOLIO ──────────────────────────────────────────────────
+github_repos:
+  - https://github.com/nauvalZulfikar/Mini-Digital-Twin
+  - https://github.com/nauvalZulfikar/Crowd-Shipping-ABM-
+  - https://github.com/nauvalZulfikar/VRP-MILP
+  - https://github.com/nauvalZulfikar/LLM-Shipper-Profiles-
+
+# ─── WORK EXPERIENCE (5+ years) ────────────────────────────────────────
+work_summary: |
+  5+ years applied ML across regulated industry: licensed banking (Bank Muamalat),
+  regional government (PUTR Bandung, Data Scientist & PM), UK startup (Syncwell),
+  UK non-profit (PCOS Challenge). Strong in model governance, validation, ETL,
+  dashboarding, A/B testing, and stakeholder communication.
+
+# ─── TARGETS ───────────────────────────────────────────────────────────
+target_types:  # types I want to apply for
+  - phd
+  - postdoc
+  - research  # industry research positions (DeepMind, FAIR, etc.)
+
+target_regions:
+  priority_1: [United Kingdom, Germany, Netherlands, Switzerland]
+  priority_2: [Sweden, Denmark, Norway, Finland, France, Belgium, Italy, Spain]
+  priority_3: [United States, Canada, Australia, Singapore]
+
+# ─── CONSTRAINTS ───────────────────────────────────────────────────────
+constraints:
+  must_be_funded: true  # NEVER apply to self-funded PhDs
+  earliest_start: 2026-09-01
+  latest_start: 2027-12-31
+
+dealbreakers:
+  - self-funded
+  - requires_eu_or_uk_citizenship
+  - requires_language_other_than_english
+  - quantum_computing_required  # no background
+  - wet_lab_biology
+  - clinical_medicine
+  - pure_theoretical_physics_or_pure_math
+
+# ─── PERSONAL FIT NARRATIVE ────────────────────────────────────────────
+narrative: |
+  Lived experience: grew up in Bandung, Indonesia — a city of 3M with
+  chronic traffic congestion. Drives interest in passenger-freight transport
+  integration and Global South urban logistics. Returning Aston alumnus
+  with MSc dissertation under Dr Ammar Al-Bazi on blockchain-LLM for SCM —
+  direct precursor to LLM-based decision-rule generation in proposed PhD.
+
+# ─── REFEREES (for cover-email generation) ────────────────────────────
+referees:
+  - name: Dr Ammar Al-Bazi
+    role: MSc dissertation supervisor
+    institution: Aston University
+    email: a.al-bazi@aston.ac.uk
+  - name: Dr Viktor Pekar
+    role: MSc Personal Tutor
+    institution: Aston University
+    email: v.pekar@aston.ac.uk

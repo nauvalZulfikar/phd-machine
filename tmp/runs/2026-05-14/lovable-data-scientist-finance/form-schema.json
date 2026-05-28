@@ -1,0 +1,165 @@
+[
+  {
+    "id": "_systemfield_name",
+    "label": "Full Name",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_name\"]",
+    "entryIdx": 0
+  },
+  {
+    "id": "_systemfield_email",
+    "label": "Email ID",
+    "type": "email",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_email\"]",
+    "entryIdx": 1
+  },
+  {
+    "id": "bda0e48b-8303-4ee1-ac82-87983393f86a",
+    "label": "Phone Number",
+    "type": "tel",
+    "required": true,
+    "selectorHint": "[id=\"bda0e48b-8303-4ee1-ac82-87983393f86a\"]",
+    "entryIdx": 2
+  },
+  {
+    "id": "idx-cb-3",
+    "label": "Location",
+    "type": "typeahead",
+    "required": true,
+    "selectorHint": ".ashby-application-form-field-entry:nth-of-type(4) input[role=\"combobox\"], .ashby-application-form-field-entry:nth-of-type(4) input[placeholder*=\"Start typing\" i]",
+    "entryIdx": 3
+  },
+  {
+    "id": "_systemfield_resume",
+    "label": "Resume",
+    "type": "file",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_resume\"]",
+    "entryIdx": 4
+  },
+  {
+    "id": "509d7b64-8dab-40d8-b828-79a4ad5d96ad",
+    "label": "LinkedIn Profile URL",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"509d7b64-8dab-40d8-b828-79a4ad5d96ad\"]",
+    "entryIdx": 5
+  },
+  {
+    "id": "btnq-6",
+    "label": "Do you currently have the legal right to work in the country where you are applying for this role?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 6
+  },
+  {
+    "id": "btnq-7",
+    "label": "Will you now or in the future require the company to sponsor a visa or work permit in order to work in this location?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 7
+  },
+  {
+    "id": "dcb3aed1-9e77-465c-a07e-30c4e0033073",
+    "label": "What is the earliest date you can join us?",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"dcb3aed1-9e77-465c-a07e-30c4e0033073\"]",
+    "entryIdx": 8
+  },
+  {
+    "id": "b063a995-3de6-470c-a2f4-d00deaf6f089",
+    "label": "What are your compensation expectations?",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"b063a995-3de6-470c-a2f4-d00deaf6f089\"]",
+    "entryIdx": 9
+  },
+  {
+    "id": "b8192d7a-ed50-41fc-abe9-4c060bd7ecae",
+    "label": "Why do you want to join Lovable specifically and what makes you a great fit?",
+    "type": "textarea",
+    "required": true,
+    "selectorHint": "[id=\"b8192d7a-ed50-41fc-abe9-4c060bd7ecae\"]",
+    "entryIdx": 10
+  },
+  {
+    "id": "9cf27ea2-7aca-45b6-af86-a4c00120abe0",
+    "label": "What is the most impressive thing you’ve done in your career?",
+    "type": "textarea",
+    "required": true,
+    "selectorHint": "[id=\"9cf27ea2-7aca-45b6-af86-a4c00120abe0\"]",
+    "entryIdx": 11
+  },
+  {
+    "id": "c917c4fc-998b-4db7-b2da-ded055feb5b8",
+    "label": "Is there anything else you'd like us to know about you?",
+    "type": "textarea",
+    "required": true,
+    "selectorHint": "[id=\"c917c4fc-998b-4db7-b2da-ded055feb5b8\"]",
+    "entryIdx": 12
+  },
+  {
+    "id": "5e396c60-1165-4eb5-ab8a-c4cad2644e0b",
+    "label": "Have you built anything in Lovable you'd like to share? We'd love to see it!",
+    "type": "textarea",
+    "required": false,
+    "selectorHint": "[id=\"5e396c60-1165-4eb5-ab8a-c4cad2644e0b\"]",
+    "entryIdx": 13
+  },
+  {
+    "id": "idx-extra-14",
+    "label": "Location",
+    "type": "text",
+    "required": false,
+    "selectorHint": null
+  },
+  {
+    "id": "2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8",
+    "label": "LinkedIn",
+    "type": "radio-group",
+    "required": false,
+    "options": [
+      {
+        "value": "on",
+        "label": "LinkedIn",
+        "id": "2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8-labeled-radio-0"
+      },
+      {
+        "value": "on",
+        "label": "Twitter/X",
+        "id": "2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8-labeled-radio-1"
+      },
+      {
+        "value": "on",
+        "label": "Website",
+        "id": "2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8-labeled-radio-2"
+      },
+      {
+        "value": "on",
+        "label": "Former/current Team Member",
+        "id": "2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8-labeled-radio-3"
+      },
+      {
+        "value": "on",
+        "label": "Tech community or event",
+        "id": "2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8-labeled-radio-4"
+      },
+      {
+        "value": "on",
+        "label": "Word of mouth",
+        "id": "2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8-labeled-radio-5"
+      },
+      {
+        "value": "on",
+        "label": "Other",
+        "id": "2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8-labeled-radio-6"
+      }
+    ],
+    "selectorHint": "[name=\"2246c97c-4bda-4e97-afbb-f5831bc39753_07bde740-e2a4-426c-9324-879393cc81f8\"]"
+  }
+]

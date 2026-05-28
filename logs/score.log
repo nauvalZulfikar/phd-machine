@@ -1,0 +1,85 @@
+━━━ Academic Scorer ━━━
+Profile:  profiles\nauval_phd.yaml
+Input:    data/academic/opportunities.jsonl
+Output:   data/academic/scored.jsonl
+Top:      15
+LLM:      openai
+
+Loaded 80 opportunities
+Already scored: 40
+To score now:   40
+
+[1/40] Projektleiter*in Forschung 80-100%                             → ⛔ 25/100 reject
+[2/40] Treasurer / Board Member for Finance & Organisational Develo   → ⛔ 20/100 reject
+[3/40] Algemeen bestuurslid voor de portefeuille Arbeidsvoorwaarden   → ⛔ 20/100 reject
+[4/40] Research Hardware Engineer | Mosquito Behavior & Open Hardwa   → ⛔ 25/100 reject
+[5/40] Senior Lecturer (Doctorate/PhD)                                → ⛔ 25/100 reject
+[6/40] Senior Lecturer (Doctorate/PhD)                                → ⛔ 25/100 reject
+[7/40] Senior Lecturer (Doctorate/PhD)                                → ⛔ 25/100 reject
+[8/40] Senior Lecturer (Doctorate/PhD)                                → ⛔ 25/100 reject
+[9/40] PhD position in “Context‑aware and Data‑efficient Artificial   → ⛔ 25/100 reject
+[10/40] PhD position: Safe and efficient coordination of mixed traff   → ⛔ 40/100 reject
+[11/40] Vice Chancellor Communications and Events Officer              → ⛔ 0/100 reject
+[12/40] Building Services Technician - Chilled water and Compressed    → ⛔ 5/100 reject
+[13/40] Communications and Content Assistant                           → ⛔ 25/100 reject
+[14/40] Development Executive Assistant                                → ⛔ 20/100 reject
+[15/40] Director: The Harry Crossley Children's Nursing Development    → ⛔ 20/100 reject
+[16/40] Laboratory Operations Assistant                                → ⛔ 25/100 reject
+[17/40] Community Engagement Assistant                                 → ⛔ 25/100 reject
+[18/40] Senior Administrative Coordinator- Assessments (Delivery)      → ⛔ 20/100 reject
+[19/40] Events Manager                                                 → ⛔ 30/100 reject
+[20/40] PhD Studentship: QoE-Driven Agentic AI for Automated Bug Dis   → ⛔ 30/100 reject
+[21/40] PhD Studentship: Agentic AI Ensemble Systems for Real-World    → 🟠 60/100 mid-fit
+[22/40] PhD Studentship: PhD Opportunity Title	Philosophy of Automat   → ⛔ 25/100 reject
+[23/40] Research Fellow in Diagnostic Imaging and Pathology            → ⛔ 25/100 reject
+[24/40] PhD Studentship - Agentic AI and Cognitive Work in Healthcar   → ⛔ 40/100 reject
+[25/40] PhD Studentship: Civil Engineering: SURES Funded PhD in Adva   → ⛔ 25/100 reject
+[26/40] PhD Position in Test-Time Adaptation and Agentic AI            → ⛔ 30/100 reject
+[27/40] PhD Studentship: Multi-agent AI for software-defined traffic   → ⛔ 30/100 reject
+[28/40] PhD Studentship in Computer Science: Edge-AI enabled multi-m   → ⛔ 30/100 reject
+[29/40] Postdoctoral Research Associate                                → ⛔ 30/100 reject
+[30/40] International Officer                                          → ⛔ 20/100 reject
+[31/40] Head of International Recruitment                              → ⛔ 25/100 reject
+[32/40] Postdoctoral Research Associate – Grade 7                      → ⛔ 30/100 reject
+[33/40] Senior Research Associate in Flood Risk                        → ⛔ 25/100 reject
+[34/40] PhD Studentship: EPSRC supported EngD Computational modellin   → ⛔ 30/100 reject
+[35/40] Head of Support Centre                                         → ⛔ 25/100 reject
+[36/40] Visa Compliance and Admissions Specialist                      → ⛔ 10/100 reject
+[37/40] Associate Director of Commercial Services                      → ⛔ 25/100 reject
+[38/40] Postdoctoral Research Fellow                                   → ⛔ 30/100 reject
+[39/40] Associate Dean — Teaching and Learning (Business)              → ⛔ 25/100 reject
+[40/40] 4-year PhD Studentship (Fully funded) in Language Evolution    → ⛔ 25/100 reject
+
+Wrote scored digest: D:\Downloads\coding project\career-ops\data\academic\digests\scored-2026-05-16.md
+
+━━━ Top 15 ━━━
+ 1. 🟡  75/100  Research Fellow in Digital Twinning for Decarbonising Transp
+    Cranfield University · ?
+ 2. 🟡  75/100  Postdoctoral Researcher in Industrial Digital Twin and Intel
+    Xi'an Jiaotong - Liverpool University · ?
+ 3. 🟡  75/100  PhD Studentship: Adopting Agentic Artificial Intelligence (A
+    Cranfield University · ?
+ 4. 🟠  70/100  AI & Digital Twin Systems Engineer (KTP Associate)
+    University of Derby · ?
+ 5. 🟠  70/100  PhD Studentship: Data-Driven Digital Twins for Measured Ener
+    The University of Manchester · ?
+ 6. 🟠  70/100  Research Assistant/Associate in Urban Knowledge Modelling
+    Newcastle University · ?
+ 7. 🟠  60/100  Research Assistant/ Associate (Fixed Term)
+    University of Cambridge · ?
+ 8. 🟠  60/100  Project Engineer (Discrete Event Simulation)
+    Queen's University Belfast · ?
+ 9. 🟠  60/100  PhD Studentship: Agentic AI Ensemble Systems for Real-World 
+    University of East Anglia · ?
+10. ⛔  50/100  PhD Supervisors
+    ? · ? · 31 Aug 2026
+11. 🔴  50/100  Research Assistant/Fellow in Digital Twin for Advanced Manuf
+    Brunel University London · ?
+12. ⛔  50/100  PhD Studentship: Digital Systems Governance for Smart, Susta
+    Birmingham City University · ?
+13. ⛔  40/100  FEUP|DOCTORATE INITIAL LEVEL RESEARCHER POSITION |Project Al
+    ? · ? · 29 May 2026
+14. ⛔  40/100  FEUP | Assistent Professor | Informatics Engineering |Notice
+    ? · ? · 1 Jul 2026
+15. ⛔  40/100  PhD Studentship: Scaling 3D Intelligence: AI for City-Scale 
+    University of East Anglia · ?

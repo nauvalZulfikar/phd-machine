@@ -1,0 +1,46 @@
+{
+  "ref": null,
+  "title": "PhD Position in Test-Time Adaptation and Agentic AI",
+  "institution": "Aarhus University",
+  "department": "Department of Electrical and Computer Engineering",
+  "supervisor": "Behzad Bozorgtabar",
+  "supervisor_email": "behzad@ece.au.dk",
+  "deadline": "2026-06-01",
+  "start_date": "2026-08-01",
+  "duration": null,
+  "funding": "funded",
+  "portal_url": "https://phd.tech.au.dk/for-applicants/apply-here/saeropslag/phd-position-in-test-time-adaptation-and-agentic-ai",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "transcripts_master",
+    "other: 1-page statement of Interest"
+  ],
+  "optional_docs": [
+    "publication_list"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": {
+      "cover_letter": 1
+    },
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Applicants must hold a relevant master’s degree in Electrical Engineering, Computer Science, Machine Learning, Artificial Intelligence, Mathematics, or a closely related field.",
+    "Applicants who are close to completing their master’s degree at the time of application may also be considered, provided the degree is completed before enrollment.",
+    "A strong background in machine learning and/or computer vision is required.",
+    "Solid programming skills in Python and experience with deep learning frameworks are necessary.",
+    "Prior research experience, such as a master’s thesis, publications, or substantial research projects, is considered an advantage."
+  ],
+  "research_themes": [
+    "test-time adaptation",
+    "agentic decision-making",
+    "machine learning systems",
+    "multimodal foundation models"
+  ],
+  "notes": "Only documents received prior to the application deadline will be evaluated. Shortlisting will be used for the evaluation process.",
+  "url": "https://phd.tech.au.dk/for-applicants/apply-here/saeropslag/phd-position-in-test-time-adaptation-and-agentic-ai"
+}

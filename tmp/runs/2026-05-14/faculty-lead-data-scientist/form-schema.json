@@ -1,0 +1,72 @@
+[
+  {
+    "id": "_systemfield_name",
+    "label": "Name",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_name\"]",
+    "entryIdx": 0
+  },
+  {
+    "id": "_systemfield_email",
+    "label": "Email",
+    "type": "email",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_email\"]",
+    "entryIdx": 1
+  },
+  {
+    "id": "4361feaf-c5c8-438e-ad2e-99a76aa7fe1c",
+    "label": "Phone Number",
+    "type": "tel",
+    "required": true,
+    "selectorHint": "[id=\"4361feaf-c5c8-438e-ad2e-99a76aa7fe1c\"]",
+    "entryIdx": 2
+  },
+  {
+    "id": "_systemfield_resume",
+    "label": "CV",
+    "type": "file",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_resume\"]",
+    "entryIdx": 3
+  },
+  {
+    "id": "8c32abcc-8cb5-4e39-bec5-c35260c6316a",
+    "label": "LinkedIn Profile",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"8c32abcc-8cb5-4e39-bec5-c35260c6316a\"]",
+    "entryIdx": 4
+  },
+  {
+    "id": "btnq-5",
+    "label": "Do you require visa sponsorship, now or in the future, to work in the UK?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 5
+  },
+  {
+    "id": "fd357568-adb1-4566-b6c4-f8eb66df1822",
+    "label": "What is your current notice period?",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"fd357568-adb1-4566-b6c4-f8eb66df1822\"]",
+    "entryIdx": 6
+  },
+  {
+    "id": "00210b75-f0c4-48df-91d3-e325b05d2e7d",
+    "label": "What is your salary expectation?",
+    "type": "number",
+    "required": true,
+    "selectorHint": "[id=\"00210b75-f0c4-48df-91d3-e325b05d2e7d\"]"
+  },
+  {
+    "id": "b32fc72c-ed65-4e07-8df1-b932a4057a5b__systemfield_data_consent_ack-labeled-checkbox-0",
+    "label": "I agree",
+    "type": "checkbox",
+    "required": false,
+    "selectorHint": "[id=\"b32fc72c-ed65-4e07-8df1-b932a4057a5b__systemfield_data_consent_ack-labeled-checkbox-0\"]"
+  }
+]

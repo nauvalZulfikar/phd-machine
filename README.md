@@ -217,6 +217,23 @@ The scanner comes with **45+ companies** ready to scan and **19 search queries**
 
 **Job boards searched:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
 
+## 24/7 Orchestrator (Unified Job + PhD Pipeline)
+
+Both job and PhD discovery now run under a single **`auto/cron.mjs`** orchestrator:
+
+- **Job notifications** tagged `*[JOB]*` — Ashby/Greenhouse/Lever portal scans (hourly auto-apply)
+- **PhD notifications** tagged `*[PHD]*` — EURAXESS/jobs.ac.uk discovery + AI scoring, runs at **07:00 & 19:00 WIB** daily
+- Both pipelines push to the same Telegram chat (set `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` in `.env`)
+- Timezone anchored to `TZ=Asia/Jakarta` (configurable in `ecosystem.config.cjs` for pm2)
+
+**Deploy to VPS:**
+
+```bash
+./scripts/deploy.sh
+```
+
+See `ecosystem.config.cjs` for pm2 config. `daily_run.bat` is deprecated — PhD discovery is now integrated into the cron orchestrator.
+
 ## Dashboard TUI
 
 The built-in terminal dashboard lets you browse your pipeline visually:

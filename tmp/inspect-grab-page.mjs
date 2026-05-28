@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({ headless: true });
+const p = await b.newPage();
+await p.goto('https://grab.wd3.myworkdayjobs.com/Careers', { waitUntil: 'domcontentloaded' });
+await p.waitForTimeout(6000);
+const txt = await p.locator('body').innerText();
+console.log('PAGE TEXT (first 2000 chars):');
+console.log(txt.slice(0, 2000));
+console.log('\n--- has "no result" text:', /no result|no jobs|0 jobs|0 results/i.test(txt));
+await p.screenshot({ path: 'tmp/grab-careers.png', fullPage: true });
+console.log('Screenshot: tmp/grab-careers.png');
+await b.close();

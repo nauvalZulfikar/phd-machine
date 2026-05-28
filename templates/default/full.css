@@ -1,0 +1,24 @@
+/* default/full.css — neutral A4 academic style for cover letters, RS, PS, abstracts */
+@page { size: A4; margin: 25mm 25mm 25mm 25mm; }
+* { box-sizing: border-box; }
+html, body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 11pt; line-height: 1.5; color: #000; margin: 0;
+}
+body { padding: 0; }
+h1 { font-size: 20pt; font-weight: 600; color: #222; margin: 0 0 12pt 0; padding-bottom: 4pt; }
+h2 { font-size: 14pt; font-weight: 600; color: #222; margin: 18pt 0 8pt 0; }
+h3 { font-size: 12pt; font-weight: 600; color: #444; margin: 14pt 0 6pt 0; }
+h4 { font-size: 11pt; font-weight: 700; color: #444; margin: 10pt 0 4pt 0; }
+p { margin: 0 0 8pt 0; text-align: justify; }
+ul, ol { margin: 4pt 0 8pt 24pt; padding: 0; }
+li { margin-bottom: 4pt; text-align: justify; }
+strong { font-weight: 700; color: #000; }
+em { font-style: italic; }
+hr { border: none; border-top: 0.5pt solid #B0B0B0; margin: 14pt 0; }
+code { font-family: 'Consolas', 'Courier New', monospace; font-size: 10pt; background: #f4f4f0; padding: 1px 4px; border-radius: 2px; }
+table { border-collapse: collapse; width: 100%; margin: 8pt 0; }
+td, th { border: 0.4pt solid #AAA; padding: 4pt 6pt; font-size: 10.5pt; }
+th { background: #EEE; color: #222; font-weight: 700; }
+a { color: #1a5490; text-decoration: none; }
+blockquote { margin: 8pt 12pt; padding: 4pt 12pt; border-left: 2pt solid #999; color: #444; font-style: italic; }

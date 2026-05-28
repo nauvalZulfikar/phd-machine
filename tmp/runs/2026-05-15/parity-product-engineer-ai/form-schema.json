@@ -1,0 +1,80 @@
+[
+  {
+    "id": "_systemfield_name",
+    "label": "Name",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_name\"]",
+    "entryIdx": 0
+  },
+  {
+    "id": "_systemfield_email",
+    "label": "Email",
+    "type": "email",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_email\"]",
+    "entryIdx": 1
+  },
+  {
+    "id": "_systemfield_resume",
+    "label": "Resume",
+    "type": "file",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_resume\"]",
+    "entryIdx": 2
+  },
+  {
+    "id": "70a02164-558d-4599-8501-a6479da005a3",
+    "label": "Cover Letter",
+    "type": "file",
+    "required": false,
+    "selectorHint": "[id=\"70a02164-558d-4599-8501-a6479da005a3\"]",
+    "entryIdx": 3
+  },
+  {
+    "id": "idx-cb-4",
+    "label": "Location",
+    "type": "typeahead",
+    "required": true,
+    "selectorHint": ".ashby-application-form-field-entry:nth-of-type(5) input[role=\"combobox\"], .ashby-application-form-field-entry:nth-of-type(5) input[placeholder*=\"Start typing\" i]",
+    "entryIdx": 4
+  },
+  {
+    "id": "ffe7f60e-2ff4-4d41-8310-bc03cb70dafd",
+    "label": "LinkedIn URL",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"ffe7f60e-2ff4-4d41-8310-bc03cb70dafd\"]",
+    "entryIdx": 5
+  },
+  {
+    "id": "02d6c966-0722-4f44-b9e4-ed45fbb9b980",
+    "label": "GitHub Profile or Similar",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"02d6c966-0722-4f44-b9e4-ed45fbb9b980\"]",
+    "entryIdx": 6
+  },
+  {
+    "id": "b8f927ca-03af-44cf-8dbc-b43f4b81682a",
+    "label": "Where did you hear about this position?",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"b8f927ca-03af-44cf-8dbc-b43f4b81682a\"]",
+    "entryIdx": 7
+  },
+  {
+    "id": "6f057f3c-afa4-4361-b07e-24774aafd043_26da1da3-51c5-4720-88bf-13665a2e7c77",
+    "label": "I agree",
+    "type": "radio-group",
+    "required": false,
+    "options": [
+      {
+        "value": "on",
+        "label": "I agree",
+        "id": "6f057f3c-afa4-4361-b07e-24774aafd043_26da1da3-51c5-4720-88bf-13665a2e7c77-labeled-radio-0"
+      }
+    ],
+    "selectorHint": "[name=\"6f057f3c-afa4-4361-b07e-24774aafd043_26da1da3-51c5-4720-88bf-13665a2e7c77\"]"
+  }
+]

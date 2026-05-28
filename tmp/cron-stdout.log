@@ -1,0 +1,256 @@
+[2026-05-16 13:27:27] ━━━ career-ops cron started ━━━
+[2026-05-16 13:27:27]   cwd: D:\Downloads\coding project\career-ops
+[2026-05-16 13:27:27]   dashboard:  60 min
+[2026-05-16 13:27:27]   portals:    360 min
+[2026-05-16 13:27:27]   feed:       1440 min
+[2026-05-16 13:27:27]   autoApply:  60 min
+[2026-05-16 13:27:27] ▶ tick: dashboard
+[2026-05-16 13:27:27]   scheduled: dashboard every 60.0 min
+[2026-05-16 13:27:27] ▶ tick: portals
+[2026-05-16 13:27:27]   scheduled: portals every 360.0 min
+[2026-05-16 13:27:27] ▶ tick: feed
+[2026-05-16 13:27:27]   feed compile: 4 new / 1584 total (1584 ever seen)
+[2026-05-16 13:27:27]   scheduled: feed every 1440.0 min
+[2026-05-16 13:27:27]   scheduled: autoApply every 60.0 min
+[2026-05-16 13:27:27] ✓ tick done: feed
+[2026-05-16 13:27:27]   dashboard regen: 9 runs
+[2026-05-16 13:27:27] ✓ tick done: dashboard
+[2026-05-16 13:27:48]   portals scan: pipeline 1506 → 1508 entries (Δ2)
+[2026-05-16 13:27:48] ✓ tick done: portals
+[2026-05-16 14:45:27] ▶ tick: dashboard
+[2026-05-16 14:45:27] ▶ tick: autoApply
+[2026-05-16 14:45:32]   dashboard regen: 9 runs
+[2026-05-16 14:45:32] ✓ tick done: dashboard
+[2026-05-16 14:51:44]   auto-apply: +0 this tick · 0/50 today
+[2026-05-16 14:51:44] ✓ tick done: autoApply
+[2026-05-16 15:45:27] ▶ tick: dashboard
+[2026-05-16 15:45:27] ▶ tick: autoApply
+[2026-05-16 15:45:27]   auto-apply: State:  today=2026-05-16, dailyCount=0/50, fails=3, lastAts=ashby | Shutdown: 3 consecutive fails. Reset manually with --reset. | 
+[2026-05-16 15:45:27] ✓ tick done: autoApply
+[2026-05-16 15:45:27]   dashboard regen: 10 runs
+[2026-05-16 15:45:27] ✓ tick done: dashboard
+[2026-05-16 16:45:27] ▶ tick: dashboard
+[2026-05-16 16:45:27] ▶ tick: autoApply
+[2026-05-16 16:45:27]   auto-apply: State:  today=2026-05-16, dailyCount=0/50, fails=3, lastAts=ashby | Shutdown: 3 consecutive fails. Reset manually with --reset. | 
+[2026-05-16 16:45:27] ✓ tick done: autoApply
+[2026-05-16 16:45:27]   dashboard regen: 10 runs
+[2026-05-16 16:45:27] ✓ tick done: dashboard
+[2026-05-16 17:20:40] ━━━ career-ops cron started ━━━
+[2026-05-16 17:20:40]   cwd: D:\Downloads\coding project\career-ops
+[2026-05-16 17:20:40]   dashboard:    60 min
+[2026-05-16 17:20:40]   portals:      360 min
+[2026-05-16 17:20:40]   feed:         1440 min
+[2026-05-16 17:20:40]   autoApply:    60 min
+[2026-05-16 17:20:40]   hourlyReport: 60 min
+[2026-05-16 17:20:40] ▶ tick: dashboard
+[2026-05-16 17:20:40]   scheduled: dashboard every 60.0 min
+[2026-05-16 17:20:40] ▶ tick: portals
+[2026-05-16 17:20:40]   scheduled: portals every 360.0 min
+[2026-05-16 17:20:40] ▶ tick: feed
+[2026-05-16 17:20:40]   feed compile: 0 new / 1586 total (1586 ever seen)
+[2026-05-16 17:20:40]   scheduled: feed every 1440.0 min
+[2026-05-16 17:20:40]   scheduled: autoApply every 60.0 min
+[2026-05-16 17:20:40] ▶ tick: hourlyReport
+[2026-05-16 17:20:40]   scheduled: hourlyReport every 60.0 min
+[2026-05-16 17:20:40] ✓ tick done: feed
+[2026-05-16 17:20:40]   dashboard regen: 10 runs
+[2026-05-16 17:20:40] ✓ tick done: dashboard
+[2026-05-16 17:20:40]   hourly-report sent
+[2026-05-16 17:20:40] ✓ tick done: hourlyReport
+[2026-05-16 17:20:54]   portals scan: pipeline 1508 → 1510 entries (Δ2)
+[2026-05-16 17:20:54] ✓ tick done: portals
+[2026-05-16 18:20:40] ▶ tick: dashboard
+[2026-05-16 18:20:40] ▶ tick: autoApply
+[2026-05-16 18:20:40] ▶ tick: hourlyReport
+[2026-05-16 18:20:40]   dashboard regen: 10 runs
+[2026-05-16 18:20:40] ✓ tick done: dashboard
+[2026-05-16 18:20:41]   hourly-report sent
+[2026-05-16 18:20:41] ✓ tick done: hourlyReport
+[2026-05-16 18:21:20]   auto-apply: +1 this tick · 1/50 today
+[2026-05-16 18:21:20] ✓ tick done: autoApply
+[2026-05-16 19:16:39] ━━━ career-ops cron started ━━━
+[2026-05-16 19:16:39]   cwd: D:\Downloads\coding project\career-ops
+[2026-05-16 19:16:39]   dashboard:    60 min
+[2026-05-16 19:16:39]   portals:      360 min
+[2026-05-16 19:16:39]   feed:         1440 min
+[2026-05-16 19:16:39]   autoApply:    60 min
+[2026-05-16 19:16:39]   hourlyReport: 60 min
+[2026-05-16 19:16:39] ▶ tick: dashboard
+[2026-05-16 19:16:39]   scheduled: dashboard every 60.0 min
+[2026-05-16 19:16:39] ▶ tick: portals
+[2026-05-16 19:16:39]   scheduled: portals every 360.0 min
+[2026-05-16 19:16:39] ▶ tick: feed
+[2026-05-16 19:16:39]   feed compile: 0 new / 1588 total (1588 ever seen)
+[2026-05-16 19:16:39]   scheduled: feed every 1440.0 min
+[2026-05-16 19:16:39]   scheduled: autoApply every 60.0 min
+[2026-05-16 19:16:39]   scheduled: hourlyReport every 60.0 min (offset 5 min)
+[2026-05-16 19:16:39] ✓ tick done: feed
+[2026-05-16 19:16:39]   dashboard regen: 11 runs
+[2026-05-16 19:16:39] ✓ tick done: dashboard
+[2026-05-16 19:16:54]   portals scan: pipeline 1510 → 1512 entries (Δ2)
+[2026-05-16 19:16:54] ✓ tick done: portals
+[2026-05-16 19:21:39] ▶ tick: hourlyReport
+[2026-05-16 19:21:40]   hourly-report sent
+[2026-05-16 19:21:40] ✓ tick done: hourlyReport
+[2026-05-16 20:16:39] ▶ tick: dashboard
+[2026-05-16 20:16:39] ▶ tick: autoApply
+[2026-05-16 20:16:39]   auto-apply: +0 this tick · 1/50 today
+[2026-05-16 20:16:39] ✓ tick done: autoApply
+[2026-05-16 20:16:39]   dashboard regen: 11 runs
+[2026-05-16 20:16:39] ✓ tick done: dashboard
+[2026-05-16 20:21:39] ▶ tick: hourlyReport
+[2026-05-16 20:21:41]   hourly-report sent
+[2026-05-16 20:21:41] ✓ tick done: hourlyReport
+[2026-05-16 21:17:32] ▶ tick: dashboard
+[2026-05-16 21:17:32] ▶ tick: autoApply
+[2026-05-16 21:17:33]   auto-apply: +0 this tick · 1/50 today
+[2026-05-16 21:17:33] ✓ tick done: autoApply
+[2026-05-16 21:17:34]   dashboard regen: 11 runs
+[2026-05-16 21:17:34] ✓ tick done: dashboard
+[2026-05-16 21:21:39] ▶ tick: hourlyReport
+[2026-05-16 21:21:41]   hourly-report sent
+[2026-05-16 21:21:41] ✓ tick done: hourlyReport
+[2026-05-16 22:21:20] ▶ tick: dashboard
+[2026-05-16 22:21:20] ▶ tick: autoApply
+[2026-05-16 22:21:21]   auto-apply: +0 this tick · 1/50 today
+[2026-05-16 22:21:21] ✓ tick done: autoApply
+[2026-05-16 22:21:21]   dashboard regen: 11 runs
+[2026-05-16 22:21:21] ✓ tick done: dashboard
+[2026-05-16 22:21:39] ▶ tick: hourlyReport
+[2026-05-16 22:21:40]   hourly-report sent
+[2026-05-16 22:21:40] ✓ tick done: hourlyReport
+[2026-05-16 23:21:20] ▶ tick: dashboard
+[2026-05-16 23:21:20] ▶ tick: autoApply
+[2026-05-16 23:21:20]   auto-apply: +0 this tick · 1/50 today
+[2026-05-16 23:21:20] ✓ tick done: autoApply
+[2026-05-16 23:21:20]   dashboard regen: 11 runs
+[2026-05-16 23:21:20] ✓ tick done: dashboard
+[2026-05-16 23:21:39] ▶ tick: hourlyReport
+[2026-05-16 23:21:42]   hourly-report sent
+[2026-05-16 23:21:42] ✓ tick done: hourlyReport
+[2026-05-17 03:49:07] ▶ tick: dashboard
+[2026-05-17 03:49:07] ▶ tick: autoApply
+[2026-05-17 03:49:07] ▶ tick: hourlyReport
+[2026-05-17 03:49:07] ▶ tick: portals
+[2026-05-17 03:49:09]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 03:49:09] ✓ tick done: autoApply
+[2026-05-17 03:49:09]   dashboard regen: 11 runs
+[2026-05-17 03:49:09] ✓ tick done: dashboard
+[2026-05-17 03:49:10]   portals scan: pipeline 1512 → 1512 entries (Δ0)
+[2026-05-17 03:49:10] ✓ tick done: portals
+[2026-05-17 03:49:20]   hourly-report sent
+[2026-05-17 03:49:20] ✓ tick done: hourlyReport
+[2026-05-17 04:49:07] ▶ tick: dashboard
+[2026-05-17 04:49:07] ▶ tick: autoApply
+[2026-05-17 04:49:07] ▶ tick: hourlyReport
+[2026-05-17 04:49:07]   dashboard regen: 11 runs
+[2026-05-17 04:49:07] ✓ tick done: dashboard
+[2026-05-17 04:49:07]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 04:49:07] ✓ tick done: autoApply
+[2026-05-17 04:49:09]   hourly-report sent
+[2026-05-17 04:49:09] ✓ tick done: hourlyReport
+[2026-05-17 05:49:07] ▶ tick: dashboard
+[2026-05-17 05:49:07] ▶ tick: autoApply
+[2026-05-17 05:49:07] ▶ tick: hourlyReport
+[2026-05-17 05:49:07]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 05:49:07] ✓ tick done: autoApply
+[2026-05-17 05:49:07]   dashboard regen: 11 runs
+[2026-05-17 05:49:07] ✓ tick done: dashboard
+[2026-05-17 05:49:09]   hourly-report sent
+[2026-05-17 05:49:09] ✓ tick done: hourlyReport
+[2026-05-17 06:49:07] ▶ tick: dashboard
+[2026-05-17 06:49:07] ▶ tick: autoApply
+[2026-05-17 06:49:07] ▶ tick: hourlyReport
+[2026-05-17 06:49:07]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 06:49:07] ✓ tick done: autoApply
+[2026-05-17 06:49:07]   dashboard regen: 11 runs
+[2026-05-17 06:49:07] ✓ tick done: dashboard
+[2026-05-17 06:49:09]   hourly-report sent
+[2026-05-17 06:49:09] ✓ tick done: hourlyReport
+[2026-05-17 07:49:07] ▶ tick: dashboard
+[2026-05-17 07:49:07] ▶ tick: autoApply
+[2026-05-17 07:49:07] ▶ tick: hourlyReport
+[2026-05-17 07:49:07]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 07:49:07] ✓ tick done: autoApply
+[2026-05-17 07:49:07]   dashboard regen: 11 runs
+[2026-05-17 07:49:07] ✓ tick done: dashboard
+[2026-05-17 07:49:09]   hourly-report sent
+[2026-05-17 07:49:09] ✓ tick done: hourlyReport
+[2026-05-17 08:49:07] ▶ tick: dashboard
+[2026-05-17 08:49:07] ▶ tick: autoApply
+[2026-05-17 08:49:07] ▶ tick: hourlyReport
+[2026-05-17 08:49:07]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 08:49:07] ✓ tick done: autoApply
+[2026-05-17 08:49:07]   dashboard regen: 11 runs
+[2026-05-17 08:49:07] ✓ tick done: dashboard
+[2026-05-17 08:49:09]   hourly-report sent
+[2026-05-17 08:49:09] ✓ tick done: hourlyReport
+[2026-05-17 11:32:14] ▶ tick: dashboard
+[2026-05-17 11:32:14] ▶ tick: autoApply
+[2026-05-17 11:32:14] ▶ tick: hourlyReport
+[2026-05-17 11:32:14] ▶ tick: portals
+[2026-05-17 11:32:17]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 11:32:17] ✓ tick done: autoApply
+[2026-05-17 11:32:19]   dashboard regen: 11 runs
+[2026-05-17 11:32:19] ✓ tick done: dashboard
+[2026-05-17 11:32:31]   hourly-report sent
+[2026-05-17 11:32:31] ✓ tick done: hourlyReport
+[2026-05-17 11:33:00]   portals scan: pipeline 1512 → 1514 entries (Δ2)
+[2026-05-17 11:33:00] ✓ tick done: portals
+[2026-05-17 12:32:14] ▶ tick: dashboard
+[2026-05-17 12:32:14] ▶ tick: autoApply
+[2026-05-17 12:32:14] ▶ tick: hourlyReport
+[2026-05-17 12:32:14]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 12:32:14] ✓ tick done: autoApply
+[2026-05-17 12:32:14]   dashboard regen: 11 runs
+[2026-05-17 12:32:14] ✓ tick done: dashboard
+[2026-05-17 12:32:17]   hourly-report sent
+[2026-05-17 12:32:17] ✓ tick done: hourlyReport
+[2026-05-17 13:32:14] ▶ tick: dashboard
+[2026-05-17 13:32:14] ▶ tick: autoApply
+[2026-05-17 13:32:14] ▶ tick: hourlyReport
+[2026-05-17 13:32:14]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 13:32:14] ✓ tick done: autoApply
+[2026-05-17 13:32:14]   dashboard regen: 11 runs
+[2026-05-17 13:32:14] ✓ tick done: dashboard
+[2026-05-17 13:32:17]   hourly-report sent
+[2026-05-17 13:32:17] ✓ tick done: hourlyReport
+[2026-05-17 14:32:14] ▶ tick: dashboard
+[2026-05-17 14:32:14] ▶ tick: autoApply
+[2026-05-17 14:32:14] ▶ tick: hourlyReport
+[2026-05-17 14:32:14]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 14:32:14] ✓ tick done: autoApply
+[2026-05-17 14:32:15]   dashboard regen: 11 runs
+[2026-05-17 14:32:15] ✓ tick done: dashboard
+[2026-05-17 14:32:17]   hourly-report sent
+[2026-05-17 14:32:17] ✓ tick done: hourlyReport
+[2026-05-17 15:32:14] ▶ tick: dashboard
+[2026-05-17 15:32:14] ▶ tick: autoApply
+[2026-05-17 15:32:14] ▶ tick: hourlyReport
+[2026-05-17 15:32:14]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 15:32:14] ✓ tick done: autoApply
+[2026-05-17 15:32:15]   dashboard regen: 11 runs
+[2026-05-17 15:32:15] ✓ tick done: dashboard
+[2026-05-17 15:32:17]   hourly-report sent
+[2026-05-17 15:32:17] ✓ tick done: hourlyReport
+[2026-05-17 16:32:14] ▶ tick: dashboard
+[2026-05-17 16:32:14] ▶ tick: autoApply
+[2026-05-17 16:32:14] ▶ tick: hourlyReport
+[2026-05-17 16:32:15]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 16:32:15] ✓ tick done: autoApply
+[2026-05-17 16:32:15]   dashboard regen: 11 runs
+[2026-05-17 16:32:15] ✓ tick done: dashboard
+[2026-05-17 16:32:15]   hourly-report sent
+[2026-05-17 16:32:15] ✓ tick done: hourlyReport
+[2026-05-17 17:32:14] ▶ tick: dashboard
+[2026-05-17 17:32:14] ▶ tick: portals
+[2026-05-17 17:32:14] ▶ tick: autoApply
+[2026-05-17 17:32:14] ▶ tick: hourlyReport
+[2026-05-17 17:32:15]   auto-apply: +0 this tick · 0/50 today
+[2026-05-17 17:32:15] ✓ tick done: autoApply
+[2026-05-17 17:32:15]   dashboard regen: 11 runs
+[2026-05-17 17:32:15] ✓ tick done: dashboard
+[2026-05-17 17:32:15]   hourly-report sent
+[2026-05-17 17:32:15] ✓ tick done: hourlyReport
+[2026-05-17 17:32:32]   portals scan: pipeline 1514 → 1515 entries (Δ1)
+[2026-05-17 17:32:32] ✓ tick done: portals

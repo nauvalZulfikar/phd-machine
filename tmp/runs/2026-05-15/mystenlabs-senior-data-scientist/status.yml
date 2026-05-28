@@ -1,0 +1,6 @@
+# Update this file as the application progresses.
+# Valid stages: submitted, viewed, screen, interview-1, interview-2, interview-final, offer, rejected, withdrawn, ghosted
+stage: dry-run
+submitted_at: 2026-05-15T06:13:34.136Z
+last_update: 2026-05-15T06:13:34.136Z
+notes: ""

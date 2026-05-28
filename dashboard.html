@@ -1,0 +1,1614 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8">
+<title>career-ops — Auto-Apply Dashboard</title>
+<style>
+  :root { --bg:#f8fafc; --panel:#fff; --line:#e2e8f0; --text:#0f172a; --muted:#64748b; --accent:#0891b2; }
+  *{box-sizing:border-box} body{margin:0;font-family:-apple-system,Segoe UI,Inter,sans-serif;background:var(--bg);color:var(--text);font-size:14px}
+  .wrap{max-width:1600px;margin:0 auto;padding:32px}
+  h1{margin:0 0 6px;font-size:26px;letter-spacing:-0.01em}
+  .sub{color:var(--muted);margin-bottom:24px;font-size:13px}
+  .sankey-panel{background:var(--panel);border-radius:8px;border:1px solid var(--line);padding:24px 24px 28px;margin-bottom:28px}
+  .sankey-panel h2{font-size:18px;font-weight:600;letter-spacing:-0.01em;margin:0 0 4px}
+  .sankey-panel .sub2{color:var(--muted);font-size:12px;margin-bottom:10px}
+  .sankey{width:100%;height:auto;display:block}
+  .sankey-lbl{font-size:13px;font-family:ui-monospace,monospace;font-weight:600}
+  .sankey-val{font-size:18px;font-weight:700;font-family:-apple-system,Inter,sans-serif}
+  .sankey-link{transition:opacity 0.15s}
+  .sankey-link:hover{opacity:1 !important;cursor:pointer}
+  .sankey:hover .sankey-link{opacity:0.4}
+  .sankey-node rect{transition:filter 0.15s}
+  .sankey-node:hover rect{filter:brightness(1.1)}
+  .row{display:flex;gap:32px;flex-wrap:wrap;margin-bottom:28px}
+  .row-block h3{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted)}
+  .stats{display:flex;gap:10px;flex-wrap:wrap}
+  .stat{background:var(--panel);padding:14px 18px;border-radius:6px;min-width:120px}
+  .stat-num{font-size:24px;font-weight:700}
+  .stat-label{font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);margin-top:2px}
+  .toolbar{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+  .toolbar input{padding:8px 12px;border:1px solid var(--line);border-radius:6px;font-size:13px;min-width:280px;font-family:inherit}
+  .runs{display:flex;flex-direction:column;gap:8px}
+  details.run{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  details.run[open]{box-shadow:0 4px 12px rgba(0,0,0,.04)}
+  summary.run-summary{cursor:pointer;padding:14px 18px;display:flex;gap:12px;align-items:center;list-style:none}
+  summary.run-summary::-webkit-details-marker{display:none}
+  .badge{font-size:10px;font-weight:600;padding:3px 8px;border-radius:3px;color:#fff;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap}
+  .run-co{font-weight:600;color:var(--accent)}
+  .run-title{flex:1;color:var(--text)}
+  .run-meta{font-size:12px;color:var(--muted)}
+  .ok{color:#10b981;font-weight:600;font-size:12px}
+  .dry{color:var(--muted);font-size:12px}
+  .run-body{padding:0 18px 18px;border-top:1px solid var(--line)}
+  .run-cols{display:flex;gap:24px;padding-top:14px;flex-wrap:wrap}
+  .col{flex:1;min-width:260px}
+  .col-wide{flex:2;min-width:520px}
+  .col h4{margin:14px 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted)}
+  .col h4:first-child{margin-top:0}
+  .files{list-style:none;padding:0;margin:0;font-family:ui-monospace,monospace;font-size:12px}
+  .files li{padding:3px 0;border-bottom:1px dashed var(--line)}
+  .files a{color:var(--accent);text-decoration:none}
+  .files a:hover{text-decoration:underline}
+  pre.yaml,pre.conf,pre.jd{background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:4px;font-size:11.5px;line-height:1.55;overflow:auto;font-family:ui-monospace,monospace;margin:0;max-height:320px}
+  pre.jd{max-height:480px;white-space:pre-wrap;word-wrap:break-word}
+  table.qa{width:100%;border-collapse:collapse;font-size:12px;background:#fff;border:1px solid var(--line)}
+  table.qa th{background:#f1f5f9;text-align:left;padding:7px 10px;font-weight:600;border-bottom:1px solid var(--line);font-size:11px;text-transform:uppercase;letter-spacing:0.04em;color:var(--muted)}
+  table.qa td{padding:8px 10px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+  table.qa td:nth-child(1){color:var(--muted);width:24px}
+  table.qa td:nth-child(3){width:90px}
+  table.qa td:nth-child(4){width:40px;text-align:center}
+  table.qa code{font-size:10.5px;background:#f1f5f9;padding:1px 5px;border-radius:3px;color:#475569}
+  .charts{align-items:stretch}
+  .chart-block{flex:1;min-width:380px;background:var(--panel);padding:18px;border-radius:6px;border:1px solid var(--line)}
+  .chart-svg{width:100%;height:auto;display:block;margin-top:8px}
+  .chart-svg .lbl{font-size:11px;fill:#475569;font-family:ui-monospace,monospace}
+  .chart-svg .val{font-size:12px;font-weight:600;dominant-baseline:middle}
+  .chart-svg .tl-val{font-size:10px;fill:#475569;font-weight:600}
+  .chart-svg .tl-lbl{font-size:10px;fill:#94a3b8}
+  .row-collapse{margin-bottom:24px}
+  .row-collapse summary{cursor:pointer;padding:6px 0;font-size:12px}
+  .small{font-size:12px}
+  .jd-box{margin-top:18px;border-top:1px dashed var(--line);padding-top:12px}
+  .jd-box summary{cursor:pointer;color:var(--muted);font-size:12px}
+  .muted{color:var(--muted)}
+  em{font-style:normal}
+</style></head>
+<body>
+<div class="wrap">
+  <h1>Auto-Apply Dashboard</h1>
+  <div class="sub">11 runs · 8 real submissions · generated 18/05/2026, 00:32:14</div>
+
+  <!-- Sankey: main visual -->
+  <div class="sankey-panel">
+    <h2>Application Flow</h2>
+    <div class="sub2">11 applications · 25% response · 0% offer rate · hover a ribbon for source/target</div>
+    <svg viewBox="0 0 1672 690" class="sankey" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="lg0" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0891b2" stop-opacity="0.55"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0.55"/></linearGradient>
+    <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.55"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0.55"/></linearGradient>
+    <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.55"/><stop offset="100%" stop-color="#6b7280" stop-opacity="0.55"/></linearGradient>
+    <linearGradient id="lg3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.55"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.55"/></linearGradient>
+    <linearGradient id="lg4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.55"/><stop offset="100%" stop-color="#a855f7" stop-opacity="0.55"/></linearGradient>
+    <linearGradient id="lg5" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a855f7" stop-opacity="0.55"/><stop offset="100%" stop-color="#ec4899" stop-opacity="0.55"/></linearGradient>
+    <linearGradient id="lg6" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ec4899" stop-opacity="0.55"/><stop offset="100%" stop-color="#ec4899" stop-opacity="0.55"/></linearGradient>
+  </defs>
+  <g>
+    <path d="M 112,50 C 206,50 206,50 300,50 L 300,650 C 206,650 206,650 112,650 Z" fill="url(#lg0)" class="sankey-link" data-from="applied" data-to="submitted" data-val="10"><title>applied → submitted: 10</title></path>
+    <path d="M 322,50 C 416,50 416,170 510,170 L 510,590 C 416,590 416,470 322,470 Z" fill="url(#lg1)" class="sankey-link" data-from="submitted" data-to="still @ submitted" data-val="7"><title>submitted → still @ submitted: 7</title></path>
+    <path d="M 322,470 C 941,470 941,50 1560,50 L 1560,170 C 941,170 941,590 322,590 Z" fill="url(#lg2)" class="sankey-link" data-from="submitted" data-to="withdrawn" data-val="2"><title>submitted → withdrawn: 2</title></path>
+    <path d="M 322,590 C 416,590 416,50 510,50 L 510,110 C 416,110 416,650 322,650 Z" fill="url(#lg3)" class="sankey-link" data-from="submitted" data-to="viewed" data-val="1"><title>submitted → viewed: 1</title></path>
+    <path d="M 532,50 C 626,50 626,50 720,50 L 720,110 C 626,110 626,110 532,110 Z" fill="url(#lg4)" class="sankey-link" data-from="viewed" data-to="screen" data-val="1"><title>viewed → screen: 1</title></path>
+    <path d="M 742,50 C 836,50 836,50 930,50 L 930,110 C 836,110 836,110 742,110 Z" fill="url(#lg5)" class="sankey-link" data-from="screen" data-to="interview-1" data-val="1"><title>screen → interview-1: 1</title></path>
+    <path d="M 952,50 C 1046,50 1046,50 1140,50 L 1140,110 C 1046,110 1046,110 952,110 Z" fill="url(#lg6)" class="sankey-link" data-from="interview-1" data-to="still @ interview-1" data-val="1"><title>interview-1 → still @ interview-1: 1</title></path>
+  </g>
+  <g>
+    <g class="sankey-node">
+        <rect x="90" y="50" width="22" height="600" fill="#0891b2" rx="3"><title>applied: 10</title></rect>
+        <text x="101" y="38" text-anchor="middle" class="sankey-lbl" fill="#0891b2">applied</text>
+        <text x="101" y="668" text-anchor="middle" class="sankey-val" fill="#0891b2">10</text>
+      </g>
+    <g class="sankey-node">
+        <rect x="300" y="50" width="22" height="600" fill="#3b82f6" rx="3"><title>submitted: 10</title></rect>
+        <text x="311" y="38" text-anchor="middle" class="sankey-lbl" fill="#3b82f6">submitted</text>
+        <text x="311" y="668" text-anchor="middle" class="sankey-val" fill="#3b82f6">10</text>
+      </g>
+    <g class="sankey-node">
+        <rect x="510" y="170" width="22" height="420" fill="#3b82f6" rx="3"><title>still @ submitted: 7</title></rect>
+        <text x="521" y="158" text-anchor="middle" class="sankey-lbl" fill="#3b82f6">still @ submitted</text>
+        <text x="521" y="608" text-anchor="middle" class="sankey-val" fill="#3b82f6">7</text>
+      </g>
+    <g class="sankey-node">
+        <rect x="1560" y="50" width="22" height="120" fill="#6b7280" rx="3"><title>withdrawn: 2</title></rect>
+        <text x="1571" y="38" text-anchor="middle" class="sankey-lbl" fill="#6b7280">withdrawn</text>
+        <text x="1571" y="188" text-anchor="middle" class="sankey-val" fill="#6b7280">2</text>
+      </g>
+    <g class="sankey-node">
+        <rect x="510" y="50" width="22" height="60" fill="#8b5cf6" rx="3"><title>viewed: 1</title></rect>
+        <text x="521" y="38" text-anchor="middle" class="sankey-lbl" fill="#8b5cf6">viewed</text>
+        <text x="521" y="128" text-anchor="middle" class="sankey-val" fill="#8b5cf6">1</text>
+      </g>
+    <g class="sankey-node">
+        <rect x="720" y="50" width="22" height="60" fill="#a855f7" rx="3"><title>screen: 1</title></rect>
+        <text x="731" y="38" text-anchor="middle" class="sankey-lbl" fill="#a855f7">screen</text>
+        <text x="731" y="128" text-anchor="middle" class="sankey-val" fill="#a855f7">1</text>
+      </g>
+    <g class="sankey-node">
+        <rect x="930" y="50" width="22" height="60" fill="#ec4899" rx="3"><title>interview-1: 1</title></rect>
+        <text x="941" y="38" text-anchor="middle" class="sankey-lbl" fill="#ec4899">interview-1</text>
+        <text x="941" y="128" text-anchor="middle" class="sankey-val" fill="#ec4899">1</text>
+      </g>
+    <g class="sankey-node">
+        <rect x="1140" y="50" width="22" height="60" fill="#ec4899" rx="3"><title>still @ interview-1: 1</title></rect>
+        <text x="1151" y="38" text-anchor="middle" class="sankey-lbl" fill="#ec4899">still @ interview-1</text>
+        <text x="1151" y="128" text-anchor="middle" class="sankey-val" fill="#ec4899">1</text>
+      </g>
+  </g>
+</svg>
+  </div>
+
+  <div class="row">
+    <div class="row-block"><h3>By stage</h3><div class="stats"><div class="stat" style="border-left:4px solid #9ca3af"><div class="stat-num">1</div><div class="stat-label">dry-run</div></div><div class="stat" style="border-left:4px solid #3b82f6"><div class="stat-num">7</div><div class="stat-label">submitted</div></div><div class="stat" style="border-left:4px solid #ec4899"><div class="stat-num">1</div><div class="stat-label">interview-1</div></div><div class="stat" style="border-left:4px solid #6b7280"><div class="stat-num">2</div><div class="stat-label">withdrawn</div></div></div></div>
+    <div class="row-block"><h3>By ATS</h3><div class="stats"><div class="stat" style="border-left:4px solid #0ea5e9"><div class="stat-num">11</div><div class="stat-label">ashby</div></div></div></div>
+    <div class="row-block">
+      <h3>Conversion</h3>
+      <div class="stats">
+        <div class="stat" style="border-left:4px solid #0891b2"><div class="stat-num">11</div><div class="stat-label">total apps</div></div>
+        <div class="stat" style="border-left:4px solid #8b5cf6"><div class="stat-num">25%</div><div class="stat-label">response rate</div></div>
+        <div class="stat" style="border-left:4px solid #10b981"><div class="stat-num">0%</div><div class="stat-label">offer rate</div></div>
+        <div class="stat" style="border-left:4px solid #ef4444"><div class="stat-num">0</div><div class="stat-label">rejected</div></div>
+        <div class="stat" style="border-left:4px solid #475569"><div class="stat-num">0</div><div class="stat-label">ghosted</div></div>
+      </div>
+    </div>
+  </div>
+
+  <details class="row-collapse">
+    <summary class="muted small">Secondary charts (funnel, timeline)</summary>
+    <div class="row charts">
+      <div class="chart-block">
+        <h3>Funnel — apps reaching each stage</h3>
+        <svg viewBox="0 0 640 218" class="chart-svg" preserveAspectRatio="none">
+    <g transform="translate(0,0)">
+        <text x="0" y="20" class="lbl">submitted</text>
+        <rect x="120" y="6" width="440" height="20" fill="#3b82f6" rx="3" />
+        <text x="570" y="20" class="val" fill="#3b82f6">8</text>
+      </g><g transform="translate(0,30)">
+        <text x="0" y="20" class="lbl">viewed</text>
+        <rect x="120" y="6" width="55" height="20" fill="#8b5cf6" rx="3" />
+        <text x="185" y="20" class="val" fill="#8b5cf6">1</text>
+      </g><g transform="translate(0,60)">
+        <text x="0" y="20" class="lbl">screen</text>
+        <rect x="120" y="6" width="55" height="20" fill="#a855f7" rx="3" />
+        <text x="185" y="20" class="val" fill="#a855f7">1</text>
+      </g><g transform="translate(0,90)">
+        <text x="0" y="20" class="lbl">interview-1</text>
+        <rect x="120" y="6" width="55" height="20" fill="#ec4899" rx="3" />
+        <text x="185" y="20" class="val" fill="#ec4899">1</text>
+      </g><g transform="translate(0,120)">
+        <text x="0" y="20" class="lbl">interview-2</text>
+        <rect x="120" y="6" width="0" height="20" fill="#f43f5e" rx="3" />
+        <text x="130" y="20" class="val" fill="#f43f5e">0</text>
+      </g><g transform="translate(0,150)">
+        <text x="0" y="20" class="lbl">interview-final</text>
+        <rect x="120" y="6" width="0" height="20" fill="#f97316" rx="3" />
+        <text x="130" y="20" class="val" fill="#f97316">0</text>
+      </g><g transform="translate(0,180)">
+        <text x="0" y="20" class="lbl">offer</text>
+        <rect x="120" y="6" width="0" height="20" fill="#10b981" rx="3" />
+        <text x="130" y="20" class="val" fill="#10b981">0</text>
+      </g>
+  </svg>
+      </div>
+      <div class="chart-block">
+        <h3>Timeline — applications submitted per day</h3>
+        <svg viewBox="0 0 600 100" class="chart-svg" preserveAspectRatio="none">
+    <line x1="50" y1="76" x2="580" y2="76" stroke="#cbd5e1" />
+    <g>
+        <rect x="76.5" y="45" width="123.66666666666666" height="31" fill="#0891b2" rx="2" />
+        <text x="138.33333333333331" y="41" text-anchor="middle" class="tl-val">3</text>
+        <text x="138.33333333333331" y="92" text-anchor="middle" class="tl-lbl">05-14</text>
+      </g><g>
+        <rect x="253.16666666666666" y="14" width="123.66666666666666" height="62" fill="#0891b2" rx="2" />
+        <text x="315" y="10" text-anchor="middle" class="tl-val">6</text>
+        <text x="315" y="92" text-anchor="middle" class="tl-lbl">05-15</text>
+      </g><g>
+        <rect x="429.8333333333333" y="55.333333333333336" width="123.66666666666666" height="20.666666666666664" fill="#0891b2" rx="2" />
+        <text x="491.66666666666663" y="51.333333333333336" text-anchor="middle" class="tl-val">2</text>
+        <text x="491.66666666666663" y="92" text-anchor="middle" class="tl-lbl">05-16</text>
+      </g>
+    <text x="46" y="80" text-anchor="end" class="tl-lbl">0</text>
+    <text x="46" y="22" text-anchor="end" class="tl-lbl">6</text>
+  </svg>
+      </div>
+    </div>
+  </details>
+
+  <div class="toolbar">
+    <input type="text" id="filter" placeholder="filter by company, role, stage, ATS…" oninput="filterRuns()" />
+    <span class="muted" id="count">11 shown</span>
+  </div>
+
+  <div class="runs" id="runs">
+    <details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#3b82f6">submitted</span>
+    <span class="run-co">Synthesia</span>
+    <span class="run-title">Commercial Data Scientist</span>
+    <span class="run-meta">Europe · <code>ashby</code> · 2026-05-16</span>
+    <span class="ok">✓ submitted</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/form-filled.png" target="_blank">form-filled.png</a></li>
+          <li><a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/confirmation.png" target="_blank">confirmation.png</a> · <a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/confirmation.txt" target="_blank">.txt</a></li>
+          <li><a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-16/synthesia-commercial-data-scientist/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: submitted
+submitted_at: 2026-05-16T18:20:41.493Z
+last_update: 2026-05-16T18:20:41.493Z
+notes: &#39;&#39;
+</pre>
+        <h4>Submission confirmation</h4><pre class="conf">Commercial Data Scientist
+LOCATION
+Europe
+EMPLOYMENT TYPE
+Full time
+LOCATION TYPE</pre>
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (8 fields, 6 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>4</td><td>Cover Letter</td><td><code>file</code></td><td></td><td><em class="muted">—</em></td></tr><tr><td>5</td><td>Linkedin Profile</td><td><code>url</code></td><td></td><td>https://linkedin.com/in/nauval-zulfikar</td></tr><tr><td>6</td><td>Location</td><td><code>typeahead</code></td><td></td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>7</td><td>Are you legally authorised to work in the country you wish to work in without the need for visa sponsorship?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>8</td><td>Do you require ongoing employer support to maintain your right to work (e.g., visa renewals or work permit sponsorship)?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># Synthesia — Commercial Data Scientist
+
+- **ATS:** ashby
+- **Location:** Europe
+- **Department:** Commercial
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/synthesia/a40cbbc3-6be7-48a2-b8c7-1f09a1c5aa43
+- **Apply URL:** https://jobs.ashbyhq.com/synthesia/a40cbbc3-6be7-48a2-b8c7-1f09a1c5aa43/application
+
+## Description
+
+Synthesia is the world’s leading AI video platform for business, used by over 90% of the Fortune 100. Founded in 2017, the company is headquartered in London, with offices and teams across Europe and the US.
+
+As AI continues to shape the way we live and work, Synthesia develops products to enhance visual communication and enterprise skill development, helping people work better and stay at the center of successful organizations.
+
+Following our recent Series E funding round, where we raised $200 million, our valuation stands at $4 billion. Our total funding exceeds $530 million from premier investors including Accel, NVentures (Nvidia&#39;s VC arm), Kleiner Perkins, GV, and Evantic Capital, alongside the founders and operators of Stripe, Datadog, Miro, and Webflow.
+
+
+ABOUT THE ROLE
+
+We’re hiring a Commercial Data Scientist to build, deploy, and maintain data science models that directly improve revenue outcomes and customer experience.
+
+You’ll work end-to-end: from defining the problem with commercial stakeholders, to building and validating models, to deploying and running them reliably in production with the Data Engineering team.
+
+Typical projects include customer health scores, lead intent scoring, churn/expansion predictors, segmentation, and experimentation frameworks that make those models actionable.
+
+
+WHAT YOU’LL DO
+
+ - Partner with Sales, RevOps, CS and Marketing to translate ambiguous commercial questions into measurable problems and model-ready datasets.
+
+ - Build and iterate on predictive and classification models (e.g., health scoring, intent scoring), with rigorous validation, monitoring, and clear success metrics.
+
+ - Deploy models into production in collaboration with Data Engineering (batch jobs, pipelines, feature generation, versioning, and observability).
+
+ - Maintain and improve existing models: performance monitoring, retraining strategies, drift detection, and reliability.
+
+ - Make models usable: deliver clear outputs, documentation, and guidance so commercial teams can act on insights.
+
+ - Contribute to a strong DS craft culture: code quality, reproducibility, experimentation discipline, and pragmatic model selection.
+
+
+WHO YOU ARE
+
+You’re a pragmatic, commercial-minded data scientist who enjoys owning outcomes — not just analysis.
+
+You can take a fuzzy commercial problem, shape it into something measurable, and ship a solution that keeps working over time.
+
+
+WHAT WE’RE LOOKING FOR
+
+Must-haves
+
+ - Several years of industry experience as a Data Scientist (or similar), building statistical/ML models end-to-end.
+
+ - Strong foundations in applied machine learning and statistics, with good judgment about model complexity vs. impact.
+
+ - Production mindset: you’ve worked with deployed models, and understand monitoring, retraining, data quality, and operational constraints.
+
+ - Strong SQL and Python skills, with experience in data wrangling and feature engineering.
+
+ - Ability to communicate clearly with technical and non-technical partners, including explaining trade-offs and model limitations.
+
+ - Comfort operating in a high-autonomy environment: you can plan your work, drive alignment, and ship without being handed tickets.
+
+Nice-to-haves
+
+ - Experience working on commercial / go-to-market problems (rev intelligence, lead scoring, churn, expansion, attribution, forecasting).
+
+ - Experience working closely with modern data stacks (Snowflake, dbt, Airflow) and production ML patterns.
+
+ - Experience designing model outputs that integrate cleanly into commercial workflows (dashboards, alerts, CRM signals).
+
+
+HOW WE WORK
+
+We optimize for responsibility and freedom.
+
+That means:
+
+ - No Jira, no ticket conveyor belt — we run on ownership and a small number of high-impact projects.
+
+ - Close collaboration with commercial stakeholders and Data Engineering to ship real outcomes.
+
+ - A bias toward pragmatic solutions that can be deployed, monitored, and improved.
+
+
+WHY JOIN
+
+ - Work on problems that sit at the intersection of product usage and commercial outcomes.
+
+ - Own impactful, end-to-end projects — from definition to production.
+
+ - Join a team that values autonomy, craft, and speed.</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#3b82f6">submitted</span>
+    <span class="run-co">Mystenlabs</span>
+    <span class="run-title">Senior Data Scientist </span>
+    <span class="run-meta">USA (Remote) · <code>ashby</code> · 2026-05-16</span>
+    <span class="dry">dry-run</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/form-filled.png" target="_blank">form-filled.png</a></li>
+          
+          <li><a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-16/mystenlabs-senior-data-scientist/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: submitted
+submitted_at: 2026-05-16T14:50:27.966Z
+last_update: 2026-05-16T14:50:27.966Z
+notes: &#39;&#39;
+</pre>
+        
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (13 fields, 11 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Phone</td><td><code>tel</code></td><td>✓</td><td>+39 02 8718 4500</td></tr><tr><td>4</td><td>Location</td><td><code>typeahead</code></td><td>✓</td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>5</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>6</td><td>Linkedin Profile (optional)</td><td><code>text</code></td><td>✓</td><td>https://linkedin.com/in/nauval-zulfikar</td></tr><tr><td>7</td><td>Are you legally authorized to work in the country this role is located in?</td><td><code>button-toggle</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>8</td><td>Do you currently or will you in the future require visa sponsorship to continue working in the country in which this role is located in?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>9</td><td>Please share your blockchain experience</td><td><code>textarea</code></td><td>✓</td><td>I have a robust background in data science and a strong focus on machine learning, particularly in financial applications. While I have not directly worked in blockchain, my experience in quantitative finance and credit-risk modelling at Bank Muamalat aligns well with the needs of Mysten Labs. I am adept at SQL and visualisation, and I have successfully built end-to-end ML pipelines on AWS. My analytical skills, including deep dives into liquidity and trading behaviours, can contribute to understanding and enhancing DeFi and stablecoin activities. I am eager to bridge my knowledge with blockchain technologies to drive insights in this rapidly evolving sector.</td></tr><tr><td>10</td><td>What is your favorite platform to analyze crypto data on?</td><td><code>text</code></td><td>✓</td><td>I favour using Dune Analytics for analysing crypto data. Its SQL-based querying capabilities allow for in-depth exploration of on-chain metrics and DeFi protocols, making it ideal for understanding liquidity, trading volumes, and user behaviours. The ability to create custom dashboards is particularly valuable for presenting insights to cross-functional teams, aligning with my experience in building end-to-end pipelines and delivering data-driven analytics. Furthermore, my background in quantitative finance enables me to effectively interpret complex market structures, ensuring readiness to contribute meaningfully to Mysten Labs’ mission.</td></tr><tr><td>11</td><td>Male</td><td><code>radio-group</code></td><td></td><td>Male</td></tr><tr><td>12</td><td>Hispanic or Latino</td><td><code>radio-group</code></td><td></td><td>YES</td></tr><tr><td>13</td><td>I identify as one or more of the classifications of protected veteran listed above</td><td><code>radio-group</code></td><td></td><td>No</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># Mystenlabs — Senior Data Scientist 
+
+- **ATS:** ashby
+- **Location:** USA (Remote)
+- **Department:** Data
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/mystenlabs/a4f2d0e6-9e87-44b1-90d9-388a88a7e78f
+- **Apply URL:** https://jobs.ashbyhq.com/mystenlabs/a4f2d0e6-9e87-44b1-90d9-388a88a7e78f/application
+
+## Description
+
+Mysten Labs believes that decentralized and open protocols are the bedrock of the internet of value. This is why at Mysten Labs, we are creating foundational infrastructure to accelerate the adoption of decentralized protocols based on blockchain technologies.
+
+The data science team at Mysten Labs is looking to hire a Senior Data Scientist focused on DeFi and stablecoins, two of the fastest-growing and most consequential areas of the Sui ecosystem. This role sits at the intersection of product analytics, on-chain measurement, and market structure research, with a mandate to deepen our understanding of how liquidity, lending, DEX activity, and stablecoin flows behave on a high-performance, object-centric blockchain.
+
+This role requires existing web3 experience — you should already be comfortable navigating on-chain data, DeFi protocols, and the broader crypto ecosystem. On top of that, backgrounds in quantitative finance, trading, market making, exchanges, or fintech analytics are highly valued and will help you hit the ground running. You&#39;ll partner closely with product, engineering, and partnerships to conceptualize, measure, and report on DeFi protocol launches, stablecoin adoption, market maker performance, and broader ecosystem behaviors. The work spans descriptive dashboards, deep-dive research, and entirely new measurement frameworks for a rapidly evolving asset class.
+
+The ideal applicant has very strong SQL and visualization skills, a working knowledge of DeFi primitives (AMMs, lending markets, perps, stablecoin mechanisms), and the ability to merge quick iteration with creative ideation. Familiarity with concepts like TVL, volume quality, LP returns, peg stability, mint/redeem flows, and cross-chain bridging is a strong plus.
+
+Experience writing stable and maintainable analytics engineering pipelines is a plus, particularly in dbt, or similar frameworks, along with comfort orchestrating jobs against high-volume on-chain data.
+
+What You’ll Do:
+
+ - Build dashboards that drive understanding of DeFi protocols and stablecoin activity on Sui for PMs, engineers, Partnerships, and the executive leadership team.
+
+ - Run analyses on liquidity, trading volumes, lending utilization, holder behavior, and stablecoin velocity to identify high-impact opportunities for Mysten Labs and ecosystem partners.
+
+ - Develop measurement frameworks for evaluating DeFi protocol health, wash trading detection, real vs. incentivized activity, and stablecoin adoption quality.
+
+ - Collaborate with the data and engineering teams to set new standards for DeFi and stablecoin measurement across the industry.
+
+ - Partner with BD and partnerships to measure the impact of integrations with major DeFi protocols, stablecoin issuers, and market makers.
+
+ - Make data processing jobs run reliably in a lightweight, scrappy environment.
+
+What You’ll Have:
+
+ - A deep interest in DeFi, stablecoins, and the role of on-chain financial infrastructure in daily life.
+
+ - Strong SQL and visualization skills, with a deep desire to communicate clearly and captivatingly.
+
+ - Hands-on experience working with on-chain data (e.g., Dune, Flipside, Allium, or raw node/indexer data).
+
+ - Familiarity with DeFi primitives and key metrics (TVL, volume, LP economics, lending utilization, mint/redeem activity).
+
+ - Strong attention to detail and a desire to work on data analysis as a collaborative discipline across data, engineering, product, partnerships, and marketing teams.
+
+ - Bonus: experience with market microstructure, quantitative finance, or trading analytics.
+
+Employment is contingent upon the successful completion of a background check, which may include verification of employment history, education credentials, criminal history, and other relevant information.
+
+Regarding the recent rash of technology job scams: Be aware that emails from genuine Mysten Labs group recruiters will always come from the @mystenlabs.com http://mystenlabs.com domain or related subdomains (e.g., mystenlabs.com/careers http://mystenlabs.com/careers). Remember: you can always verify positions on our job boards at www.mystenlabs.com/careers http://www.mystenlabs.com/careers.
+
+To support an efficient and fair hiring process, we may use technology-assisted tools, including artificial intelligence (AI), to help identify and evaluate candidates. All hiring decisions are ultimately made by human reviewers.
+
+Our team is remote first and we are hiring across the world. Here at Mysten Labs, you’ll be joining a world-class team with tremendous growth potential as we bring the next billion users to web3. We raised a $300M Series B round from top Silicon Valley led venture funds like Jump Crypto, Andreessen Horowitz (a16z), Binance Labs, Redpoint, Lightspeed, Coinbase Ventures, Electric Capital, Standard Crypto, NFX, Slow Ventures, Scribble Ventures, Samsung Next, Lux Capital, among other investment firms and strategic partners. Come join us and build the future of web3!</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#6b7280">withdrawn</span>
+    <span class="run-co">Parity</span>
+    <span class="run-title">Product Engineer (AI)</span>
+    <span class="run-meta">Remote · <code>ashby</code> · 2026-05-15</span>
+    <span class="dry">dry-run</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-15/parity-product-engineer-ai/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-15/parity-product-engineer-ai/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/parity-product-engineer-ai/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-15/parity-product-engineer-ai/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/parity-product-engineer-ai/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-15/parity-product-engineer-ai/form-filled.png" target="_blank">form-filled.png</a></li>
+          
+          <li><a href="tmp/runs/2026-05-15/parity-product-engineer-ai/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-15/parity-product-engineer-ai/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-15/parity-product-engineer-ai/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-15/parity-product-engineer-ai/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: withdrawn
+submitted_at: Fri May 15 2026 14:03:41 GMT+0700 (Western Indonesia Time)
+last_update: 2026-05-15T07:27:32.200Z
+notes: Form-parser bug; retry --headed later
+</pre>
+        
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (9 fields, 7 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>4</td><td>Cover Letter</td><td><code>file</code></td><td></td><td><em class="muted">—</em></td></tr><tr><td>5</td><td>Location</td><td><code>typeahead</code></td><td>✓</td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>6</td><td>LinkedIn URL</td><td><code>text</code></td><td>✓</td><td>https://linkedin.com/in/nauval-zulfikar</td></tr><tr><td>7</td><td>GitHub Profile or Similar</td><td><code>text</code></td><td>✓</td><td>https://github.com/NauvalZulfikar</td></tr><tr><td>8</td><td>Where did you hear about this position?</td><td><code>text</code></td><td>✓</td><td>LinkedIn</td></tr><tr><td>9</td><td>I agree</td><td><code>radio-group</code></td><td></td><td>Yes</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># Parity — Product Engineer (AI)
+
+- **ATS:** ashby
+- **Location:** Remote
+- **Department:** Acceleration
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/parity/eabc5915-b37f-429b-a182-d7aa205de077
+- **Apply URL:** https://jobs.ashbyhq.com/parity/eabc5915-b37f-429b-a182-d7aa205de077/application
+
+## Description
+
+About Us
+
+Parity is one of the world’s most experienced companies building the core infrastructure behind blockchain — the system that allows information and value to be shared securely without needing an intermediary. We’re laying the foundation for a better web which respects the freedom and data of individuals, and empowers developers to build better, more trustworthy online services.
+
+Our remote-first, global team develops open-source software that anyone can use or improve. This includes Polkadot https://polkadot.network/, Polkadot SDK https://substrate.io/, and Kusama https://kusama.network/ — key parts of the Web3 tech stack, the next generation of the internet. Our mission is to make Polkadot the most active and innovative community in blockchain, powering a new era of connected and decentralised applications.
+
+About the Team
+
+This role sits in our Acceleration department, home to the people who drive ecosystem growth by building tools, integrations, and partnerships across the Polkadot network.
+
+Reporting into our Product Research Lead, you’ll be joining the Product Engineering team. We shape the product vision and roadmap, translating ecosystem needs into tools and experiences that accelerate platform adoption.
+
+About the Role
+
+As a Product Engineer, you will lead the end-to-end delivery of features, from initial problem discovery to production deployment. This role is designed for a self-directed builder who prioritizes &quot;what&quot; to build as much as &quot;how&quot; to build it. You will leverage an AI-native workflow to iterate rapidly and deliver high-impact solutions to complex user problems.
+
+What you’ll do
+
+ - Full-Lifecycle Ownership: Lead feature development through scoping, architecture, deployment, and iteration based on live user data.
+
+ - AI-Augmented Development: Integrate AI tools (e.g., Cursor, Copilot, Claude) into your daily workflow to accelerate velocity and maximize output.
+
+ - Autonomous Decision-Making: Navigate ambiguity by exercising sound product judgment, filling requirement gaps without waiting for exhaustive specifications.
+
+ - Rapid Iteration: Deploy MVPs quickly to gather real-world feedback, avoiding over-engineering in favor of momentum and validated learning.
+
+ - Direct Collaboration: Partner with stakeholders and users to deeply understand pain points and translate them into functional, scalable software.
+
+ - Cross-Functional Execution: Work proactively across the organization to remove blockers and maintain a high shipping cadence.
+
+Your Skills
+
+ - Proven experience developing and maintaining production-grade web applications (ideally with TypeScript, React, or similar frameworks).
+
+ - Strong understanding of frontend architecture, component-driven development, and modern build pipelines.
+
+ - Possess a good understanding of system design and an ability to work with complex systems.
+
+ - Strong product intuition for applying AI to solve real user problems and ship features that deliver genuine value.
+
+About Working With Us
+
+Joining Parity means joining team mates who are genuinely excited about the impact their projects are having, and the opportunity to grow alongside some of the brightest minds in the Web3 space! You’ll work remotely and flexibly, while still getting to meet your team mates throughout the year at team and company-wide retreats.
+
+Upon receiving an offer, all candidates undergo a background check through Zinc https://zincwork.com/candidates, our trusted third-party provider. Team members will be taken on as a contractor via our UK entity. View our Applicant Notice https://www.parity.io/applicant-notice/ to see how we use your data.
+
+Parity is an Equal Opportunity Employer. We welcome diversity in our global team and care about everyone in our collective feeling included and welcome
+
+Is this position not quite your match? Browse https://www.parity.io/jobs/ our other open roles.</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#3b82f6">submitted</span>
+    <span class="run-co">Polygon Labs</span>
+    <span class="run-title">AI Developer Experience Engineer</span>
+    <span class="run-meta">EMEA - Remote · <code>ashby</code> · 2026-05-15</span>
+    <span class="ok">✓ submitted</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/form-filled.png" target="_blank">form-filled.png</a></li>
+          <li><a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/confirmation.png" target="_blank">confirmation.png</a> · <a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/confirmation.txt" target="_blank">.txt</a></li>
+          <li><a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-15/polygon-labs-ai-developer-experience-engineer/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: submitted
+submitted_at: 2026-05-15T07:01:15.673Z
+last_update: 2026-05-15T07:01:15.673Z
+notes: &#39;&#39;
+</pre>
+        <h4>Submission confirmation</h4><pre class="conf">AI Developer Experience Engineer
+Location
+EMEA - Remote; LATAM; USA - Remote
+Employment Type
+Full time
+Location Type</pre>
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (10 fields, 8 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>4</td><td>Location</td><td><code>typeahead</code></td><td>✓</td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>5</td><td>GitHub</td><td><code>text</code></td><td>✓</td><td>https://github.com/NauvalZulfikar</td></tr><tr><td>6</td><td>Linkedin</td><td><code>text</code></td><td>✓</td><td>https://linkedin.com/in/nauval-zulfikar</td></tr><tr><td>7</td><td>Twitter</td><td><code>text</code></td><td></td><td><em class="muted">—</em></td></tr><tr><td>8</td><td>Paste a link to a GitHub repo or PR where you’ve used AI tools (e.g. Claude, Cursor, Copilot) to build or improve developer workflows. Briefly explain what you did and how AI was involved.”</td><td><code>textarea</code></td><td>✓</td><td>https://github.com/NauvalZulfikar</td></tr><tr><td>9</td><td>In that repo, what’s one specific thing you would improve today and how would you use AI to do it?”</td><td><code>textarea</code></td><td>✓</td><td>In my CV-JD Suitability Checker repo (DeBERTa-v3 + RAG), I&#39;d add an AI-driven evaluation harness: use Claude to auto-generate 100+ paired (CV, JD) test cases across edge scenarios (career pivots, multi-domain backgrounds, gap years), then run the harness against each commit to track regression in match-quality. Current evaluation is ad-hoc — automating with Claude tool-use would let me iterate the retrieval prompt weekly with confidence, and surface failure modes I&#39;d otherwise miss.</td></tr><tr><td>10</td><td>I agree</td><td><code>checkbox</code></td><td></td><td>Yes</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># Polygon Labs — AI Developer Experience Engineer
+
+- **ATS:** ashby
+- **Location:** EMEA - Remote
+- **Department:** Technology
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/polygon-labs/83ca09c3-d0ed-467e-9076-ae7393f2fdda
+- **Apply URL:** https://jobs.ashbyhq.com/polygon-labs/83ca09c3-d0ed-467e-9076-ae7393f2fdda/application
+
+## Description
+
+ABOUT POLYGON LABS
+
+Polygon Labs is a global blockchain payments company building and operating infrastructure to move money instantly, reliably, and at internet scale, with the mission to move all money onchain. It is building the Polygon Open Money Stack, an open and integrated stack of services and technologies to instantly and reliably move money anywhere, and put it to work. Its infrastructure has facilitated trillions of dollars in onchain value transfer and supported millions of transactions daily for some of the globe&#39;s largest banks, fintechs, enterprises, and consumer applications.
+
+
+YOUR ROLE
+
+Polygon is an AI-first company, and the AI Foundation team is where that commitment becomes reality. As the second member of this team, you will work directly alongside a staff-level engineer to design, build, and deploy AI tooling and infrastructure that accelerates productivity and AI adoption across the entire organization. This role exists because the demand for AI implementation has grown faster than a single person can handle, and the work is too important to slow down. You will own meaningful systems from day one, and your output will be felt across engineering, product, marketing, and operations.
+
+
+
+
+YOUR RESPONSIBILITIES
+
+ - Design and build AI tooling onboarding systems that automatically configure and recommend the appropriate tools, workflows, and skill paths to individuals based on their role and use case, reducing time-to-productivity for new and existing team members
+
+ - Develop and maintain the infrastructure that supports deployment, configuration, and operational scaling of AI tooling across the organization, ensuring reliability, resilience, telemetry coverage, and ease of adoption across teams
+
+ - Build custom internal applications and harnesses around AI agents and tooling, integrating systems that span engineering and cross-functional teams including product, marketing, operations, legal, and compliance
+
+ - Partner directly with engineering and cross-functional stakeholders to identify workflow bottlenecks, evaluate opportunities for AI-assisted automation, and design practical solutions that improve productivity and operational efficiency
+
+ - Evaluate, research, integrate, and configure third-party AI tools (coding assistants, LLM orchestration frameworks, agent platforms, and others) to match organizational needs as the landscape evolves, helping teams adopt scalable and maintainable workflows rather than fragmented one-off solutions
+
+ - Use Claude Code, Codex, Cursor, and other AI coding agents to produce well-structured, maintainable code at pace, while helping standardize and improve AI-assisted development workflows across engineering teams
+   
+
+
+WHAT YOU&#39;LL NEED
+
+ - Demonstrated engineering experience building real systems: you have shipped working software and understand how to architect something maintainable, not just get it running
+
+ - Strong consultative and problem-solving instincts: you can work directly with stakeholders to understand operational pain points, scope practical solutions, and translate ambiguous requirements into executable systems and workflows
+
+ - Hands-on experience working with AI agents and LLM-based systems: you have built harnesses, integrations, or tooling on top of agent frameworks or LLM SDKs (such as LangChain, LlamaIndex, or similar) and understand how these systems behave in practice
+
+ - Proven ability to work with AI coding agents (Claude Code, Codex, Cursor, or equivalent) as a core part of your daily development workflow: daily AI-assisted coding is a baseline expectation for this role, not an occasional tool
+
+ - Self-directed execution: you take a project brief, ask the right clarifying questions, and drive to delivery without needing constant direction; you communicate proactively and flag blockers early
+   
+
+
+PREFERRED QUALIFICATIONS
+
+ - Experience building telemetry, observability, or monitoring into AI-powered systems to ensure resilience and measurable performance
+
+ - Familiarity with crypto or blockchain infrastructure environments, or experience working at a fast-moving technology company where the tooling landscape changes frequently
+
+ - Prior experience in a developer experience, platform engineering, or internal tooling role, particularly one where you were building for other engineers as your primary customer
+   
+
+
+POLYGON LABS PERKS
+
+The goal of the Polygon Labs total rewards program is to support the health and well-being of you and your family. Our comprehensive compensation plan includes the following benefits for our full time employees:
+
+ - Remote first global workforce
+
+ - Industry leading Medical, Dental and Vision health insurance*
+
+ - Company matching 401k with 3% match*
+
+ - $1,500 Home Office Set Up Allowance (life-time max)
+
+ - $200 AI Program Allowance
+
+ - $75 Monthly internet or phone reimbursement
+
+ - Flexible Time Off
+
+ - Company issued laptop
+
+ - Egg freezing, mental health, and employee wellness benefits
+
+*In certain countries medical, dental and vision is fully covered for employees &amp; their dependents. This is country and plan specific.
+
+*401k is for United States employees only
+
+
+Polygon Labs is committed to a diverse and inclusive workplace and is an equal opportunity employer. We do not discriminate on the basis of race, national origin, gender, gender identity, sexual orientation, protected veteran status, disability, age, or other legally protected status. Polygon Labs is committed to treating all people in a way that allows them to maintain their dignity and independence. We believe in integration and equal opportunity. Accommodations are available throughout the recruitment process and applicants with a disability may request to be accommodated throughout the recruitment process. We will work with all applicants to accommodate their individual accessibility needs.
+
+If you think you have what it takes, but don&#39;t necessarily meet every single point on the job description, please still get in touch. We&#39;d love to have a chat and see if you could be a great fit.
+
+Learn More about Polygon Labs
+
+Website https://polygon.technology/ | Twitter https://twitter.com/0xPolygon | Telegram https://t.me/polygonofficial | Reddit https://www.reddit.com/r/0xpolygon/ | Discord https://discord.gg/0xpolygoncommunity | Instagram https://www.instagram.com/0xpolygon/ | Facebook https://www.facebook.com/0xPolygon.Technology | LinkedIn https://www.linkedin.com/company/13449964/admin/</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#6b7280">withdrawn</span>
+    <span class="run-co">ProvenirInc</span>
+    <span class="run-title">Senior Data Scientist Consultant</span>
+    <span class="run-meta">Madrid · <code>ashby</code> · 2026-05-15</span>
+    <span class="dry">dry-run</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/form-filled.png" target="_blank">form-filled.png</a></li>
+          
+          <li><a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-15/provenirinc-senior-data-scientist-consultant/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: withdrawn
+submitted_at: Fri May 15 2026 13:39:41 GMT+0700 (Western Indonesia Time)
+last_update: 2026-05-15T07:27:32.102Z
+notes: Anti-bot spam flag — retry manually later
+</pre>
+        
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (11 fields, 9 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>4</td><td>Please upload cover letter or work sample</td><td><code>file</code></td><td></td><td><em class="muted">—</em></td></tr><tr><td>5</td><td>Please indicate the location in which you reside</td><td><code>typeahead</code></td><td>✓</td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>6</td><td>Will you now or in the future require sponsorship for employment VISA status?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>7</td><td>Have you ever worked for Provenir before?</td><td><code>button-toggle</code></td><td>✓</td><td>No</td></tr><tr><td>8</td><td>Are you related to anyone who works for Provenir?</td><td><code>button-toggle</code></td><td></td><td>No</td></tr><tr><td>9</td><td>I have carefully read the application and provided accurate and complete information to the best of my knowledge. I understand that the falsification, misrepresentation or omission of fact on this application (or any other accompanying or required documents including the background investigation) will be cause for withdrawal of an offer or immediate termination of employment, regardless of when or how discovered. The application will be given every consideration, but its receipt does not imply that the application will be employed. I authorize the investigation of all statements and information contained in this application including but not limited to inquires related to my education, relevant licenses, prior employment, credit and other information required by Provenir. I release from all liability anyone supplying such information and I also release the employer from all liability that might result from making an investigation.</td><td><code>checkbox</code></td><td></td><td>YES</td></tr><tr><td>10</td><td>I agree</td><td><code>checkbox</code></td><td></td><td>Yes</td></tr><tr><td>11</td><td>I am authorized to work in this country for any employer</td><td><code>radio-group</code></td><td></td><td>authorized to work in this country</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># ProvenirInc — Senior Data Scientist Consultant
+
+- **ATS:** ashby
+- **Location:** Madrid
+- **Department:** Data Science &amp; Analytics
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/ProvenirInc/6342026d-6663-456a-9f6e-222315faf72a
+- **Apply URL:** https://jobs.ashbyhq.com/ProvenirInc/6342026d-6663-456a-9f6e-222315faf72a/application
+
+## Description
+
+Who We Are
+
+Provenir is a global fintech company with offices across North America, the UK, and Singapore backed by talented teams across APAC, EMEA, and LATAM. Provenir helps fintechs, financial institutions, and payment providers make smarter decisions, faster. We are passionate about technology and empowering businesses to become industry leaders. As a leading provider of decisioning and analytics products for financial services and other industries, we empower businesses to create digital-first decisioning solutions that drive business growth. If you’d like to work at an innovative fintech with a global footprint that is redefining the industry, then we want you!
+
+About Global Applied Intelligence
+
+Global Applied Intelligence (GAI) is the team that turns Provenir&#39;s platform capability into measurable client outcomes. We deploy data science, applied AI, and delivery expertise directly into client engagements, operating as trusted advisors and technical partners, not back-office implementers. GAI operates through regional business partnerships supported by global practices, meaning the right expertise reaches every engagement regardless of geography.
+
+What You’ll Do
+
+This is a commercially significant hire. You will be the Data Science business partner for Spain and the Ibero-America region, working directly with clients to shape and deliver high-impact solutions in fraud, credit risk, and collections. You will also contribute to EMEA engagements where your expertise is the right fit.
+
+This is not a back-room modelling role. You will be in front of clients, understanding their business challenges, designing solutions that create measurable value, and communicating that value clearly to senior stakeholders. You will also support the commercial pipeline, partnering with Sales and Solutions Consulting to shape opportunities and win new business.
+
+Reporting to the Head of Data Science within GAI, you will have the backing of a strong global practice and the platform to build a reputation in one of our most strategically important regions.
+
+This is a remote role, but you must be based in Madrid, Spain. Occasional travel may be required for regional team meet-ups and client meetings.
+
+Your Responsibilities 🚀
+
+Client Delivery &amp; Consultancy
+
+ - Engage directly with clients, including at senior and C-suite level, to diagnose business challenges and design data science solutions with clear, quantified business value.
+
+ - Lead delivery of fraud, credit risk, and collections analytics projects from scoping through implementation, on time and within scope.
+
+ - Communicate technical solutions and outcomes to non-technical audiences, including senior client stakeholders and executive sponsors.
+
+Commercial Support
+
+ - Partner with Sales and Solutions Consulting during the commercial cycle, shaping proposals, contributing to statements of work, and providing technical credibility in client conversations.
+
+ - Help identify and qualify data science opportunities across the region, including proactively surfacing expansion opportunities within existing accounts.
+
+Technical Execution
+
+ - Identify, source, and prepare data to enable the development, calibration, and deployment of state-of-the-art AI/ML models across the credit lifecycle.
+
+ - Stay current on emerging data science trends and techniques; propose high-leverage innovations that strengthen Provenir&#39;s competitive position.
+
+ - Contribute to analytical strategy and product development with expert input grounded in real client experience.
+
+Team Leadership &amp; Standards
+
+ - Mentor and coach Data Scientists within the region, raising standards of technical delivery and client consultancy.
+
+ - Operate effectively in ambiguity, pivoting fluidly between hands-on problem solving and high-level roadmapping as business needs demand.
+
+Your Strengths and Skills 🛠️
+
+ - 7+ years in a data science role, with hands-on expertise in supervised and unsupervised ML methods.
+
+ - Domain expertise in at least one of: fraud detection, credit risk management, or collections analytics.
+
+ - Demonstrated B2B client-facing experience, confident engaging senior stakeholders on ML products and their business value.
+
+ - Strong commercial instinct: ability to frame, estimate, and communicate ROI on data science initiatives.
+
+ - Strong data wrangling skills: merging, cleansing, sampling, and preparing complex datasets.
+
+ - Exceptional communication skills and the ability to build trust across technical and non-technical audiences.
+
+ - Fluent in Spanish and English.
+
+Although not essential, it would be great if you also have any of these strengths:
+
+ - Experience drafting project proposals and statements of work.
+
+ - Demonstrated track record of leading data science projects and raising standards of those around you.
+
+ - MLOps best practices: CI/CD, pipeline orchestration, model monitoring.
+
+ - Industry experience in auto finance or telco financial services.
+
+ - Portuguese language skills (Brazilian or European).
+
+Interview Process 💬
+
+We run a straightforward four-stage process:
+
+ - Recruiter Screen - understanding your background, motivations, and any questions you have about the role.
+
+ - Technical Challenge - a take-home task representative of the problems you will work on.
+
+ - Technical Interview - deep-dive with Data Science colleagues.
+
+ - Commercial Interview - business and behavioral conversation with senior GAI leadership.
+
+Our employees are our top priority; we offer comprehensive health and wellness plans. You will enjoy paid time off and company holidays, flexible and remote-friendly opportunities, and maternity/paternity leave.
+
+At Provenir, we recognize that diversity and inclusion make our teams stronger. We are committed to equal employment opportunity and welcome everyone regardless of race, colour, ancestry, religion, national origin, age, sex, gender identity, sexual orientation, disability, marital status, domestic partner status, citizenship, or veteran status or medical condition. We encourage people from all backgrounds to apply.</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#3b82f6">submitted</span>
+    <span class="run-co">ProvenirInc</span>
+    <span class="run-title">Lead Data Scientist, Product</span>
+    <span class="run-meta">United Kingdom · <code>ashby</code> · 2026-05-15</span>
+    <span class="ok">✓ submitted</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/form-filled.png" target="_blank">form-filled.png</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/confirmation.png" target="_blank">confirmation.png</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/confirmation.txt" target="_blank">.txt</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-product/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: submitted
+submitted_at: Fri May 15 2026 13:14:20 GMT+0700 (Western Indonesia Time)
+last_update: 2026-05-15T07:27:32.001Z
+notes: Same Provenir batch, success page
+</pre>
+        <h4>Submission confirmation</h4><pre class="conf">Lead Data Scientist, Product
+Location
+United Kingdom; London
+Employment Type
+Full time
+Location Type</pre>
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (11 fields, 9 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>4</td><td>Please upload cover letter or work sample</td><td><code>file</code></td><td></td><td><em class="muted">—</em></td></tr><tr><td>5</td><td>Please indicate the location in which you reside</td><td><code>typeahead</code></td><td>✓</td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>6</td><td>Will you now or in the future require sponsorship for employment VISA status?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>7</td><td>Have you ever worked for Provenir before?</td><td><code>button-toggle</code></td><td>✓</td><td>No</td></tr><tr><td>8</td><td>Are you related to anyone who works for Provenir?</td><td><code>button-toggle</code></td><td></td><td>No</td></tr><tr><td>9</td><td>I have carefully read the application and provided accurate and complete information to the best of my knowledge. I understand that the falsification, misrepresentation or omission of fact on this application (or any other accompanying or required documents including the background investigation) will be cause for withdrawal of an offer or immediate termination of employment, regardless of when or how discovered. The application will be given every consideration, but its receipt does not imply that the application will be employed. I authorize the investigation of all statements and information contained in this application including but not limited to inquires related to my education, relevant licenses, prior employment, credit and other information required by Provenir. I release from all liability anyone supplying such information and I also release the employer from all liability that might result from making an investigation.</td><td><code>checkbox</code></td><td></td><td>YES</td></tr><tr><td>10</td><td>I agree</td><td><code>checkbox</code></td><td></td><td>Yes</td></tr><tr><td>11</td><td>I am authorized to work in this country for any employer</td><td><code>radio-group</code></td><td></td><td>authorized to work in this country</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># ProvenirInc — Lead Data Scientist, Product
+
+- **ATS:** ashby
+- **Location:** United Kingdom
+- **Department:** Product
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/ProvenirInc/0083e4ed-12a4-4d09-b480-e210a4ec4652
+- **Apply URL:** https://jobs.ashbyhq.com/ProvenirInc/0083e4ed-12a4-4d09-b480-e210a4ec4652/application
+
+## Description
+
+Who We Are
+
+Provenir is a global fintech company with offices across North America, the UK, and Singapore backed by talented teams across APAC, EMEA, and LATAM. Provenir helps fintechs, financial institutions, and payment providers make smarter decisions, faster. We are passionate about technology and empowering businesses to become industry leaders. As a leading provider of decisioning and analytics products for financial services and other industries, we empower businesses to create digital-first decisioning solutions that drive business growth. If you’d like to work at an innovative fintech with a global footprint that is redefining the industry, then we want you!
+
+Half data scientist. Half product thinker.
+
+Every time someone gets approved for a loan, a savings account, or a line of credit there&#39;s a decision happening in the background. A fast, automated, intelligent decision. At Provenir, we build the software that powers those decisions for banks and financial institutions around the world.
+
+We&#39;ve created a brand new role to build something that doesn&#39;t yet exist inside our business: a dedicated R&amp;D function at the crossroads of data science, product, and engineering. No inherited process. No existing playbook. Just exceptional people, the mandate to find what&#39;s missing, and the backing to build it.
+
+You&#39;ll sit within our Product function, working in close partnership with Data Science and Engineering. Data tells you what&#39;s wrong with what you have. Finding what you&#39;re missing requires conversations. You&#39;ll own your workstream end to end from research insight through to product roadmap recommendation, no handoffs.
+
+If you do your best work inside well-defined processes with a long onboarding runway, we&#39;d rather you knew that upfront. But if you&#39;ve always sat awkwardly between the academic and the commercial, if great research going nowhere frustrates you, if you&#39;ve been waiting for a role that asks you to do both keep reading.
+
+What You&#39;ll Do
+
+ - Lead original research into new AI capabilities Generative AI, Agentic AI, Machine Learning focused on what Provenir should build next
+
+ - Turn research into concrete product recommendations the business can act on
+
+ - Talk to customers and internal experts to surface unmet needs before they show up in the data
+
+ - Collaborate with engineering and data science peers to move ideas from research into reality
+
+ - Own the product narrative around your workstream, from first hypothesis through to roadmap
+
+What We&#39;re Looking For
+
+Technically, you bring…
+
+ - A strong academic foundation in data science Masters, PhD, or equivalent applied research experience
+
+ - Real, hands-on commercial data science experience not purely theoretical
+
+ - Practical exposure to Generative AI, Agentic AI frameworks, or advanced Machine Learning
+
+ - The ability to make credible recommendations even when the data picture isn&#39;t perfectly clean
+
+Commercially, you think…
+
+ - In problems before solutions business needs first, science second
+
+ - Like someone who can own a product workstream without a PM translating for you
+
+ - With an instinct for what customers need, not just what the numbers show
+
+As a person, you are…
+
+ - A self-starter you add value before anyone has to ask
+
+ - Equally comfortable in a strategic conversation and a deep technical one, and able to switch between them in the same meeting
+
+ - Energised by fast-scaling environments, not exhausted by them
+
+ - Clear and confident communicating with engineers, customers, and leadership alike
+
+ - Excited by what this role doesn&#39;t have yet, rather than unsettled by it
+
+Our employees are our top priority; we offer comprehensive health and wellness plans. You will enjoy paid time off and company holidays, flexible and remote-friendly opportunities, and maternity/paternity leave.
+
+At Provenir, we recognize that diversity and inclusion make our teams stronger. We are committed to equal employment opportunity and welcome everyone regardless of race, colour, ancestry, religion, national origin, age, sex, gender identity, sexual orientation, disability, marital status, domestic partner status, citizenship, or veteran status or medical condition. We encourage people from all backgrounds to apply.</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#3b82f6">submitted</span>
+    <span class="run-co">ProvenirInc</span>
+    <span class="run-title">Lead Data Scientist, Fraud</span>
+    <span class="run-meta">United Kingdom · <code>ashby</code> · 2026-05-15</span>
+    <span class="ok">✓ submitted</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/form-filled.png" target="_blank">form-filled.png</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/confirmation.png" target="_blank">confirmation.png</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/confirmation.txt" target="_blank">.txt</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-15/provenirinc-lead-data-scientist-fraud/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: submitted
+submitted_at: Fri May 15 2026 13:13:18 GMT+0700 (Western Indonesia Time)
+last_update: 2026-05-15T07:27:31.895Z
+notes: Polygon submitted; Provenir Fraud confirmation green
+</pre>
+        <h4>Submission confirmation</h4><pre class="conf">Lead Data Scientist, Fraud
+Location
+United Kingdom
+Employment Type
+Full time
+Location Type</pre>
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (11 fields, 9 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>4</td><td>Please upload cover letter or work sample</td><td><code>file</code></td><td></td><td><em class="muted">—</em></td></tr><tr><td>5</td><td>Please indicate the location in which you reside</td><td><code>typeahead</code></td><td>✓</td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>6</td><td>Will you now or in the future require sponsorship for employment VISA status?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>7</td><td>Have you ever worked for Provenir before?</td><td><code>button-toggle</code></td><td>✓</td><td>No</td></tr><tr><td>8</td><td>Are you related to anyone who works for Provenir?</td><td><code>button-toggle</code></td><td></td><td>No</td></tr><tr><td>9</td><td>I have carefully read the application and provided accurate and complete information to the best of my knowledge. I understand that the falsification, misrepresentation or omission of fact on this application (or any other accompanying or required documents including the background investigation) will be cause for withdrawal of an offer or immediate termination of employment, regardless of when or how discovered. The application will be given every consideration, but its receipt does not imply that the application will be employed. I authorize the investigation of all statements and information contained in this application including but not limited to inquires related to my education, relevant licenses, prior employment, credit and other information required by Provenir. I release from all liability anyone supplying such information and I also release the employer from all liability that might result from making an investigation.</td><td><code>checkbox</code></td><td></td><td>YES</td></tr><tr><td>10</td><td>I agree</td><td><code>checkbox</code></td><td></td><td>Yes</td></tr><tr><td>11</td><td>I am authorized to work in this country for any employer</td><td><code>radio-group</code></td><td></td><td>authorized to work in this country</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># ProvenirInc — Lead Data Scientist, Fraud
+
+- **ATS:** ashby
+- **Location:** United Kingdom
+- **Department:** Provenir.ai
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/ProvenirInc/560aec78-2e13-4b2a-91b4-194320fd9357
+- **Apply URL:** https://jobs.ashbyhq.com/ProvenirInc/560aec78-2e13-4b2a-91b4-194320fd9357/application
+
+## Description
+
+Who We Are
+
+Provenir is a global fintech company with offices across North America, the UK, and Singapore backed by talented teams across APAC, EMEA, and LATAM. Provenir helps fintechs, financial institutions, and payment providers make smarter decisions, faster. We are passionate about technology and empowering businesses to become industry leaders. As a leading provider of decisioning and analytics products for financial services and other industries, we empower businesses to create digital-first decisioning solutions that drive business growth. If you’d like to work at an innovative fintech with a global footprint that is redefining the industry, then we want you!
+
+Provenir AI owns the profiling engine at the heart of how our customers detect and prevent fraud. The engineering team is strong, they can build anything, you&#39;ll lead the team as someone who can look at the data, understand what the patterns mean, and tell the team what to build and why. This is a new function. There is no existing team to inherit, no legacy approach to maintain. You are the starting point.
+
+You&#39;ll partner with customers directly, take sample datasets, develop detection approaches in an offline environment, and translate findings into production-ready requirements for the engineering team.
+
+The Role
+
+This is a fraud domain role first. Data science is your toolkit, not your identity.
+
+You&#39;ll own fraud detection strategy for our profiling engine; developing models, shaping detection logic, and working directly with clients to understand their fraud problems and translate them into solutions. That means sitting in front of risk teams at financial services organisations, getting under the skin of their data, and running iterative model development before handing production-ready specs to engineering.
+
+The engineering team can execute on anything. They need you to tell them what matters. You&#39;ll be the fraud expert in every room.
+
+What You Bring
+
+You have built fraud detection models in production. You know what synthetic identity fraud looks like in the data. You&#39;ve worked through the challenge of imbalanced datasets, messy labels, and adversarial patterns. You&#39;ve managed the false positive problem and felt the commercial pressure that comes with it.
+
+Specifically:
+
+ - Deep knowledge of fraud typologies - synthetic identities, first-party fraud, fraud rings, mule accounts
+
+ - Proven track record deploying fraud models into production environments
+
+ - Strong Python and ML framework experience
+
+ - Solid understanding of MLOps - deployment, monitoring, challenger models, performance decay
+
+ - Experience working with real-world fraud data and messy identity information
+
+ - Comfortable being the fraud authority in the room, without a playbook handed to you
+
+If you&#39;ve spent years being the fraud expert that everyone else relies on and you&#39;re ready to own a function than this is the role.
+
+Our employees are our top priority; we offer comprehensive health and wellness plans. You will enjoy paid time off and company holidays, flexible and remote-friendly opportunities, and maternity/paternity leave.
+
+At Provenir, we recognize that diversity and inclusion make our teams stronger. We are committed to equal employment opportunity and welcome everyone regardless of race, colour, ancestry, religion, national origin, age, sex, gender identity, sexual orientation, disability, marital status, domestic partner status, citizenship, or veteran status or medical condition. We encourage people from all backgrounds to apply.</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#9ca3af">dry-run</span>
+    <span class="run-co">Mystenlabs</span>
+    <span class="run-title">Senior Data Scientist </span>
+    <span class="run-meta">USA (Remote) · <code>ashby</code> · 2026-05-15</span>
+    <span class="dry">dry-run</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/form-filled.png" target="_blank">form-filled.png</a></li>
+          
+          <li><a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-15/mystenlabs-senior-data-scientist/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: dry-run
+submitted_at: 2026-05-15T06:13:34.136Z
+last_update: 2026-05-15T06:13:34.136Z
+notes: &#39;&#39;
+</pre>
+        
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (14 fields, 10 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Phone</td><td><code>tel</code></td><td>✓</td><td>+39 02 8718 4500</td></tr><tr><td>4</td><td>Location</td><td><code>typeahead</code></td><td>✓</td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>5</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>6</td><td>Linkedin Profile (optional)</td><td><code>text</code></td><td>✓</td><td>https://linkedin.com/in/nauval-zulfikar</td></tr><tr><td>7</td><td>Are you legally authorized to work in the country this role is located in?</td><td><code>button-toggle</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>8</td><td>Do you currently or will you in the future require visa sponsorship to continue working in the country in which this role is located in?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>9</td><td>Please share your blockchain experience</td><td><code>textarea</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>10</td><td>What is your favorite platform to analyze crypto data on?</td><td><code>text</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>11</td><td>Location</td><td><code>text</code></td><td></td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>12</td><td>Male</td><td><code>radio-group</code></td><td></td><td>Male</td></tr><tr><td>13</td><td>Hispanic or Latino</td><td><code>radio-group</code></td><td></td><td>YES</td></tr><tr><td>14</td><td>I identify as one or more of the classifications of protected veteran listed above</td><td><code>radio-group</code></td><td></td><td>No</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># Mystenlabs — Senior Data Scientist 
+
+- **ATS:** ashby
+- **Location:** USA (Remote)
+- **Department:** Data
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/mystenlabs/a4f2d0e6-9e87-44b1-90d9-388a88a7e78f
+- **Apply URL:** https://jobs.ashbyhq.com/mystenlabs/a4f2d0e6-9e87-44b1-90d9-388a88a7e78f/application
+
+## Description
+
+Mysten Labs believes that decentralized and open protocols are the bedrock of the internet of value. This is why at Mysten Labs, we are creating foundational infrastructure to accelerate the adoption of decentralized protocols based on blockchain technologies.
+
+The data science team at Mysten Labs is looking to hire a Senior Data Scientist focused on DeFi and stablecoins, two of the fastest-growing and most consequential areas of the Sui ecosystem. This role sits at the intersection of product analytics, on-chain measurement, and market structure research, with a mandate to deepen our understanding of how liquidity, lending, DEX activity, and stablecoin flows behave on a high-performance, object-centric blockchain.
+
+This role requires existing web3 experience — you should already be comfortable navigating on-chain data, DeFi protocols, and the broader crypto ecosystem. On top of that, backgrounds in quantitative finance, trading, market making, exchanges, or fintech analytics are highly valued and will help you hit the ground running. You&#39;ll partner closely with product, engineering, and partnerships to conceptualize, measure, and report on DeFi protocol launches, stablecoin adoption, market maker performance, and broader ecosystem behaviors. The work spans descriptive dashboards, deep-dive research, and entirely new measurement frameworks for a rapidly evolving asset class.
+
+The ideal applicant has very strong SQL and visualization skills, a working knowledge of DeFi primitives (AMMs, lending markets, perps, stablecoin mechanisms), and the ability to merge quick iteration with creative ideation. Familiarity with concepts like TVL, volume quality, LP returns, peg stability, mint/redeem flows, and cross-chain bridging is a strong plus.
+
+Experience writing stable and maintainable analytics engineering pipelines is a plus, particularly in dbt, or similar frameworks, along with comfort orchestrating jobs against high-volume on-chain data.
+
+What You’ll Do:
+
+ - Build dashboards that drive understanding of DeFi protocols and stablecoin activity on Sui for PMs, engineers, Partnerships, and the executive leadership team.
+
+ - Run analyses on liquidity, trading volumes, lending utilization, holder behavior, and stablecoin velocity to identify high-impact opportunities for Mysten Labs and ecosystem partners.
+
+ - Develop measurement frameworks for evaluating DeFi protocol health, wash trading detection, real vs. incentivized activity, and stablecoin adoption quality.
+
+ - Collaborate with the data and engineering teams to set new standards for DeFi and stablecoin measurement across the industry.
+
+ - Partner with BD and partnerships to measure the impact of integrations with major DeFi protocols, stablecoin issuers, and market makers.
+
+ - Make data processing jobs run reliably in a lightweight, scrappy environment.
+
+What You’ll Have:
+
+ - A deep interest in DeFi, stablecoins, and the role of on-chain financial infrastructure in daily life.
+
+ - Strong SQL and visualization skills, with a deep desire to communicate clearly and captivatingly.
+
+ - Hands-on experience working with on-chain data (e.g., Dune, Flipside, Allium, or raw node/indexer data).
+
+ - Familiarity with DeFi primitives and key metrics (TVL, volume, LP economics, lending utilization, mint/redeem activity).
+
+ - Strong attention to detail and a desire to work on data analysis as a collaborative discipline across data, engineering, product, partnerships, and marketing teams.
+
+ - Bonus: experience with market microstructure, quantitative finance, or trading analytics.
+
+Employment is contingent upon the successful completion of a background check, which may include verification of employment history, education credentials, criminal history, and other relevant information.
+
+Regarding the recent rash of technology job scams: Be aware that emails from genuine Mysten Labs group recruiters will always come from the @mystenlabs.com http://mystenlabs.com domain or related subdomains (e.g., mystenlabs.com/careers http://mystenlabs.com/careers). Remember: you can always verify positions on our job boards at www.mystenlabs.com/careers http://www.mystenlabs.com/careers.
+
+To support an efficient and fair hiring process, we may use technology-assisted tools, including artificial intelligence (AI), to help identify and evaluate candidates. All hiring decisions are ultimately made by human reviewers.
+
+Our team is remote first and we are hiring across the world. Here at Mysten Labs, you’ll be joining a world-class team with tremendous growth potential as we bring the next billion users to web3. We raised a $300M Series B round from top Silicon Valley led venture funds like Jump Crypto, Andreessen Horowitz (a16z), Binance Labs, Redpoint, Lightspeed, Coinbase Ventures, Electric Capital, Standard Crypto, NFX, Slow Ventures, Scribble Ventures, Samsung Next, Lux Capital, among other investment firms and strategic partners. Come join us and build the future of web3!</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#ec4899">interview-1</span>
+    <span class="run-co">Faculty</span>
+    <span class="run-title">Lead Data Scientist </span>
+    <span class="run-meta">London · <code>ashby</code> · 2026-05-14</span>
+    <span class="ok">✓ submitted</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/form-filled.png" target="_blank">form-filled.png</a></li>
+          <li><a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/confirmation.png" target="_blank">confirmation.png</a> · <a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/confirmation.txt" target="_blank">.txt</a></li>
+          <li><a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-14/faculty-lead-data-scientist/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: interview-1
+submitted_at: Fri May 15 2026 04:09:18 GMT+0700 (Western Indonesia Time)
+last_update: 2026-05-14T21:21:10.338Z
+notes: Recruiter call scheduled 22 May 2026
+</pre>
+        <h4>Submission confirmation</h4><pre class="conf">Lead Data Scientist
+Location
+London
+Address
+London, London
+Employment Type</pre>
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (9 fields, 8 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Phone Number</td><td><code>tel</code></td><td>✓</td><td>+39 02 8718 4500</td></tr><tr><td>4</td><td>CV</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>5</td><td>LinkedIn Profile</td><td><code>text</code></td><td>✓</td><td>https://linkedin.com/in/nauval-zulfikar</td></tr><tr><td>6</td><td>Do you require visa sponsorship, now or in the future, to work in the UK?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>7</td><td>What is your current notice period?</td><td><code>text</code></td><td>✓</td><td>Immediate (available now)</td></tr><tr><td>8</td><td>What is your salary expectation?</td><td><code>number</code></td><td>✓</td><td>Open. Target range £65K UK / €70K EU / $110K US, flexible based on total package.</td></tr><tr><td>9</td><td>I agree</td><td><code>checkbox</code></td><td></td><td>Yes</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># Faculty — Lead Data Scientist 
+
+- **ATS:** ashby
+- **Location:** London
+- **Department:** Professional &amp; Financial Services
+- **Workplace:** Hybrid
+- **Job URL:** https://jobs.ashbyhq.com/faculty/c049f0ee-e6fc-43a3-9d45-6dace70ad06a
+- **Apply URL:** https://jobs.ashbyhq.com/faculty/c049f0ee-e6fc-43a3-9d45-6dace70ad06a/application
+
+## Description
+
+WHY FACULTY?
+
+
+We established Faculty in 2014 because we thought that AI would be the most important technology of our time. Since then, we’ve worked with over 350 global customers to transform their performance through human-centric AI. You can read about our real-world impact here https://faculty.ai/impact.
+
+We don’t chase hype cycles. We innovate, build and deploy responsible AI which moves the needle - and we know a thing or two about doing it well. We bring an unparalleled depth of technical, product and delivery expertise to our clients who span government, finance, retail, energy, life sciences and defence.
+
+Our business, and reputation, is growing fast and we’re always on the lookout for individuals who share our intellectual curiosity and desire to build a positive legacy through technology.
+
+AI is an epoch-defining technology, join a company where you’ll be empowered to envision its most powerful applications, and to make them happen.
+
+
+
+ABOUT THE TEAM
+
+In our Professional and Financial Services Business unit, we bring everything we have learned in more than a decade of Applied AI, and use it to help our clients navigate a rapidly changing landscape.
+
+
+We develop and embed AI solutions which help financial institutions become more efficient, enhance customer experience, and find the commercial upside in uncertain markets. Within the constraints of a highly regulated industry, we see so much opportunity for impactful innovation and are proud to set the gold-standard for marrying technical excellence with safe deployment.
+
+#LI-PRIO
+
+
+
+ABOUT THE ROLE
+
+As a Lead Data Scientist, you&#39;ll take on a pivotal, entrepreneurial role, functioning as the technical expert who thrives on complexity and commercial impact. You will be responsible for setting the technical direction and ensuring the high-quality, scalable delivery of our most challenging, high-impact projects.
+
+This position combines deep expertise in machine learning with strategic oversight to define project roadmaps, manage technical risk, and architect reliable solutions. Your focus will be on driving innovation, mentoring cross-functional teams, and actively shaping both our technical standards and long-term customer relationships.
+
+
+WHAT YOU&#39;LL BE DOING:
+
+ - Setting the technical direction for complex, business-critical projects and expertly balancing trade-offs between speed, innovation, and reliability.
+
+ - Designing and implementing reliable, production-grade technical solutions, ensuring comprehensive documentation of architectures and specifications.
+
+ - Defining project problems, developing clear roadmaps, and overseeing end-to-end delivery across multi-disciplinary workstreams.
+
+ - Leading technical scoping and feasibility studies for high-value sales opportunities and strategic customer engagements.
+
+ - Managing relationships and communications with demanding clients, fostering trust and aligning technical solutions with shared long-term commercial goals.
+
+ - Driving the adoption of best practices, shared resources, and robust technical processes across the wider Data Science craft.
+
+ - Mentoring and developing other data scientists and team members, actively contributing to the growth and technical excellence of the organisation.
+
+
+WHO WE&#39;RE LOOKING FOR:
+
+ - You bring depth of expertise in at least one machine learning domain and strong technical breadth across the entire data science landscape.
+
+ - You are a skilled technical leader, proficient in mentoring individuals, managing teams (including other managers), and rolling out impactful tools and workflows.
+
+ - You have proven project management expertise, capable of dividing complex, ill-defined problems into actionable, clearly defined workstreams with timelines you can defend.
+
+ - You are adept at managing ill-defined, high-risk tasks, consistently delivering innovative and practical outcomes under commercial pressure.
+
+ - You possess strong customer leadership skills, able to act as a trusted technical advisor and drive long-term strategic relationships with demanding clients.
+
+ - You excel at cross-functional collaboration, effectively aligning technical strategy with Engineering, Commercial (BD), and Infrastructure teams.
+
+ - You have experience extending technical oversight to business unit-level initiatives, using your vision to influence and contribute to organisational success.
+
+
+THE INTERVIEW PROCESS
+
+
+ 1. Talent Team Screen (30 minutes)
+
+ 2. Introduction to the team (30 minutes)
+
+ 3. Take Home Technical Assessment
+
+ 4. Technical Interview (90 minutes)
+
+ 5. Commercial Interview (60 minutes)
+    
+
+
+OUR RECRUITMENT ETHOS
+
+
+
+
+We aim to grow the best team - not the most similar one. We know that diversity of individuals fosters diversity of thought, and that strengthens our principle of seeking truth. And we know from experience that diverse teams deliver better work, relevant to the world in which we live. We’re united by a deep intellectual curiosity and desire to use our abilities for measurable positive impact. We strongly encourage applications from people of all backgrounds, ethnicities, genders, religions and sexual orientations.
+
+Some of our standout benefits:
+
+ - Unlimited Annual Leave Policy
+
+ - Private healthcare and dental
+
+ - Enhanced parental leave
+
+ - Family-Friendly Flexibility &amp; Flexible working
+
+ - Sanctus Coaching
+
+ - Hybrid Working
+
+If you don’t feel you meet all the requirements, but are excited by the role and know you bring some key strengths, please don&#39;t hesitate in applying as you might be right for this role, or other roles. We are open to conversations about part-time hours.</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#3b82f6">submitted</span>
+    <span class="run-co">Lovable</span>
+    <span class="run-title">Data Scientist - Finance</span>
+    <span class="run-meta">Stockholm · <code>ashby</code> · 2026-05-14</span>
+    <span class="ok">✓ submitted</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/form-filled.png" target="_blank">form-filled.png</a></li>
+          <li><a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/confirmation.png" target="_blank">confirmation.png</a> · <a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/confirmation.txt" target="_blank">.txt</a></li>
+          <li><a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-14/lovable-data-scientist-finance/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: submitted
+submitted_at: 2026-05-14T21:08:33.486Z
+last_update: 2026-05-14T21:15:18.159Z
+notes: &#39;&#39;
+</pre>
+        <h4>Submission confirmation</h4><pre class="conf">Data Scientist - Finance
+Location
+Stockholm
+Employment Type
+Full time
+Location Type</pre>
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (16 fields, 15 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Full Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email ID</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Phone Number</td><td><code>tel</code></td><td>✓</td><td>+39 02 8718 4500</td></tr><tr><td>4</td><td>Location</td><td><code>typeahead</code></td><td>✓</td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>5</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>6</td><td>LinkedIn Profile URL</td><td><code>text</code></td><td>✓</td><td>https://linkedin.com/in/nauval-zulfikar</td></tr><tr><td>7</td><td>Do you currently have the legal right to work in the country where you are applying for this role?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>8</td><td>Will you now or in the future require the company to sponsor a visa or work permit in order to work in this location?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>9</td><td>What is the earliest date you can join us?</td><td><code>text</code></td><td>✓</td><td>Immediate (available now)</td></tr><tr><td>10</td><td>What are your compensation expectations?</td><td><code>text</code></td><td>✓</td><td>Open. Target range £65K UK / €70K EU / $110K US, flexible based on total package.</td></tr><tr><td>11</td><td>Why do you want to join Lovable specifically and what makes you a great fit?</td><td><code>textarea</code></td><td>✓</td><td>Lovable&#39;s focus on Product maps directly to where I&#39;ve spent the last 5 years —
+production ML at Bank Muamalat + UK marketing DS at Syncwell. The team&#39;s bias toward shipping production systems matches how I&#39;ve
+worked at Bank Muamalat (regulated NLP credit models, +5.3% investment return) and Syncwell UK
+(predictive marketing models, +40% CTR).
+</td></tr><tr><td>12</td><td>What is the most impressive thing you’ve done in your career?</td><td><code>textarea</code></td><td>✓</td><td>Owning end-to-end data products in regulated/high-stakes environments — from ambiguous business question through production model with monitoring and stakeholder buy-in.</td></tr><tr><td>13</td><td>Is there anything else you&#39;d like us to know about you?</td><td><code>textarea</code></td><td>✓</td><td>Happy to share more in conversation — please find my CV and cover letter attached for full context.</td></tr><tr><td>14</td><td>Have you built anything in Lovable you&#39;d like to share? We&#39;d love to see it!</td><td><code>textarea</code></td><td></td><td>Not yet built a full production app, but I&#39;ve explored the product and read the docs. Very keen to try once I&#39;m part of the team.</td></tr><tr><td>15</td><td>Location</td><td><code>text</code></td><td></td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>16</td><td>LinkedIn</td><td><code>radio-group</code></td><td></td><td>https://linkedin.com/in/nauval-zulfikar</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># Lovable — Data Scientist - Finance
+
+- **ATS:** ashby
+- **Location:** Stockholm
+- **Department:** Product
+- **Workplace:** OnSite
+- **Job URL:** https://jobs.ashbyhq.com/lovable/9f403111-c1e2-4f05-92a1-5a85cc5c8f61
+- **Apply URL:** https://jobs.ashbyhq.com/lovable/9f403111-c1e2-4f05-92a1-5a85cc5c8f61/application
+
+## Description
+
+TL;DR - We’re looking for a business-savvy data scientist to build and scale financial analytics, from data models and metrics frameworks to forecasting and strategic insights. You’ll turn product and business data into clear decisions, partner closely with Finance, Data, and Engineering, and support executive reporting and fundraising with reliable models, dashboards, and analysis.
+
+
+WHY LOVABLE?
+
+Lovable lets anyone and everyone build software with any language. From solopreneurs to Fortune 100 teams, millions of people use Lovable to transform raw ideas into real products - fast. We are at the forefront of a foundational shift in software creation, which means you have an unprecedented opportunity to change the way the digital world works. Lovable-built applications and websites are visited hundreds of millions of times a month, and our enterprise footprint is compounding fast. And we’re just getting started.
+
+We’re a small, talent-dense team building a generation-defining company from Stockholm. We value extreme ownership, high velocity, and low-ego collaboration. We seek out people who care deeply, ship fast, and are eager to make a dent in the world.
+
+What we’re looking for
+
+ - A business-minded data scientist excited to level up our financial analytics by building metrics frameworks and data models.
+
+ - Ability to move seamlessly between exploratory analysis, behavioral modeling, hypothesis testing, and strategic recommendations.
+
+ - Experience creating production-level data models with strong testing, and clear ownership across pipelines.
+
+ - Solid technical foundation (SQL, Python, statistical analysis) - comfortable working with data at scale and translating it into insights.
+
+ - Deep curiosity about user behavior and what actually drives growth and retention
+
+ - Expertise in financial modeling, forecasting, and scenario analysis (P&amp;L, cash flow, unit economics).
+
+What you’ll do
+
+ - Partner with the Finance team to build and maintain financial projections, decision analyses, and long-range plans
+
+ - Work closely with data and engineering teams to leverage product and business data for deeper financial insights, cohort analysis, and predictive modeling
+
+ - Analyze funnels, cohorts, and user behaviors to surface insights that drive decisions
+
+ - Build dashboards, alerts, and automated reporting to keep the team informed and aligned
+
+ - Monitor data quality and collaborate with engineering to maintain reliability
+
+ - Translate complex financial data into clear narratives for executive and board audiences
+
+ - Support fundraising and strategic initiatives with ad-hoc financial analysis and data room preparation
+
+
+OUR TECH STACK
+
+We&#39;re building with tools that both humans and AI love:
+
+ - Frontend: React
+
+ - Backend: Golang and Rust
+
+ - Cloud: Cloudflare, GCP, AWS, Many LLM providers
+
+ - DevOps &amp; Tooling: Github Actions, Grafana, OTEL, , infra-as-code (Terraform)
+
+And always on the lookout for what&#39;s next!
+
+
+HOW WE HIRE
+
+ 1. Fill out a short form and hop on a quick intro call with our recruiting team
+
+ 2. Walk through past work and real examples of your process
+
+ 3. Show us your Most Impressive Project
+
+ 4. Cross-functional interviews to meet more team members
+
+About your application
+
+ - Please submit your application in English. It’s our company language so you’ll be speaking lots of it if you join.
+
+ - We treat all candidates equally - if you’re interested please apply through our careers portal.</pre>
+    </details>
+  </div>
+</details>
+<details class="run">
+  <summary class="run-summary">
+    <span class="badge" style="background:#3b82f6">submitted</span>
+    <span class="run-co">Synthesia</span>
+    <span class="run-title">Commercial Data Scientist</span>
+    <span class="run-meta">Europe · <code>ashby</code> · 2026-05-14</span>
+    <span class="dry">dry-run</span>
+  </summary>
+
+  <div class="run-body">
+    <div class="run-cols">
+      <div class="col">
+        <h4>Artifacts</h4>
+        <ul class="files">
+          <li><a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/cv.pdf" target="_blank">cv.pdf</a> · <a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/cv.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/cl.pdf" target="_blank">cl.pdf</a> · <a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/cl.html" target="_blank">html</a></li>
+          <li><a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/jd.md" target="_blank">jd.md</a></li>
+          <li><a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/form-filled.png" target="_blank">form-filled.png</a></li>
+          
+          <li><a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/answers.json" target="_blank">answers.json</a> · <a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/form-schema.json" target="_blank">form-schema.json</a></li>
+          <li><a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/status.yml" target="_blank">status.yml</a> · <a href="tmp/runs/2026-05-14/synthesia-commercial-data-scientist/summary.json" target="_blank">summary.json</a></li>
+        </ul>
+        <h4>Status</h4>
+        <pre class="yaml">stage: submitted
+submitted_at: 2026-05-14T15:30:00.000Z
+last_update: 2026-05-15T04:18:00.000Z
+notes: First real submission. Email confirmation received.
+</pre>
+        
+      </div>
+
+      <div class="col col-wide">
+        <h4>Questions &amp; Answers (8 fields, 6 answered)</h4>
+        <table class="qa"><thead><tr><th>#</th><th>Field</th><th>Type</th><th>Req</th><th>Answer</th></tr></thead><tbody><tr><td>1</td><td>Name</td><td><code>text</code></td><td>✓</td><td>Nauval Zulfikar</td></tr><tr><td>2</td><td>Email</td><td><code>email</code></td><td>✓</td><td>zulfikar.nauval1998@gmail.com</td></tr><tr><td>3</td><td>Resume</td><td><code>file</code></td><td>✓</td><td><em class="muted">—</em></td></tr><tr><td>4</td><td>Cover Letter</td><td><code>file</code></td><td></td><td><em class="muted">—</em></td></tr><tr><td>5</td><td>Linkedin Profile</td><td><code>url</code></td><td></td><td>https://linkedin.com/in/nauval-zulfikar</td></tr><tr><td>6</td><td>Location</td><td><code>typeahead</code></td><td></td><td>Milan, Italy (open to UK/EU/Remote)</td></tr><tr><td>7</td><td>Are you legally authorised to work in the country you wish to work in without the need for visa sponsorship?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr><tr><td>8</td><td>Do you require ongoing employer support to maintain your right to work (e.g., visa renewals or work permit sponsorship)?</td><td><code>button-toggle</code></td><td>✓</td><td>Italian residency permit + UK Graduate Visa</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <details class="jd-box">
+      <summary><strong>Job Description</strong> (click to expand)</summary>
+      <pre class="jd"># Synthesia — Commercial Data Scientist
+
+- **ATS:** ashby
+- **Location:** Europe
+- **Department:** Commercial
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/synthesia/a40cbbc3-6be7-48a2-b8c7-1f09a1c5aa43
+- **Apply URL:** https://jobs.ashbyhq.com/synthesia/a40cbbc3-6be7-48a2-b8c7-1f09a1c5aa43/application
+
+## Description
+
+Synthesia is the world’s leading AI video platform for business, used by over 90% of the Fortune 100. Founded in 2017, the company is headquartered in London, with offices and teams across Europe and the US.
+
+As AI continues to shape the way we live and work, Synthesia develops products to enhance visual communication and enterprise skill development, helping people work better and stay at the center of successful organizations.
+
+Following our recent Series E funding round, where we raised $200 million, our valuation stands at $4 billion. Our total funding exceeds $530 million from premier investors including Accel, NVentures (Nvidia&#39;s VC arm), Kleiner Perkins, GV, and Evantic Capital, alongside the founders and operators of Stripe, Datadog, Miro, and Webflow.
+
+
+ABOUT THE ROLE
+
+We’re hiring a Commercial Data Scientist to build, deploy, and maintain data science models that directly improve revenue outcomes and customer experience.
+
+You’ll work end-to-end: from defining the problem with commercial stakeholders, to building and validating models, to deploying and running them reliably in production with the Data Engineering team.
+
+Typical projects include customer health scores, lead intent scoring, churn/expansion predictors, segmentation, and experimentation frameworks that make those models actionable.
+
+
+WHAT YOU’LL DO
+
+ - Partner with Sales, RevOps, CS and Marketing to translate ambiguous commercial questions into measurable problems and model-ready datasets.
+
+ - Build and iterate on predictive and classification models (e.g., health scoring, intent scoring), with rigorous validation, monitoring, and clear success metrics.
+
+ - Deploy models into production in collaboration with Data Engineering (batch jobs, pipelines, feature generation, versioning, and observability).
+
+ - Maintain and improve existing models: performance monitoring, retraining strategies, drift detection, and reliability.
+
+ - Make models usable: deliver clear outputs, documentation, and guidance so commercial teams can act on insights.
+
+ - Contribute to a strong DS craft culture: code quality, reproducibility, experimentation discipline, and pragmatic model selection.
+
+
+WHO YOU ARE
+
+You’re a pragmatic, commercial-minded data scientist who enjoys owning outcomes — not just analysis.
+
+You can take a fuzzy commercial problem, shape it into something measurable, and ship a solution that keeps working over time.
+
+
+WHAT WE’RE LOOKING FOR
+
+Must-haves
+
+ - Several years of industry experience as a Data Scientist (or similar), building statistical/ML models end-to-end.
+
+ - Strong foundations in applied machine learning and statistics, with good judgment about model complexity vs. impact.
+
+ - Production mindset: you’ve worked with deployed models, and understand monitoring, retraining, data quality, and operational constraints.
+
+ - Strong SQL and Python skills, with experience in data wrangling and feature engineering.
+
+ - Ability to communicate clearly with technical and non-technical partners, including explaining trade-offs and model limitations.
+
+ - Comfort operating in a high-autonomy environment: you can plan your work, drive alignment, and ship without being handed tickets.
+
+Nice-to-haves
+
+ - Experience working on commercial / go-to-market problems (rev intelligence, lead scoring, churn, expansion, attribution, forecasting).
+
+ - Experience working closely with modern data stacks (Snowflake, dbt, Airflow) and production ML patterns.
+
+ - Experience designing model outputs that integrate cleanly into commercial workflows (dashboards, alerts, CRM signals).
+
+
+HOW WE WORK
+
+We optimize for responsibility and freedom.
+
+That means:
+
+ - No Jira, no ticket conveyor belt — we run on ownership and a small number of high-impact projects.
+
+ - Close collaboration with commercial stakeholders and Data Engineering to ship real outcomes.
+
+ - A bias toward pragmatic solutions that can be deployed, monitored, and improved.
+
+
+WHY JOIN
+
+ - Work on problems that sit at the intersection of product usage and commercial outcomes.
+
+ - Own impactful, end-to-end projects — from definition to production.
+
+ - Join a team that values autonomy, craft, and speed.</pre>
+    </details>
+  </div>
+</details>
+  </div>
+</div>
+<script>
+  function filterRuns() {
+    const q = document.getElementById('filter').value.toLowerCase();
+    let shown = 0;
+    document.querySelectorAll('details.run').forEach(d => {
+      const text = d.innerText.toLowerCase();
+      const visible = !q || text.includes(q);
+      d.style.display = visible ? '' : 'none';
+      if (visible) shown++;
+    });
+    document.getElementById('count').textContent = shown + ' shown';
+  }
+</script>
+</body></html>

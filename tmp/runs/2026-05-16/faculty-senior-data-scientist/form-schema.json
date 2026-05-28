@@ -1,0 +1,88 @@
+[
+  {
+    "id": "_systemfield_name",
+    "label": "Name",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_name\"]",
+    "entryIdx": 0
+  },
+  {
+    "id": "_systemfield_email",
+    "label": "Email",
+    "type": "email",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_email\"]",
+    "entryIdx": 1
+  },
+  {
+    "id": "70da870d-7446-41fb-b79f-a1da0b878db1",
+    "label": "Phone Number",
+    "type": "tel",
+    "required": true,
+    "selectorHint": "[id=\"70da870d-7446-41fb-b79f-a1da0b878db1\"]",
+    "entryIdx": 2
+  },
+  {
+    "id": "_systemfield_resume",
+    "label": "CV",
+    "type": "file",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_resume\"]",
+    "entryIdx": 3
+  },
+  {
+    "id": "e8084ebe-f757-4a2a-b28d-2be8644d85ff",
+    "label": "LinkedIn Profile",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"e8084ebe-f757-4a2a-b28d-2be8644d85ff\"]",
+    "entryIdx": 4
+  },
+  {
+    "id": "09d750df-c49f-4f37-b79d-0c52daa37675",
+    "label": "What is your current notice period?",
+    "type": "text",
+    "required": false,
+    "selectorHint": "[id=\"09d750df-c49f-4f37-b79d-0c52daa37675\"]",
+    "entryIdx": 6
+  },
+  {
+    "id": "btnq-7",
+    "label": "Do you require visa sponsorship, either now or in the future, to work in the UK?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 7
+  },
+  {
+    "id": "btnq-8",
+    "label": "This role requires you to be eligible for Security Clearance, meaning you have lived in the UK for the past 5 years continuously. Can you confirm this statement applies to you?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 8
+  },
+  {
+    "id": "btnq-9",
+    "label": "If applying for our Defence team, you may be required travel throughout the UK on a weekly basis, please confirm this is something you are comfortable with",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 9
+  },
+  {
+    "id": "2df17053-3010-41d0-b1bb-d6e2869b6de5",
+    "label": "What is your salary expectation?",
+    "type": "number",
+    "required": false,
+    "selectorHint": "[id=\"2df17053-3010-41d0-b1bb-d6e2869b6de5\"]"
+  },
+  {
+    "id": "82651692-92c3-4fc6-9cd4-e774f33d66b8__systemfield_data_consent_ack-labeled-checkbox-0",
+    "label": "I agree",
+    "type": "checkbox",
+    "required": false,
+    "selectorHint": "[id=\"82651692-92c3-4fc6-9cd4-e774f33d66b8__systemfield_data_consent_ack-labeled-checkbox-0\"]"
+  }
+]

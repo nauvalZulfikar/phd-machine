@@ -211,7 +211,9 @@ function loadSeenCompanyRoles() {
 function appendToPipeline(offers) {
   if (offers.length === 0) return;
 
-  let text = readFileSync(PIPELINE_PATH, 'utf-8');
+  // pipeline.md may not exist on a fresh deploy — treat as empty so first scan
+  // bootstraps the file instead of crashing with ENOENT.
+  let text = existsSync(PIPELINE_PATH) ? readFileSync(PIPELINE_PATH, 'utf-8') : '';
 
   // Find "## Pendientes" section and append after it
   const marker = '## Pendientes';
@@ -308,7 +310,9 @@ async function main() {
   const seenCompanyRoles = loadSeenCompanyRoles();
 
   // 4. Fetch all APIs
-  const date = new Date().toISOString().slice(0, 10);
+  // Use full ISO timestamp so auto-apply can compute job freshness (hour-level age).
+  // Readers only using col 0 (url) or 6 (location) are unaffected.
+  const date = new Date().toISOString();
   let totalFound = 0;
   let totalFilteredTitle = 0;
   let totalFilteredLocation = 0;

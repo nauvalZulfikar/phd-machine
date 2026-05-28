@@ -1,0 +1,8 @@
+# default template — neutral sans-serif, no photo
+# Use for: US schools, conservative EU postdocs, when in doubt
+name: default
+font_primary: Helvetica
+photo_in_cv: false
+margins_full: {top: 25mm, bottom: 25mm, left: 25mm, right: 25mm}
+margins_cv:   {top: 14mm, bottom: 14mm, left: 15mm, right: 15mm}
+citation_style: Harvard

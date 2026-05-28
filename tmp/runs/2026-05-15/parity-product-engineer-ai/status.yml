@@ -1,0 +1,6 @@
+# Update this file as the application progresses.
+# Valid stages: submitted, viewed, screen, interview-1, interview-2, interview-final, offer, rejected, withdrawn, ghosted, dry-run
+stage: withdrawn
+submitted_at: Fri May 15 2026 14:03:41 GMT+0700 (Western Indonesia Time)
+last_update: 2026-05-15T07:27:32.200Z
+notes: "Form-parser bug; retry --headed later"

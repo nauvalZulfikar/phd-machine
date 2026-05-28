@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" font-family="Calibri, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2F5496"/>
+    </marker>
+    <linearGradient id="boxGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DEEAF6"/>
+      <stop offset="100%" stop-color="#BDD7EE"/>
+    </linearGradient>
+    <linearGradient id="dataGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF2CC"/>
+      <stop offset="100%" stop-color="#FFE699"/>
+    </linearGradient>
+  </defs>
+
+  <text x="360" y="24" text-anchor="middle" font-size="15" font-weight="600" fill="#1F3864">
+    Figure 1. MSc Dissertation Three-Stage Pipeline (Aston, 2024)
+  </text>
+
+  <rect x="240" y="48" width="240" height="46" rx="4" fill="url(#dataGrad)" stroke="#BF8F00" stroke-width="1.3"/>
+  <text x="360" y="68" text-anchor="middle" font-size="11.5" font-weight="700" fill="#3F2F00">Input data</text>
+  <text x="360" y="84" text-anchor="middle" font-size="10" fill="#3F2F00">~50,000 e-commerce customer reviews (multi-aspect)</text>
+
+  <line x1="360" y1="94" x2="360" y2="118" stroke="#2F5496" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="160" y="120" width="400" height="80" rx="6" fill="url(#boxGrad)" stroke="#2F5496" stroke-width="1.5"/>
+  <text x="360" y="144" text-anchor="middle" font-size="13" font-weight="700" fill="#1F3864">Stage 1: NLP Pipeline (DeBERTa-v3 fine-tune)</text>
+  <text x="360" y="162" text-anchor="middle" font-size="10.5" fill="#333">Multi-aspect classification: quality, delivery, packaging, service</text>
+  <text x="360" y="178" text-anchor="middle" font-size="10.5" fill="#333">HuggingFace Transformers + PyTorch, 3-epoch fine-tune</text>
+  <text x="360" y="193" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1F3864">Outcome: macro-F1 &gt; 0.85 (lexical baseline 0.65)</text>
+
+  <line x1="360" y1="200" x2="360" y2="224" stroke="#2F5496" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="226" width="320" height="40" rx="4" fill="url(#dataGrad)" stroke="#BF8F00" stroke-width="1.3"/>
+  <text x="360" y="246" text-anchor="middle" font-size="10.5" fill="#3F2F00">Structured aspect-level signals (aspect, polarity, confidence)</text>
+  <text x="360" y="259" text-anchor="middle" font-size="9.5" fill="#3F2F00">JSON event payload, ready for on-chain emission</text>
+
+  <line x1="360" y1="266" x2="360" y2="290" stroke="#2F5496" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="160" y="292" width="400" height="80" rx="6" fill="url(#boxGrad)" stroke="#2F5496" stroke-width="1.5"/>
+  <text x="360" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#1F3864">Stage 2: Smart Contract Layer (Solidity / Ethereum)</text>
+  <text x="360" y="334" text-anchor="middle" font-size="10.5" fill="#333">Three-tier topology: Retailer -&gt; Distributor -&gt; Manufacturer contracts</text>
+  <text x="360" y="350" text-anchor="middle" font-size="10.5" fill="#333">Ganache testnet + Truffle unit tests for each flow path</text>
+  <text x="360" y="365" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1F3864">Outcome: on-chain event routing, full provenance</text>
+
+  <line x1="360" y1="372" x2="360" y2="396" stroke="#2F5496" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="160" y="398" width="400" height="80" rx="6" fill="url(#boxGrad)" stroke="#2F5496" stroke-width="1.5"/>
+  <text x="360" y="422" text-anchor="middle" font-size="13" font-weight="700" fill="#1F3864">Stage 3: Integrated Evaluation</text>
+  <text x="360" y="440" text-anchor="middle" font-size="10.5" fill="#333">Treatment (NLP + smart contracts) vs Baseline (manual routing)</text>
+  <text x="360" y="456" text-anchor="middle" font-size="10.5" fill="#333">Metrics: latency, signal-to-noise, decision-relevant signal acquisition</text>
+  <text x="360" y="471" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1F3864">Outcome: order-of-magnitude latency reduction; emergent labelling discipline</text>
+
+  <line x1="360" y1="478" x2="360" y2="502" stroke="#2F5496" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <rect x="200" y="504" width="320" height="32" rx="4" fill="url(#dataGrad)" stroke="#BF8F00" stroke-width="1.3"/>
+  <text x="360" y="525" text-anchor="middle" font-size="10.5" font-weight="700" fill="#3F2F00">
+    Contributions: methodological (NLP+contract integration), theoretical, practical prototype
+  </text>
+</svg>

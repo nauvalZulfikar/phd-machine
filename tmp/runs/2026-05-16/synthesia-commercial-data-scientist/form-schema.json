@@ -1,0 +1,66 @@
+[
+  {
+    "id": "_systemfield_name",
+    "label": "Name",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_name\"]",
+    "entryIdx": 0
+  },
+  {
+    "id": "_systemfield_email",
+    "label": "Email",
+    "type": "email",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_email\"]",
+    "entryIdx": 1
+  },
+  {
+    "id": "_systemfield_resume",
+    "label": "Resume",
+    "type": "file",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_resume\"]",
+    "entryIdx": 2
+  },
+  {
+    "id": "17b7f928-0e08-4041-9b0a-e20bcd0e600d",
+    "label": "Cover Letter",
+    "type": "file",
+    "required": false,
+    "selectorHint": "[id=\"17b7f928-0e08-4041-9b0a-e20bcd0e600d\"]",
+    "entryIdx": 3
+  },
+  {
+    "id": "4a29ef41-ea92-41cb-af41-a8044fb38373",
+    "label": "Linkedin Profile",
+    "type": "url",
+    "required": false,
+    "selectorHint": "[id=\"4a29ef41-ea92-41cb-af41-a8044fb38373\"]",
+    "entryIdx": 4
+  },
+  {
+    "id": "idx-cb-5",
+    "label": "Location",
+    "type": "typeahead",
+    "required": false,
+    "selectorHint": ".ashby-application-form-field-entry:nth-of-type(6) input[role=\"combobox\"], .ashby-application-form-field-entry:nth-of-type(6) input[placeholder*=\"Start typing\" i]",
+    "entryIdx": 5
+  },
+  {
+    "id": "btnq-6",
+    "label": "Are you legally authorised to work in the country you wish to work in without the need for visa sponsorship?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 6
+  },
+  {
+    "id": "btnq-7",
+    "label": "Do you require ongoing employer support to maintain your right to work (e.g., visa renewals or work permit sponsorship)?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 7
+  }
+]

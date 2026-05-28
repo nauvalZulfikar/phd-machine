@@ -1,0 +1,180 @@
+# Academic profile — GENERAL ML / DS / NLP / Applied AI track
+# Used by auto/score.mjs to rank PhD / postdoc / research opportunities
+# Complements nauval_phd.yaml (which is niche Digital Twin / VRP / crowd-shipping)
+# Use this profile when discovering generalist DS/ML/NLP PhD positions.
+
+name: Nauval Zulfikar
+email: zulfikar.nauval1998@gmail.com
+
+# ─── ACADEMIC HISTORY ─────────────────────────────────────────────────
+education:
+  - degree: MSc Business Analytics
+    institution: Aston University, Birmingham, UK
+    classification: 1:1 First Class (Distinction)
+    year_completed: 2024
+    distinctions:
+      - Decision Models (MILP, MNL, mathematical programming)
+      - Effective Management Consultancy
+      - Software Analytics (simulation, system design)
+    scholarship: Aston Enterprise Scholarship 2023 (full tuition)
+    dissertation:
+      title: "Enhancing Supply Chain Information Sharing Systems Through Blockchain: Integrated Customer Reviews LLM Analysis: A Smart Contract Approach"
+      supervisor: Dr Ammar Al-Bazi
+      methods: [DeBERTa-v3, transformer NLP, Ethereum smart contracts, sentiment analysis]
+
+  - degree: BBA Marketing
+    institution: Ritsumeikan Asia Pacific University, Beppu, Japan
+    year_completed: 2019
+    distinctions:
+      - Business Data Analysis
+      - Consumer Behaviour
+      - Marketing Research
+
+# ─── LANGUAGE PROOF ────────────────────────────────────────────────────
+english:
+  ielts:
+    overall: 7.0
+    listening: 8.0
+    writing: 7.5
+    reading: 6.0
+    speaking: 6.5
+    date: 2023-02-28
+  msc_english_medium: true
+
+# ─── TARGET FIELDS (BROAD — DS/ML/NLP/Applied AI) ─────────────────────
+target_fields:
+  primary:
+    - Applied Machine Learning
+    - Natural Language Processing (NLP)
+    - Large Language Models (LLM)
+    - Retrieval-Augmented Generation (RAG)
+    - Responsible / Trustworthy AI
+    - Data Science (general)
+    - ML for financial services / credit risk
+    - Model governance / Model risk management
+    - Foundation models for tabular / structured data
+
+  secondary:
+    - Time-series forecasting
+    - Causal inference
+    - Fraud detection / anomaly detection
+    - Recommender systems
+    - Federated learning / privacy-preserving ML
+    - Explainable AI (XAI) / interpretability
+    - Knowledge graphs + LLM grounding
+    - Multi-agent systems / agentic AI
+    - LLM evaluation / benchmarking
+    - Information retrieval
+
+  related:
+    - Healthcare ML / clinical NLP
+    - ESG analytics / sustainability ML
+    - Marketing data science / customer analytics
+    - Supply chain ML
+    - Digital Twin (any domain)
+    - Operations Research + ML hybrid
+    - Reinforcement learning for OR / scheduling
+    - Smart city / urban computing
+
+# ─── METHODS PROVEN ────────────────────────────────────────────────────
+methods_proven:
+  programming: [Python, SQL, R, TypeScript, JavaScript]
+  ml_frameworks: [PyTorch, TensorFlow, scikit-learn, HuggingFace Transformers]
+  llm: [OpenAI GPT-4o, gpt-4o-mini, DeBERTa-v3, RAG with sentence-transformers, LangChain basics]
+  nlp: [transformer fine-tuning, sentiment analysis, text classification, NER, embedding similarity]
+  data_engineering: [pandas, numpy, PySpark, AWS, Docker, ETL pipelines]
+  ml_methods: [classification, regression, clustering, time-series, attribution modelling, A/B testing, causal inference (basic), Bayesian (basic)]
+  domain_modelling: [credit risk scoring, fraud detection, market segmentation, customer attribution]
+  visualisation: [Streamlit, Plotly, Power BI, Tableau, Folium]
+  simulation: [mesa (ABM), simpy (DES)]
+  optimisation: [scipy.optimize.milp, HiGHS]
+  governance: [model validation, regulated-environment deployment (Bank Muamalat banking)]
+
+# ─── PUBLIC PORTFOLIO ──────────────────────────────────────────────────
+github_repos:
+  - url: https://github.com/nauvalZulfikar/Mini-Digital-Twin
+    summary: 3-layer Digital Twin with FastAPI/mesa/simpy/Streamlit
+  - url: https://github.com/nauvalZulfikar/Crowd-Shipping-ABM-
+    summary: Agent-based model with 450-run behavioural parameter sweep
+  - url: https://github.com/nauvalZulfikar/VRP-MILP
+    summary: VRPOD MILP in scipy/HiGHS
+  - url: https://github.com/nauvalZulfikar/LLM-Shipper-Profiles-
+    summary: LLM-grounded decision-rule generator (gpt-4o-mini + RAG)
+  - github: https://github.com/NauvalZulfikar
+    note: Other repos include CV-Job suitability checker (DeBERTa-v3 + RAG), production scheduler
+
+# ─── WORK EXPERIENCE (5+ years applied ML / DS) ────────────────────────
+work_summary: |
+  5+ years applied ML in regulated and applied environments:
+
+  • Bank Muamalat (Lead DS, Leadership Dev Program, 3 yrs): NLP for credit
+    portfolio analysis & risk scoring in licensed banking; clustering for
+    market segmentation; A/B testing; model validation aligned with
+    regulatory frameworks. +5.3% investment return uplift.
+
+  • PUTR Bandung (Data Scientist & Project Manager, gov, current):
+    ETL automation, self-service dashboards, data governance for
+    regional planning. 45% faster delivery, 20% data efficiency gain.
+
+  • Syncwell (Marketing DS, UK startup): Predictive models, A/B tests,
+    campaign automation. +40% CTR.
+
+  • PCOS Challenge (Strategic DS, UK NPO): Customer attribution model,
+    automated report extraction, interactive visualisations. -80%
+    manual workload.
+
+  Distinct edge: regulated-finance ML rigour (model governance,
+  validation, audit trail) + applied LLM/RAG dissertation experience +
+  NLP transformer fine-tuning + Aston 1:1 MSc with Decision Models
+  distinction.
+
+# ─── TARGETS ───────────────────────────────────────────────────────────
+target_types:
+  - phd
+  - postdoc
+  - research  # industry research (DeepMind, FAIR, MS Research, etc.)
+
+target_regions:
+  priority_1: [United Kingdom, Germany, Netherlands, Switzerland, Sweden, Denmark]
+  priority_2: [Norway, Finland, France, Belgium, Italy, Spain, Austria, Ireland, Portugal]
+  priority_3: [United States, Canada, Australia, Singapore, Hong Kong]
+
+# ─── CONSTRAINTS ───────────────────────────────────────────────────────
+constraints:
+  must_be_funded: true
+  earliest_start: 2026-09-01
+  latest_start: 2027-12-31
+
+dealbreakers:
+  - self-funded
+  - requires_eu_or_uk_citizenship  # I'm Indonesian, UK Graduate Visa eligible
+  - requires_language_other_than_english
+  - wet_lab_biology
+  - clinical_trials  # NOT clinical NLP — that's fine
+  - pure_theoretical_physics
+  - pure_pure_mathematics  # I'm applied, not pure math
+  - quantum_computing  # no background
+
+# ─── PERSONAL FIT NARRATIVE ────────────────────────────────────────────
+narrative: |
+  Senior Data Scientist with 5+ years applied ML in regulated environments
+  (licensed banking, regional government, UK startup, UK NPO). MSc 1:1
+  from Aston with Decision Models distinction and an MSc dissertation
+  applying DeBERTa-v3 transformer NLP and Ethereum smart contracts to
+  supply-chain information asymmetry. Strong in NLP / LLM / RAG with
+  applied projects in CV-job matching (DeBERTa-v3 + RAG) and decision-
+  rule generation (gpt-4o-mini + RAG). UK Graduate Visa holder. Open to
+  remote and UK-based academic and industry-research roles.
+
+# ─── REFEREES ──────────────────────────────────────────────────────────
+referees:
+  - name: Dr Ammar Al-Bazi
+    role: MSc dissertation supervisor (DeBERTa-v3 + smart-contract supply chain)
+    institution: Aston University
+    email: a.al-bazi@aston.ac.uk
+    priority: 1  # MAIN REFEREE
+  - name: Dr Viktor Pekar
+    role: MSc Personal Tutor (NLP research, EAMT contributor)
+    institution: Aston University
+    email: v.pekar@aston.ac.uk
+    priority: 2  # SECONDARY REFEREE

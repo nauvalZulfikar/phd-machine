@@ -1,0 +1,50 @@
+{
+  "ref": null,
+  "title": "PhD in Information Technology (DEIB) — Responsible AI / Computational Social Science",
+  "institution": "Politecnico di Milano",
+  "department": "DEIB — Data Science Lab (Pierri group)",
+  "supervisor": "Asst. Prof. Francesco Pierri",
+  "supervisor_email": "francesco.pierri@polimi.it",
+  "deadline": null,
+  "deadline_estimate": "2026-06-15 (41st cycle call expected mid-June)",
+  "start_date": "2026-11-01",
+  "duration": "3 years",
+  "funding": "Funded (PoliMi PhD scholarship, ~€19k/yr stipend + tuition waived)",
+  "portal_url": "https://www.polimi.it/en/phd/prospective-phd-candidates/admission/calls-and-open-positions/",
+  "submission_method": "online_portal (PoliMi PhD application system)",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "research_statement",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "language_certificate",
+    "reference_letters",
+    "other: PoliMi 'Elaborato di Ricerca' research-topic-specific form (per chosen research line)"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "other: GRE (not required but accepted)"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Master's degree in CS, Engineering, or related discipline",
+    "Strong academic record",
+    "English proficiency (IELTS 6.0+ overall typical)",
+    "Background in ML, NLP, or computational social science preferred for Pierri group"
+  ],
+  "research_themes": [
+    "Responsible AI",
+    "computational social science",
+    "LLM impact on digital ecosystems",
+    "social media integrity",
+    "generative AI risks"
+  ],
+  "notes": "NO formal posting URL — Pierri invites prospective students via direct email. Standard PoliMi PhD call (41st cycle 3rd additional call 2025-26) is the expected pathway. Email Pierri FIRST to confirm he'll back an application before drafting the Elaborato di Ricerca.",
+  "url": "https://pierri.faculty.polimi.it/"
+}

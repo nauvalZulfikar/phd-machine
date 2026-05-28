@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- feat: unify job + PhD pipelines under single cron.mjs orchestrator with unified Telegram notifications (tagged `[JOB]` / `[PHD]`)
+- feat: add PhD discovery at 07:00 & 19:00 WIB daily (anchored to `TZ=Asia/Jakarta`)
+- feat: add scripts/deploy.sh + .claude/agents/career-ops-deployer.md for VPS deployment
+- chore: deprecate daily_run.bat (Windows Task Scheduler) in favor of pm2-managed cron orchestrator
+- docs: update README, .env.example, SETUP_TASK_SCHEDULER.md for unified orchestrator
+
 ## [1.7.1](https://github.com/santifer/career-ops/compare/career-ops-v1.7.0...career-ops-v1.7.1) (2026-05-12)
 
 

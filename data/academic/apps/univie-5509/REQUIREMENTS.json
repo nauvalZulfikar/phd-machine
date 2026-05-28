@@ -1,0 +1,44 @@
+{
+  "ref": "5509",
+  "title": "PhD Positions in Responsible AI",
+  "institution": "Universität Wien",
+  "department": "Faculty of Computer Science",
+  "supervisor": "Prof. Dr. Martin Pawelczyk",
+  "supervisor_email": "martin.pawelczyk@univie.ac.at",
+  "deadline": "2026-05-20",
+  "start_date": "between June and October 2026",
+  "duration": "3 years",
+  "funding": "EUR 3,776.10",
+  "portal_url": "https://jobs.univie.ac.at/job/PhD-Positions-in-Responsible-AI/1385351333/",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "thesis_abstract",
+    "transcripts_bachelor",
+    "transcripts_master"
+  ],
+  "optional_docs": [
+    "other: fill out this form (optional but encouraged)"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Must have a Master’s degree (completed or near completion) in Computer Science, Machine Learning, Mathematics, Physics, Statistics, or a related quantitative field.",
+    "Must have a solid background in machine learning, statistics and/or mathematics.",
+    "Must have strong programming skills in Python.",
+    "Must have excellent command of written and spoken English."
+  ],
+  "research_themes": [
+    "Data-centric AI",
+    "AI Safety",
+    "Efficiency",
+    "Science of Deep Learning"
+  ],
+  "notes": "The employment duration is initially limited to 1.5 years, automatically extending to 3 years if not terminated within the first 12 months.",
+  "url": "https://jobs.univie.ac.at/job/PhD-Positions-in-Responsible-AI/1385351333/"
+}

@@ -1,0 +1,97 @@
+# Polygon Labs — AI Developer Experience Engineer
+
+- **ATS:** ashby
+- **Location:** EMEA - Remote
+- **Department:** Technology
+- **Workplace:** Remote
+- **Job URL:** https://jobs.ashbyhq.com/polygon-labs/83ca09c3-d0ed-467e-9076-ae7393f2fdda
+- **Apply URL:** https://jobs.ashbyhq.com/polygon-labs/83ca09c3-d0ed-467e-9076-ae7393f2fdda/application
+
+## Description
+
+ABOUT POLYGON LABS
+
+Polygon Labs is a global blockchain payments company building and operating infrastructure to move money instantly, reliably, and at internet scale, with the mission to move all money onchain. It is building the Polygon Open Money Stack, an open and integrated stack of services and technologies to instantly and reliably move money anywhere, and put it to work. Its infrastructure has facilitated trillions of dollars in onchain value transfer and supported millions of transactions daily for some of the globe's largest banks, fintechs, enterprises, and consumer applications.
+
+
+YOUR ROLE
+
+Polygon is an AI-first company, and the AI Foundation team is where that commitment becomes reality. As the second member of this team, you will work directly alongside a staff-level engineer to design, build, and deploy AI tooling and infrastructure that accelerates productivity and AI adoption across the entire organization. This role exists because the demand for AI implementation has grown faster than a single person can handle, and the work is too important to slow down. You will own meaningful systems from day one, and your output will be felt across engineering, product, marketing, and operations.
+
+
+
+
+YOUR RESPONSIBILITIES
+
+ - Design and build AI tooling onboarding systems that automatically configure and recommend the appropriate tools, workflows, and skill paths to individuals based on their role and use case, reducing time-to-productivity for new and existing team members
+
+ - Develop and maintain the infrastructure that supports deployment, configuration, and operational scaling of AI tooling across the organization, ensuring reliability, resilience, telemetry coverage, and ease of adoption across teams
+
+ - Build custom internal applications and harnesses around AI agents and tooling, integrating systems that span engineering and cross-functional teams including product, marketing, operations, legal, and compliance
+
+ - Partner directly with engineering and cross-functional stakeholders to identify workflow bottlenecks, evaluate opportunities for AI-assisted automation, and design practical solutions that improve productivity and operational efficiency
+
+ - Evaluate, research, integrate, and configure third-party AI tools (coding assistants, LLM orchestration frameworks, agent platforms, and others) to match organizational needs as the landscape evolves, helping teams adopt scalable and maintainable workflows rather than fragmented one-off solutions
+
+ - Use Claude Code, Codex, Cursor, and other AI coding agents to produce well-structured, maintainable code at pace, while helping standardize and improve AI-assisted development workflows across engineering teams
+   
+
+
+WHAT YOU'LL NEED
+
+ - Demonstrated engineering experience building real systems: you have shipped working software and understand how to architect something maintainable, not just get it running
+
+ - Strong consultative and problem-solving instincts: you can work directly with stakeholders to understand operational pain points, scope practical solutions, and translate ambiguous requirements into executable systems and workflows
+
+ - Hands-on experience working with AI agents and LLM-based systems: you have built harnesses, integrations, or tooling on top of agent frameworks or LLM SDKs (such as LangChain, LlamaIndex, or similar) and understand how these systems behave in practice
+
+ - Proven ability to work with AI coding agents (Claude Code, Codex, Cursor, or equivalent) as a core part of your daily development workflow: daily AI-assisted coding is a baseline expectation for this role, not an occasional tool
+
+ - Self-directed execution: you take a project brief, ask the right clarifying questions, and drive to delivery without needing constant direction; you communicate proactively and flag blockers early
+   
+
+
+PREFERRED QUALIFICATIONS
+
+ - Experience building telemetry, observability, or monitoring into AI-powered systems to ensure resilience and measurable performance
+
+ - Familiarity with crypto or blockchain infrastructure environments, or experience working at a fast-moving technology company where the tooling landscape changes frequently
+
+ - Prior experience in a developer experience, platform engineering, or internal tooling role, particularly one where you were building for other engineers as your primary customer
+   
+
+
+POLYGON LABS PERKS
+
+The goal of the Polygon Labs total rewards program is to support the health and well-being of you and your family. Our comprehensive compensation plan includes the following benefits for our full time employees:
+
+ - Remote first global workforce
+
+ - Industry leading Medical, Dental and Vision health insurance*
+
+ - Company matching 401k with 3% match*
+
+ - $1,500 Home Office Set Up Allowance (life-time max)
+
+ - $200 AI Program Allowance
+
+ - $75 Monthly internet or phone reimbursement
+
+ - Flexible Time Off
+
+ - Company issued laptop
+
+ - Egg freezing, mental health, and employee wellness benefits
+
+*In certain countries medical, dental and vision is fully covered for employees & their dependents. This is country and plan specific.
+
+*401k is for United States employees only
+
+
+Polygon Labs is committed to a diverse and inclusive workplace and is an equal opportunity employer. We do not discriminate on the basis of race, national origin, gender, gender identity, sexual orientation, protected veteran status, disability, age, or other legally protected status. Polygon Labs is committed to treating all people in a way that allows them to maintain their dignity and independence. We believe in integration and equal opportunity. Accommodations are available throughout the recruitment process and applicants with a disability may request to be accommodated throughout the recruitment process. We will work with all applicants to accommodate their individual accessibility needs.
+
+If you think you have what it takes, but don't necessarily meet every single point on the job description, please still get in touch. We'd love to have a chat and see if you could be a great fit.
+
+Learn More about Polygon Labs
+
+Website https://polygon.technology/ | Twitter https://twitter.com/0xPolygon | Telegram https://t.me/polygonofficial | Reddit https://www.reddit.com/r/0xpolygon/ | Discord https://discord.gg/0xpolygoncommunity | Instagram https://www.instagram.com/0xpolygon/ | Facebook https://www.facebook.com/0xPolygon.Technology | LinkedIn https://www.linkedin.com/company/13449964/admin/

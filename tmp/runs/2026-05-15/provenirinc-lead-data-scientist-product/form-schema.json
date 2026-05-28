@@ -1,0 +1,99 @@
+[
+  {
+    "id": "_systemfield_name",
+    "label": "Name",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_name\"]",
+    "entryIdx": 0
+  },
+  {
+    "id": "_systemfield_email",
+    "label": "Email",
+    "type": "email",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_email\"]",
+    "entryIdx": 1
+  },
+  {
+    "id": "_systemfield_resume",
+    "label": "Resume",
+    "type": "file",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_resume\"]",
+    "entryIdx": 2
+  },
+  {
+    "id": "16cddce9-8203-4eea-b384-8c7595944bf4",
+    "label": "Please upload cover letter or work sample",
+    "type": "file",
+    "required": false,
+    "selectorHint": "[id=\"16cddce9-8203-4eea-b384-8c7595944bf4\"]",
+    "entryIdx": 3
+  },
+  {
+    "id": "idx-cb-4",
+    "label": "Please indicate the location in which you reside",
+    "type": "typeahead",
+    "required": true,
+    "selectorHint": ".ashby-application-form-field-entry:nth-of-type(5) input[role=\"combobox\"], .ashby-application-form-field-entry:nth-of-type(5) input[placeholder*=\"Start typing\" i]",
+    "entryIdx": 4
+  },
+  {
+    "id": "btnq-5",
+    "label": "Will you now or in the future require sponsorship for employment VISA status?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 5
+  },
+  {
+    "id": "btnq-6",
+    "label": "Have you ever worked for Provenir before?",
+    "type": "button-toggle",
+    "required": true,
+    "selectorHint": null,
+    "entryIdx": 6
+  },
+  {
+    "id": "btnq-7",
+    "label": "Are you related to anyone who works for Provenir?",
+    "type": "button-toggle",
+    "required": false,
+    "selectorHint": null,
+    "entryIdx": 7
+  },
+  {
+    "id": "41c91f52-b1bf-408c-a019-a6c67488eb9d_2b8c5f2e-ea6c-418b-81fd-f4f37d230d65-labeled-checkbox-0",
+    "label": "I have carefully read the application and provided accurate and complete information to the best of my knowledge. I understand that the falsification, misrepresentation or omission of fact on this application (or any other accompanying or required documents including the background investigation) will be cause for withdrawal of an offer or immediate termination of employment, regardless of when or how discovered. The application will be given every consideration, but its receipt does not imply that the application will be employed. I authorize the investigation of all statements and information contained in this application including but not limited to inquires related to my education, relevant licenses, prior employment, credit and other information required by Provenir. I release from all liability anyone supplying such information and I also release the employer from all liability that might result from making an investigation.",
+    "type": "checkbox",
+    "required": false,
+    "selectorHint": "[id=\"41c91f52-b1bf-408c-a019-a6c67488eb9d_2b8c5f2e-ea6c-418b-81fd-f4f37d230d65-labeled-checkbox-0\"]"
+  },
+  {
+    "id": "9aa728a9-3aaf-40f9-b9ae-d3b9cd02b56a__systemfield_data_consent_ack-labeled-checkbox-0",
+    "label": "I agree",
+    "type": "checkbox",
+    "required": false,
+    "selectorHint": "[id=\"9aa728a9-3aaf-40f9-b9ae-d3b9cd02b56a__systemfield_data_consent_ack-labeled-checkbox-0\"]"
+  },
+  {
+    "id": "41c91f52-b1bf-408c-a019-a6c67488eb9d_ace567bd-7ac5-4a67-aa07-21bb22557cbc",
+    "label": "I am authorized to work in this country for any employer",
+    "type": "radio-group",
+    "required": false,
+    "options": [
+      {
+        "value": "on",
+        "label": "I am authorized to work in this country for any employer",
+        "id": "41c91f52-b1bf-408c-a019-a6c67488eb9d_ace567bd-7ac5-4a67-aa07-21bb22557cbc-labeled-radio-0"
+      },
+      {
+        "value": "on",
+        "label": "I am not authorized to work in this country for any employer",
+        "id": "41c91f52-b1bf-408c-a019-a6c67488eb9d_ace567bd-7ac5-4a67-aa07-21bb22557cbc-labeled-radio-1"
+      }
+    ],
+    "selectorHint": "[name=\"41c91f52-b1bf-408c-a019-a6c67488eb9d_ace567bd-7ac5-4a67-aa07-21bb22557cbc\"]"
+  }
+]

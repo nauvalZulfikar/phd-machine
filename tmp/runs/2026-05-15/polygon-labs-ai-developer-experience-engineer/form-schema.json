@@ -1,0 +1,81 @@
+[
+  {
+    "id": "_systemfield_name",
+    "label": "Name",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_name\"]",
+    "entryIdx": 0
+  },
+  {
+    "id": "_systemfield_email",
+    "label": "Email",
+    "type": "email",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_email\"]",
+    "entryIdx": 1
+  },
+  {
+    "id": "_systemfield_resume",
+    "label": "Resume",
+    "type": "file",
+    "required": true,
+    "selectorHint": "[id=\"_systemfield_resume\"]",
+    "entryIdx": 2
+  },
+  {
+    "id": "idx-cb-3",
+    "label": "Location",
+    "type": "typeahead",
+    "required": true,
+    "selectorHint": ".ashby-application-form-field-entry:nth-of-type(4) input[role=\"combobox\"], .ashby-application-form-field-entry:nth-of-type(4) input[placeholder*=\"Start typing\" i]",
+    "entryIdx": 3
+  },
+  {
+    "id": "60e2e714-bfba-4636-99d5-f039160e44d3",
+    "label": "GitHub",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"60e2e714-bfba-4636-99d5-f039160e44d3\"]",
+    "entryIdx": 4
+  },
+  {
+    "id": "9ea3f46d-49ef-48a6-9bb5-c053a17727bd",
+    "label": "Linkedin",
+    "type": "text",
+    "required": true,
+    "selectorHint": "[id=\"9ea3f46d-49ef-48a6-9bb5-c053a17727bd\"]",
+    "entryIdx": 5
+  },
+  {
+    "id": "92169359-fe74-4f08-ac47-41b28823f8ee",
+    "label": "Twitter",
+    "type": "text",
+    "required": false,
+    "selectorHint": "[id=\"92169359-fe74-4f08-ac47-41b28823f8ee\"]",
+    "entryIdx": 6
+  },
+  {
+    "id": "e56b9091-0129-45f9-90e1-5a1ba9a60762",
+    "label": "Paste a link to a GitHub repo or PR where you’ve used AI tools (e.g. Claude, Cursor, Copilot) to build or improve developer workflows. Briefly explain what you did and how AI was involved.”",
+    "type": "textarea",
+    "required": true,
+    "selectorHint": "[id=\"e56b9091-0129-45f9-90e1-5a1ba9a60762\"]",
+    "entryIdx": 7
+  },
+  {
+    "id": "3e32dfe5-0d96-44a5-ac2f-edab5f5b338b",
+    "label": "In that repo, what’s one specific thing you would improve today and how would you use AI to do it?”",
+    "type": "textarea",
+    "required": true,
+    "selectorHint": "[id=\"3e32dfe5-0d96-44a5-ac2f-edab5f5b338b\"]",
+    "entryIdx": 8
+  },
+  {
+    "id": "965e2855-ce64-4014-a83e-4cf649c72606__systemfield_data_consent_ack-labeled-checkbox-0",
+    "label": "I agree",
+    "type": "checkbox",
+    "required": false,
+    "selectorHint": "[id=\"965e2855-ce64-4014-a83e-4cf649c72606__systemfield_data_consent_ack-labeled-checkbox-0\"]"
+  }
+]

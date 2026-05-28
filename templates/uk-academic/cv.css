@@ -1,0 +1,36 @@
+/* uk-academic/cv.css — tight Calibri, photo header strip, Word-blue accent */
+@page { size: A4; margin: 14mm 15mm 14mm 15mm; }
+* { box-sizing: border-box; }
+html, body {
+  font-family: 'Calibri', 'Carlito', 'Arial', sans-serif;
+  font-size: 10.3pt; line-height: 1.32; color: #000; margin: 0;
+}
+body { padding: 0; }
+h1 {
+  font-family: 'Calibri Light', 'Calibri', 'Arial', sans-serif;
+  font-size: 20pt; font-weight: 400; color: #2F5496;
+  margin: 0 0 4pt 0; letter-spacing: 0.3pt;
+}
+h2 {
+  font-family: 'Calibri Light', 'Calibri', 'Arial', sans-serif;
+  font-size: 12.5pt; font-weight: 600; color: #2F5496;
+  margin: 10pt 0 4pt 0; border-bottom: 0.6pt solid #B4C7E7;
+  padding-bottom: 1pt; text-transform: uppercase; letter-spacing: 0.5pt;
+}
+h3 { font-size: 10.5pt; font-weight: 700; color: #1F3864; margin: 5pt 0 2pt 0; }
+p { margin: 0 0 4pt 0; text-align: left; }
+ul, ol { margin: 2pt 0 5pt 16pt; padding: 0; }
+li { margin-bottom: 1.5pt; text-align: left; }
+strong { font-weight: 700; color: #000; }
+em { font-style: italic; color: #444; }
+hr { border: none; border-top: 0.5pt solid #B0B0B0; margin: 4pt 0; }
+code { font-family: 'Consolas', monospace; font-size: 9.5pt; }
+a { color: #2F5496; text-decoration: none; }
+.cv-header { display: flex; align-items: center; gap: 16pt; margin-bottom: 4pt; }
+.cv-photo {
+  width: 70pt; height: 70pt; object-fit: cover;
+  border: 1pt solid #B4C7E7; flex-shrink: 0;
+}
+.cv-name-block { flex: 1; min-width: 0; }
+.cv-name-block h1 { margin: 0 0 2pt 0; }
+.cv-name-block p { margin: 0 0 1pt 0; }

@@ -1,0 +1,6 @@
+# Update this file as the application progresses.
+# Valid stages: submitted, viewed, screen, interview-1, interview-2, interview-final, offer, rejected, withdrawn, ghosted
+stage: submitted
+submitted_at: 2026-05-14T15:30:00.000Z
+last_update: 2026-05-15T04:18:00.000Z
+notes: "First real submission. Email confirmation received."

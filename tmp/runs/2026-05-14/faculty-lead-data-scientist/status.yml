@@ -1,0 +1,6 @@
+# Update this file as the application progresses.
+# Valid stages: submitted, viewed, screen, interview-1, interview-2, interview-final, offer, rejected, withdrawn, ghosted, dry-run
+stage: interview-1
+submitted_at: Fri May 15 2026 04:09:18 GMT+0700 (Western Indonesia Time)
+last_update: 2026-05-14T21:21:10.338Z
+notes: "Recruiter call scheduled 22 May 2026"

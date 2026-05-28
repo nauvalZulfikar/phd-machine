@@ -1,0 +1,10 @@
+# uk-academic — Aston-style: Calibri + Word-blue + photo header
+# Use for: UK PhDs (Aston, Cranfield, Manchester, Oxbridge), ELLIS-affiliated EU PhDs,
+# any institution that accepts UK academic conventions
+name: uk-academic
+font_primary: Calibri
+font_heading: Calibri Light
+photo_in_cv: true
+margins_full: {top: 25mm, bottom: 25mm, left: 25mm, right: 25mm}
+margins_cv:   {top: 14mm, bottom: 14mm, left: 15mm, right: 15mm}
+citation_style: Harvard
