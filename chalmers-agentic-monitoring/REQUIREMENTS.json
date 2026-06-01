@@ -1,0 +1,48 @@
+{
+  "ref": "248516",
+  "title": "Doctoral student in Intentional Monitoring of Agentic AI Software",
+  "institution": "Chalmers University of Technology",
+  "department": "Department of Computer Science and Engineering — Interaction Design and Software Engineering Division",
+  "supervisor": "Assoc. Prof. Jennifer Horkoff",
+  "supervisor_email": "jenho@chalmers.se",
+  "deadline": "2026-06-12",
+  "start_date": "2026-09-01",
+  "duration": "4-5 years (Swedish PhD)",
+  "funding": "Funded (Swedish doctoral student salary scale, ~32k SEK/month start)",
+  "portal_url": "https://www.chalmers.se/en/about-chalmers/work-with-us/vacancies/",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "research_statement",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "reference_letters",
+    "language_certificate"
+  ],
+  "optional_docs": [
+    "publication_list"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": 10
+  },
+  "eligibility": [
+    "MSc in Computer Science, Software Engineering, or AI Engineering",
+    "Strong English proficiency (IELTS 6.5+ typical)",
+    "Preferred: experience with agentic AI systems (multiple AI models in coordination)",
+    "Preferred: background in conceptual modelling (UML, goal models, architectural models)",
+    "Preferred: technical writing and programming skills demonstrated"
+  ],
+  "research_themes": [
+    "Agentic AI observability",
+    "Goal models and intentional modelling",
+    "Software engineering for AI systems",
+    "Monitoring of multi-agent LLM systems",
+    "Conceptual modelling (UML / i* / KAOS)"
+  ],
+  "notes": "Project sits at intersection of conceptual modelling + agentic AI. Jennifer Horkoff is a known requirements engineering / goal modelling researcher. Frame Nauval's Mini Digital Twin + LLM-Shipper-Profiles + mesa ABM as evidence of agentic + goal-driven system design.",
+  "url": "https://academicpositions.com/ad/chalmers-university-of-technology/2026/doctoral-student-in-intentional-monitoring-of-agentic-ai-software/248516"
+}

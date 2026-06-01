@@ -1,0 +1,53 @@
+{
+  "opp_id": "chalmers-agentic-monitoring",
+  "url": "https://www.chalmers.se/en/about-chalmers/work-with-us/vacancies/",
+  "steps": [
+    {
+      "step": "landing",
+      "url": "https://www.chalmers.se/en/about-chalmers/work-with-us/vacancies/",
+      "title": "Vacancies | Chalmers",
+      "cookie": null
+    }
+  ],
+  "blockers": [
+    "NO-APPLY-LINK-FOUND: landing page has no obvious apply button/link"
+  ],
+  "form_summary": {
+    "inputs": [],
+    "selects": [],
+    "textareas": [],
+    "file_inputs": [],
+    "submit_buttons": [
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Go to content"
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Search"
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Expand"
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Expand"
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Expand"
+      }
+    ]
+  },
+  "counts": {
+    "total_fields": 0,
+    "required_fields": 0,
+    "file_uploads": 0
+  }
+}

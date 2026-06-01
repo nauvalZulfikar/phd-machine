@@ -1,0 +1,48 @@
+{
+  "ref": null,
+  "title": "Prospective PhD — AI Safety & Alignment Group (Andriushchenko)",
+  "institution": "ELLIS Institute Tübingen / Max Planck Institute for Intelligent Systems",
+  "department": "AI Safety & Alignment Group",
+  "supervisor": "Dr. Maksym Andriushchenko",
+  "supervisor_email": "maksym.andriushchenko@uni-tuebingen.de",
+  "deadline": null,
+  "deadline_estimate": "rolling — direct supervisor email pathway",
+  "start_date": "2026-10-01",
+  "duration": "3-4 years",
+  "funding": "Funded (IMPRS-IS / ELLIS doctoral programmes)",
+  "portal_url": "https://imprs.is.mpg.de/",
+  "submission_method": "prospective_email_then_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "research_statement",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "language_certificate",
+    "reference_letters"
+  ],
+  "optional_docs": [
+    "publication_list"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Excellent MSc in CS / ML / AI / related",
+    "Strong publication record or research projects (preferred)",
+    "Demonstrated interest in AI safety / robustness / adversarial ML",
+    "English fluency"
+  ],
+  "research_themes": [
+    "AI safety and alignment",
+    "Adversarial robustness",
+    "Jailbreaking and red-teaming of LLMs",
+    "Safety evaluations",
+    "Trustworthy ML"
+  ],
+  "notes": "NO posting. Standard pathway = direct prospective-student email to Andriushchenko with CV + 1-page research interest + GitHub. He admits via IMPRS-IS / ELLIS Tübingen. Very competitive (rising-star lab).",
+  "url": "https://www.andriushchenko.me/"
+}

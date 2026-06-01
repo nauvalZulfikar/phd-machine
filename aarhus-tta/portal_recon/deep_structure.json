@@ -1,0 +1,27 @@
+{
+  "opp_id": "aarhus-tta",
+  "url": "https://phd.tech.au.dk/for-applicants/apply-here/saeropslag/phd-position-in-test-time-adaptation-and-agentic-ai",
+  "steps": [
+    {
+      "step": "landing",
+      "url": "https://phd.tech.au.dk/for-applicants/apply-here/saeropslag/phd-position-in-test-time-adaptation-and-agentic-ai",
+      "title": "Readvertisement: PhD Position in Test-Time Adaptation and Agentic AI",
+      "cookie": "Accept all"
+    }
+  ],
+  "blockers": [
+    "NO-APPLY-LINK-FOUND: landing page has no obvious apply button/link"
+  ],
+  "form_summary": {
+    "inputs": [],
+    "selects": [],
+    "textareas": [],
+    "file_inputs": [],
+    "submit_buttons": []
+  },
+  "counts": {
+    "total_fields": 0,
+    "required_fields": 0,
+    "file_uploads": 0
+  }
+}

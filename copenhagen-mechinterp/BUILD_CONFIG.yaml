@@ -1,0 +1,19 @@
+template: uk-academic
+filename_pattern: nauval_zulfikar_copenhagen_{doc}.pdf
+max_file_size_mb: 20
+docs:
+- name: cv
+  source: drafts/cv.md
+  kind: cv
+  title: Curriculum Vitae
+  max_pages: 2
+- name: cover_letter
+  source: drafts/cover_letter.md
+  kind: full
+  title: Cover Letter
+  max_pages: 2
+- name: project_description
+  source: drafts/project_description.md
+  kind: full
+  title: Project Description
+  max_pages: 3

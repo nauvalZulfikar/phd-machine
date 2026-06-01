@@ -1,0 +1,41 @@
+{
+  "ref": null,
+  "title": "Postdoctoral Researcher for the ERC Advanced Grant InterText",
+  "institution": "Technische Universität Darmstadt",
+  "department": "UKP Lab, Department of Computer Science",
+  "supervisor": "Prof. Dr. Iryna Gurevych",
+  "supervisor_email": "iryna.gurevych@tu-darmstadt.de",
+  "deadline": "2026-05-31",
+  "start_date": null,
+  "duration": "Contract (typically 2 years, extension possible)",
+  "funding": "Funded (TV-H E13, ~€55-65k/yr gross)",
+  "portal_url": "https://careers.ukp.informatik.tu-darmstadt.de/ukprecruitment",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "reference_letters"
+  ],
+  "optional_docs": [],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "PhD (completed or near completion) in Natural Language Processing, Machine Learning, Computer Science, or a related discipline.",
+    "A strong publication record at top-tier venues.",
+    "The drive to lead an independent research line."
+  ],
+  "research_themes": [
+    "Multi-document reasoning and long-context LLMs",
+    "AI for Science: scientific evidence synthesis, claim verification",
+    "Automated fact-checking and multimodal misinformation detection",
+    "Human-centric and agentic approaches as a complementary focus"
+  ],
+  "notes": "Bottom-up proposals that connect to the InterText vision are very welcome.",
+  "url": "https://nlppeople.com/job/postdoctoral-researcher-for-the-erc-advanced-grant-intertext/"
+}

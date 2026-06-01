@@ -1,0 +1,37 @@
+{
+  "opp_id": "cambridge-llm-safety",
+  "url": "https://forms.gle/Cm3MWPsWta73J2Gp7",
+  "loaded": true,
+  "title": "Google Forms: Sign-in",
+  "final_url": "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSfzucbpfO9UR8m_koujZbINzozWKvrcu1uo26Z23Xk4F0huiw%2Fviewform%3Fusp%3Dsend_form&dsh=S690348303%3A1779271996951870&followup=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSfzucbpfO9UR8m_koujZbINzozWKvrcu1uo26Z23Xk4F0huiw%2Fviewform%3Fusp%3Dsend_form&ltmpl=forms&osid=1&passive=1209600&service=wise&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AWa2PatU_Ku2YRgWTTBhNXtwUcUAE9UNhk6d-srU9wRGkZ6ZR5LY4HpukML2eGFqTlEE414qCDqehA",
+  "cookie_dismissed": null,
+  "login_wall_signals": {
+    "input[type='password']": 1,
+    "input[name*='password' i]": 1,
+    "input[id*='password' i]": 0,
+    "input[name*='login' i]": 0,
+    "form[action*='login' i]": 0,
+    "form[action*='signin' i]": 0,
+    "a[href*='login' i]": 0
+  },
+  "captcha_signals": {
+    "iframe[src*='recaptcha']": 0,
+    "iframe[src*='hcaptcha']": 0,
+    "div.g-recaptcha": 0,
+    "iframe[title*='Cloudflare' i]": 0,
+    "div[class*='captcha' i]": 0
+  },
+  "file_upload_inputs": 0,
+  "form_fields": {
+    "input[type='text']": 1,
+    "input[type='email']": 1,
+    "input[type='tel']": 0,
+    "input[type='date']": 0,
+    "textarea": 0,
+    "select": 0
+  },
+  "error": null,
+  "blockers": [
+    "LOGIN-WALL: 2 login-related element(s) detected"
+  ]
+}

@@ -1,0 +1,14 @@
+template: uk-academic
+filename_pattern: nauval_zulfikar_cambridge_{doc}.pdf
+max_file_size_mb: 5
+docs:
+- name: cv
+  source: drafts/cv.md
+  kind: cv
+  title: Curriculum Vitae
+  max_pages: 2
+- name: research_proposal
+  source: drafts/research_proposal.md
+  kind: full
+  title: Research Proposal
+  max_pages: 2

@@ -1,0 +1,88 @@
+{
+  "opp_id": "copenhagen-mechinterp",
+  "url": "https://employment.ku.dk/phd/?show=160571",
+  "steps": [
+    {
+      "step": "landing",
+      "url": "https://employment.ku.dk/phd/?show=160571",
+      "title": "PhD fellowship in Mechanistic Interpretability for LLM Security",
+      "cookie": "Accept all"
+    },
+    {
+      "step": "after-apply",
+      "from": "https://employment.ku.dk/phd/?show=160571",
+      "to": "https://employment.ku.dk/phd/?show=160571",
+      "clicked": "apply (link)",
+      "title": "PhD fellowship in Mechanistic Interpretability for LLM Security"
+    }
+  ],
+  "blockers": [],
+  "form_summary": {
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "Inputfelt til søgeord",
+        "label": "",
+        "required": false,
+        "placeholder": "Search..."
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "Inputfelt til søgeord",
+        "label": "",
+        "required": false,
+        "placeholder": "Search..."
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "pxs_search",
+        "label": "Søg",
+        "required": false,
+        "placeholder": ""
+      }
+    ],
+    "selects": [],
+    "textareas": [],
+    "file_inputs": [],
+    "submit_buttons": [
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "SEARCH"
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": ""
+      }
+    ]
+  },
+  "counts": {
+    "total_fields": 3,
+    "required_fields": 0,
+    "file_uploads": 0
+  }
+}

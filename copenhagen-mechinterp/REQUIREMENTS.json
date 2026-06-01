@@ -1,0 +1,51 @@
+{
+  "ref": "160571",
+  "title": "PhD Fellowship in Mechanistic Interpretability for LLM Security",
+  "institution": "University of Copenhagen",
+  "department": "Department of Computer Science (DIKU), NLP Section",
+  "supervisor": "Prof. Isabelle Augenstein (co-supervised by Assoc. Prof. Pepa Atanasova)",
+  "supervisor_email": "augenstein@di.ku.dk",
+  "deadline": "2026-05-31",
+  "start_date": "2026-09-01",
+  "duration": "3 years",
+  "funding": "Fully funded PhD fellowship (Independent Research Foundation Denmark)",
+  "portal_url": "https://employment.ku.dk/phd/?show=160571",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "other: motivation letter / project description (typically 1-3 pages explaining research fit + initial ideas)",
+    "other: list of publications (if any)",
+    "reference_letters"
+  ],
+  "optional_docs": [
+    "other: writing sample (MSc thesis or paper)",
+    "language_certificate"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": {
+      "motivation_letter": 3
+    },
+    "file_format": "pdf",
+    "max_file_size_mb": 20,
+    "notes_to_verify": "KU PhD portal accepts multiple PDFs; verify per-doc page limits on the portal — these are common KU defaults, not posting-verified"
+  },
+  "eligibility": [
+    "Master's degree (or equivalent) in Computer Science or related discipline",
+    "Background in machine learning and/or NLP",
+    "Programming proficiency (Python expected)",
+    "Strong academic record"
+  ],
+  "research_themes": [
+    "mechanistic interpretability",
+    "LLM security",
+    "false information / misinformation mitigation",
+    "explainable AI",
+    "evaluation protocols for LLM safety"
+  ],
+  "notes": "Project title: 'A Mechanistic Framework for Mitigating the Susceptibility of LLMs to Learning False Information' funded by Independent Research Foundation Denmark. Requirements partially inferred from standard KU PhD application pattern — verify on official portal (currently SSL-blocked from this machine; check via browser before final submission).",
+  "url": "https://employment.ku.dk/phd/?show=160571"
+}

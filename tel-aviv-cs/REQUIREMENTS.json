@@ -1,0 +1,47 @@
+{
+  "ref": null,
+  "title": "PhD in Computer Science & AI",
+  "institution": "Tel Aviv University",
+  "department": "Blavatnik School of Computer Science and AI",
+  "supervisor": "TBD — must secure supervisor consent before applying (target: Jonathan Berant, Yoav Goldberg/Bar-Ilan affiliation, Lior Wolf, Roy Schwartz/HUJI if cross-affiliation)",
+  "supervisor_email": "phd-coordinator: michalo7@tauex.tau.ac.il",
+  "deadline": "2026-05-31",
+  "start_date": "2026-10-01",
+  "duration": "4-5 years",
+  "funding": "Fellowship + TA opportunities (typical TAU CS PhD)",
+  "portal_url": "https://my.tau.ac.il/TAU_Student",
+  "submission_method": "online_portal_after_supervisor_consent",
+  "required_docs": [
+    "cv",
+    "other: Letter of Purpose (TAU-provided template)",
+    "other: TAU Application Form",
+    "other: Supervisor Consent Form",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "language_certificate"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "reference_letters"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "MSc degree (in a programme with a thesis) or equivalent in CS",
+    "Faculty member's consent to supervise — CRITICAL PRE-REQUISITE",
+    "Strong research record",
+    "English proficiency"
+  ],
+  "research_themes": [
+    "Natural language processing (Berant: question answering, reasoning)",
+    "Deep learning (Wolf: vision + language)",
+    "ML theory",
+    "AI"
+  ],
+  "notes": "⚠️ Critical: TAU requires SUPERVISOR CONSENT before formal application. Must cold-email an NLP/ML faculty member with CV + research interest FIRST. PhD window Feb 1 – May 31, 2026.",
+  "url": "https://en-exact-sciences.tau.ac.il/computer/phd"
+}

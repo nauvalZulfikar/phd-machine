@@ -1,0 +1,46 @@
+{
+  "ref": null,
+  "title": "MCML PhD Matchmaking Program (LMU + TUM)",
+  "institution": "Munich Center for Machine Learning (MCML)",
+  "department": "joint LMU München + Technische Universität München",
+  "supervisor": "TBD via matchmaking",
+  "supervisor_email": null,
+  "deadline": "TBD — cycle annual, dates not yet published for 2026 intake",
+  "start_date": null,
+  "duration": "3-4 years",
+  "funding": "Funded (MCML PhD positions)",
+  "portal_url": "https://www.portal.graduatecenter.lmu.de/ocgc/mcml",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "research_statement",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "language_certificate",
+    "reference_letters"
+  ],
+  "optional_docs": [
+    "publication_list"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Excellent MSc completed by 1 July 2026",
+    "Background in CS, Math, Statistics, or related (ML-relevant)",
+    "Strong English"
+  ],
+  "research_themes": [
+    "Machine learning broadly",
+    "NLP",
+    "Computer vision",
+    "Statistical ML",
+    "Trustworthy AI"
+  ],
+  "notes": "Application page says 'stay tuned — once new PhD candidates have started, we will introduce them here'. Suggests current cycle may be closed. Verify before proceeding.",
+  "url": "https://mcml.ai/opportunities/for-phd-applicants/phd2026/"
+}

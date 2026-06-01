@@ -1,0 +1,52 @@
+{
+  "merge_ukp": {
+    "ok": true,
+    "msg": "16 pages, 3366 KB",
+    "out": "D:\\Downloads\\coding project\\phd-applications\\ukp-intertext\\documents\\UKP_combined_application.pdf"
+  },
+  "page_checks": {
+    "copenhagen-mechinterp/project_description": {
+      "pages": 3,
+      "limit": 3,
+      "status": "\u2705 OK"
+    },
+    "aarhus-tta/cover_letter": {
+      "pages": 1,
+      "limit": 1,
+      "status": "\u2705 OK"
+    },
+    "aarhus-tta/statement_of_interest": {
+      "pages": 1,
+      "limit": 1,
+      "status": "\u2705 OK"
+    },
+    "cambridge-llm-safety/cv": {
+      "pages": 2,
+      "limit": 2,
+      "status": "\u2705 OK"
+    },
+    "cambridge-llm-safety/research_proposal": {
+      "pages": 3,
+      "limit": 2,
+      "status": "\u274c 3p > 2p"
+    }
+  },
+  "tau_forms": {
+    "TAU_application_form": {
+      "ok": false,
+      "msg": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+      "url": "https://en-exact-sciences.tau.ac.il/sites/exactsci_en.tau.ac.il/files/media_server/exact_sciences/PhD_Application_Form.pdf"
+    },
+    "TAU_supervisor_consent": {
+      "ok": false,
+      "msg": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+      "url": "https://en-exact-sciences.tau.ac.il/sites/exactsci_en.tau.ac.il/files/media_server/exact_sciences/Supervisor_Consent_Form.pdf"
+    },
+    "TAU_letter_of_purpose_template": {
+      "ok": false,
+      "msg": "URLError: <urlopen error [Errno 11002] getaddrinfo failed>",
+      "url": "https://en-exact-sciences.tau.ac.il/sites/exactsci_en.tau.ac.il/files/media_server/exact_sciences/Letter_of_Purpose_Template.pdf"
+    }
+  },
+  "summary": []
+}

@@ -1,0 +1,52 @@
+{
+  "ref": "NM49585",
+  "title": "PhD Studentship in Monitoring and Increasing LLM Safety",
+  "institution": "University of Cambridge",
+  "department": "Department of Engineering",
+  "supervisor": "(to confirm — posting does not name primary supervisor; project sits within Cambridge LLM Safety group)",
+  "supervisor_email": null,
+  "deadline": "2026-07-30",
+  "start_date": "2026-10-01",
+  "alt_start_date": "2027-01-01",
+  "duration": "3-4 years (UK PhD)",
+  "funding": "Fully funded studentship (fees + maintenance) — home or overseas",
+  "portal_url": "https://forms.gle/Cm3MWPsWta73J2Gp7",
+  "portal_url_secondary": "https://www.graduate.study.cam.ac.uk/courses/directory/egegpdpeg",
+  "submission_method": "google_form + university_portal (£20 fee)",
+  "required_docs": [
+    "cv",
+    "research_proposal",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "reference_letters",
+    "language_certificate"
+  ],
+  "optional_docs": [
+    "publication_list"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": {
+      "cv": 2,
+      "research_proposal": 2
+    },
+    "file_format": "pdf",
+    "max_file_size_mb": null,
+    "notes": "Cambridge intake is two-stage: (1) Google form with 2pp CV + 2pp research proposal, (2) University Graduate Admissions portal — full app + £20 fee + transcripts + IELTS + references."
+  },
+  "eligibility": [
+    "At least a first-class degree (UK 2:1+) in Engineering, Computer Science, or related discipline",
+    "Some experience with software development OR research on LLMs (preferred)",
+    "IELTS 7.0+ overall (Cambridge English requirement)"
+  ],
+  "research_themes": [
+    "Chain-of-thought (CoT) faithfulness and transparency",
+    "Detecting deceptive model behaviour through perturbation analysis",
+    "Mechanistic interpretability",
+    "Training for reasoning transparency using human predictors",
+    "Mitigating encoded reasoning in LLMs",
+    "Inference-time safety monitoring"
+  ],
+  "notes": "Stage 1 (Google form) is lightweight: 2pp CV + 2pp research proposal. Stage 2 (university portal) requires standard PhD admission docs. Best to file Stage 1 first to gauge interest.",
+  "url": "https://www.cam.ac.uk/jobs/phd-studentship-in-monitoring-and-increasing-llm-safety-nm49585"
+}

@@ -1,0 +1,52 @@
+{
+  "ref": null,
+  "title": "Four PhD Positions in NLP, AI and LLM Security",
+  "institution": "Aalborg University Copenhagen",
+  "department": "Department of Computer Science",
+  "supervisor": "Prof. Johannes Bjerva",
+  "supervisor_email": "jbjerva@cs.aau.dk",
+  "deadline": "2026-08-31",
+  "start_date": "2026-09-01",
+  "alt_start_date_window": "starting dates after summer 2026 also possible",
+  "duration": "3 years",
+  "funding": "Fully funded (Danish academic staff agreements, salary + employment)",
+  "portal_url": "https://www.stillinger.aau.dk/vis-stilling/?vacancy=1410023",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "research_statement",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "reference_letters"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "language_certificate"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Relevant MSc degree (CS, SE, ML, AI, Computational Linguistics, or related)",
+    "Strong skills in machine learning and deep learning",
+    "Experience with modern NLP methods including transformer models",
+    "Preference: prior experience in NLP, LLM architectures, security, privacy, safety, or robustness",
+    "Excellent English communication"
+  ],
+  "research_themes": [
+    "LLM security and safety",
+    "Privacy in NLP/AI",
+    "Backdoor detection in LLMs",
+    "Data poisoning detection",
+    "Adversarial inputs",
+    "LLM-generated text detection",
+    "Robustness analysis across language settings",
+    "Multilinguality (Bjerva specialty)"
+  ],
+  "notes": "FOUR PhD positions — competitive cohort intake. Bjerva is a multilingual NLP + LLM security researcher. Aalborg Copenhagen campus (NOT Aalborg main). Project description is REQUIRED — not optional — so this is the differentiating doc.",
+  "url": "https://www.applykite.com/positions/fully-funded-phd-positions-in-natural-language-processing-ai-and-llm-security-at-aalborg-university-copenhagen-7rqf3l1190"
+}

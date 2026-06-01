@@ -1,0 +1,44 @@
+{
+  "ref": null,
+  "title": "PhD in NLP (Bar-Ilan NLP Lab — Goldberg group)",
+  "institution": "Bar-Ilan University",
+  "department": "Department of Computer Science",
+  "supervisor": "Prof. Yoav Goldberg",
+  "supervisor_email": "yoav.goldberg@biu.ac.il",
+  "deadline": null,
+  "deadline_estimate": "rolling — direct supervisor pathway",
+  "start_date": "flexible",
+  "duration": "4-5 years",
+  "funding": "Fellowship (BIU CS standard PhD funding)",
+  "portal_url": "https://cs.biu.ac.il/admissions/phd",
+  "submission_method": "prospective_email_then_portal",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "reference_letters"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "other: writing sample"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "MSc in CS / Computational Linguistics / equivalent",
+    "Strong NLP / deep learning background",
+    "Publications or research projects preferred"
+  ],
+  "research_themes": [
+    "NLP (Hebrew + multilingual)",
+    "Word embeddings + transformer analysis",
+    "LLM evaluation + critique"
+  ],
+  "notes": "Goldberg is a foundational figure in NLP (Word2Vec analysis, NLP textbook). Highly competitive. Direct email pathway with strong portfolio + clear research interest required.",
+  "url": "https://www.biu.ac.il/en/research-fellows/yoav-goldberg"
+}

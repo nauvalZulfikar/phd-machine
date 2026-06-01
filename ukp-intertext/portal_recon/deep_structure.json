@@ -1,0 +1,173 @@
+{
+  "opp_id": "ukp-intertext",
+  "url": "https://careers.ukp.informatik.tu-darmstadt.de/ukprecruitment",
+  "steps": [
+    {
+      "step": "landing",
+      "url": "https://careers.ukp.informatik.tu-darmstadt.de/",
+      "title": "UKP Application",
+      "cookie": null
+    },
+    {
+      "step": "after-apply",
+      "from": "https://careers.ukp.informatik.tu-darmstadt.de/",
+      "to": "https://careers.ukp.informatik.tu-darmstadt.de/",
+      "clicked": "submit application (button)",
+      "title": "UKP Application"
+    }
+  ],
+  "blockers": [],
+  "form_summary": {
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "givenName",
+        "label": "Given name *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "familyName",
+        "label": "Family name *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "date",
+        "name": "birthDate",
+        "label": "Date of birth *",
+        "required": true,
+        "placeholder": "dd.mm.yyyy"
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "address",
+        "label": "Address *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "postalCode",
+        "label": "Postal code *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "city",
+        "label": "City *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "residenceCountry",
+        "label": "Country of residence *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "citizenshipCountry",
+        "label": "Country of citizenship *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "email",
+        "label": "E-Mail *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "phone",
+        "label": "Phone",
+        "required": false,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "mscTitle",
+        "label": "PhD Thesis / Master Thesis / Diploma Title *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "mscUniversity",
+        "label": "I graduated from this university *",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "input",
+        "type": "text",
+        "name": "mscYear",
+        "label": "Graduation year *",
+        "required": true,
+        "placeholder": ""
+      }
+    ],
+    "selects": [
+      {
+        "tag": "select",
+        "type": "select-one",
+        "name": "gender",
+        "label": "",
+        "required": true,
+        "placeholder": ""
+      },
+      {
+        "tag": "select",
+        "type": "select-one",
+        "name": "ukpPosition",
+        "label": "I apply for the following position at UKP *",
+        "required": true,
+        "placeholder": ""
+      }
+    ],
+    "textareas": [],
+    "file_inputs": [
+      {
+        "tag": "input",
+        "type": "file",
+        "name": "attachments",
+        "label": "Attach files containing the following information (max. 50MB) *",
+        "required": true,
+        "placeholder": ""
+      }
+    ],
+    "submit_buttons": [
+      {
+        "tag": "input",
+        "type": "submit",
+        "name": "submitButton",
+        "label": "",
+        "required": false,
+        "placeholder": "",
+        "text": "Submit application form"
+      }
+    ]
+  },
+  "counts": {
+    "total_fields": 16,
+    "required_fields": 14,
+    "file_uploads": 1
+  }
+}

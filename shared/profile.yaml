@@ -1,0 +1,234 @@
+# Single source of truth for Nauval Zulfikar's profile.
+# Used by tools/draft.py — LLM is instructed to write "[TODO: verify with user]"
+# for any field NOT here, rather than invent.
+# Last verified: 2026-05-17
+
+personal:
+  full_name: Nauval Zulfikar
+  email: zulfikar.nauval1998@gmail.com
+  phone_uk: "+44 7300 469048"
+  phone_id: "+62 821 2567 2264"
+  address_id: "Bandung, Indonesia"
+  address_eu: "Milan, Italy"
+  github: nauvalZulfikar
+  linkedin: nauval-zulfikar
+  portfolio: nauvalzulfikar.vercel.app
+  visa: "UK Graduate Visa (active). Indonesian passport. Eligible for EU Researcher (Hosting Agreement) visa for European PhDs."
+
+ielts:
+  test_date: "2023"
+  listening: 7.5
+  reading: 7.5
+  writing: 6.5
+  speaking: 7.0
+  overall: 7.0
+  band_summary: "L7.5 / R7.5 / W6.5 / S7.0 / Overall 7.0"
+
+education:
+  - level: MSc
+    field: Business Analytics
+    institution: Aston University
+    city: Birmingham, UK
+    start: 2023-09
+    end: 2024-09
+    grade: "First Class (1:1)"
+    eqf: 7
+    scholarship: "1st Winner, Aston Enterprise Scholarship 2023 (full-tuition competitive award)"
+    distinctions: ["Decision Models", "Effective Management Consultancy", "Software Analytics"]
+    extras: ["Aston Pitching Contest 2024 runner-up (AI-powered supply chain proposal)"]
+    dissertation:
+      title: "Enhancing Supply Chain Information Sharing Systems Through Blockchain: Integrated Customer Reviews LLM Analysis: A Smart Contract Approach"
+      supervisor: "Dr. Ammar Al-Bazi"
+      methodology: "DeBERTa-v3 transformer NLP fine-tune on multi-tier supplier review data + Ethereum smart-contract architecture (Solidity) for transparent information routing across 3-tier supply chains"
+      grade: "1:1 (First Class)"
+
+  - level: BBA
+    field: Marketing
+    institution: Ritsumeikan Asia Pacific University (APU)
+    city: Beppu, Japan
+    start: 2016-10
+    end: 2019-09
+    eqf: 6
+    scholarship: "JASSO Scholarship + APU 50% Tuition Reduction Scholarship"
+    distinctions: ["Business Data Analysis", "Consumer Behaviour", "Marketing Research"]
+
+  - level: Informal
+    field: NLP Engineer Training
+    institution: Indonesia AI
+    start: 2023-05
+    end: 2023-11
+    eqf: 5
+    contribution: "2024 Indonesia Election Aspect-Based Sentiment Analyser project"
+    distinctions: ["Python Programming", "Text Summarisation", "Voice Recognition"]
+
+  - level: Informal
+    field: Data Science Global Accelerator
+    institution: Qarir Generator (Dubai, UAE)
+    start: 2023-04
+    end: 2023-06
+    eqf: 5
+    contribution: "Led sentiment-analysis development for Pfizer Public Sentiment Analysis project"
+    distinctions: ["Python", "SQL", "Pandas/NumPy"]
+
+work_experience:
+  - employer: "Public Works & Spatial Planning Department (PUTR)"
+    employer_type: "Government"
+    city: "Bandung, Indonesia"
+    role: "Data Scientist & Project Manager"
+    start: 2022-09
+    end: present
+    achievements:
+      - "Automated ETL pipelines + self-service dashboards across building permits, small-business, tourism, and spatial-planning data"
+      - "Embedded data-governance and privacy practice throughout"
+      - "45% faster project delivery, 20% data-efficiency gain"
+      - "Designed production-scheduling system with Gantt + real-time utilisation analytics (63% planning efficiency uplift)"
+      - "Produced ML feasibility study for automated dam-and-irrigation-gate control system in Cibeureum (proxy Digital Twin for hydraulic infrastructure)"
+
+  - employer: "Syncwell"
+    employer_type: "Start-up"
+    city: "Birmingham, UK"
+    role: "Marketing Data Scientist"
+    start: 2024-07
+    end: 2024-09
+    achievements:
+      - "Predictive ML + A/B testing + automated campaign triggers + personalisation strategies"
+      - "+40% CTR, +22% follower growth"
+
+  - employer: "PCOS Challenge"
+    employer_type: "Non-profit"
+    city: "Birmingham, UK"
+    role: "Strategic Data Scientist Specialist"
+    start: 2024-06
+    end: 2024-08
+    achievements:
+      - "Customer attribution model + automated report text extraction"
+      - "Interactive visualisations of patient financial concerns"
+      - "-80% manual workload"
+
+  - employer: "Bank Muamalat Indonesia"
+    employer_type: "Corporation (licensed bank)"
+    city: "Jakarta, Indonesia"
+    role: "Lead Data Scientist (Leadership Development Programme)"
+    start: 2019-11
+    end: 2022-08
+    achievements:
+      - "NLP models for credit portfolio analysis and risk scoring in licensed banking context"
+      - "A/B testing across marketing strategies"
+      - "Clustering for market segmentation"
+      - "NLP-based competitor app-review analysis"
+      - "+5.3% investment return"
+      - "Maintained model reliability through regular validation cycles, monitored model staleness, ensured documentation compliance with regulatory and audit frameworks"
+    significance: "Source of interest in post-deployment model behaviour and the technical preconditions of Responsible AI"
+
+projects:
+  research_relevant:
+    - name: "LLM-Generated Adaptive Shipper Decision Rules (LLM-Shipper-Profiles)"
+      year: 2026
+      url: "github.com/nauvalZulfikar/LLM-Shipper-Profiles"
+      stack: "OpenAI gpt-4o-mini + RAG + Python + sentence-transformers"
+      summary: "End-to-end RAG system: gpt-4o-mini augmented with retrieval over curated behavioural-literature knowledge base. Fully-traceable rule-based fallback. Built deliberately to be reproducible and ablatable."
+      relevance_themes: ["RAG", "LLM application", "reproducibility", "ablation"]
+
+    - name: "CV-JD Suitability Checker"
+      year: 2024-11
+      stack: "DeBERTa-v3 + RAG + Python"
+      summary: "Transformer-based semantic matching outperforming lexical ATS baselines. Full ML pipeline: training, evaluation, serving. Codebase repurposed for LLM-Shipper-Profiles."
+      relevance_themes: ["transformer fine-tuning", "NLP", "semantic matching"]
+
+    - name: "MSc Dissertation Pipeline (DeBERTa-v3 fine-tune)"
+      year: 2024
+      stack: "DeBERTa-v3 + HuggingFace + PyTorch + Solidity"
+      summary: "Transformer fine-tuning on multi-tier supplier review data. Multi-aspect classification. Evaluated emergent biases against literature baselines. Embedded in larger decision system. Graded 1:1."
+      relevance_themes: ["transformer fine-tuning", "behavioural text analysis", "system integration"]
+
+    - name: "Crowd-Shipping ABM (450-run behavioural parameter sweep)"
+      year: 2026
+      url: "github.com/nauvalZulfikar/Crowd-Shipping-ABM-"
+      stack: "mesa + Python"
+      summary: "Controlled experiment over reward and supply-density grids; literature-anchored results. Acceptance 45.34% (n=20) to 79.80% (n=100). Methodologically the closest item to a controlled scientific experiment."
+      relevance_themes: ["experimentation rigour", "ablation", "behavioural modelling"]
+
+    - name: "VRPOD MILP Optimisation"
+      year: 2026
+      url: "github.com/nauvalZulfikar/VRP-MILP"
+      stack: "scipy.optimize.milp + HiGHS"
+      summary: "Archetti et al. (2016) VRPOD replication. 38.5% cost reduction on Birmingham-inspired toy instance."
+      relevance_themes: ["mathematical formalism", "optimisation"]
+
+    - name: "Mini Digital Twin (Integrated Passenger-Freight Transport)"
+      year: 2026
+      url: "github.com/nauvalZulfikar/Mini-Digital-Twin"
+      stack: "FastAPI + mesa + simpy + Streamlit"
+      summary: "Three-layer Digital Twin prototype with live folium map + plotly KPIs + interactive disruption-injection lab. Smoke-tested: 45% acceptance, 62% terminal utilisation."
+      relevance_themes: ["system architecture", "simulation", "live dashboards"]
+
+  industry:
+    - "ML for Dam & Irrigation Gate Automation (Cibeureum, 2025) - ML feasibility analysis"
+    - "Machine Scheduler Automation (Jan 2025) - Streamlit-based production scheduling, +63% efficiency"
+
+publications:
+  - citation: "Zulfikar, N. (2025) 'Performance Analysis in Sport Footwear Sales Prediction Using Machine Learning'."
+    type: "Working paper"
+    summary: "Comparative evaluation of multiple ML regressors for retail sales forecasting accuracy."
+
+technical_skills:
+  ml_nlp:
+    - PyTorch
+    - HuggingFace Transformers
+    - DeBERTa-v3 fine-tuning
+    - gpt-4o-mini API + RAG
+    - sentence-transformers
+    - LangChain
+    - classification, regression, time-series forecasting, recommender systems, attribution modelling
+  languages_data:
+    - Python (primary)
+    - SQL
+    - R
+    - PySpark
+    - NumPy, Scipy, pandas, scikit-learn
+    - FastAPI, Streamlit
+  mathematical_formal:
+    - MILP (Pyomo, scipy.optimize.milp, HiGHS)
+    - Discrete-choice modelling (MNL, Mixed Logit, Biogeme)
+    - Agent-Based Modelling (mesa)
+    - Discrete-Event Simulation (simpy)
+    - Digital Twin architecture
+    - Bayesian methods, causal inference
+  governance_infra:
+    - Model validation
+    - Model reliability
+    - Audit-grade documentation
+    - Model staleness monitoring
+    - A/B testing
+    - AWS, Docker, Git, ETL/orchestration
+    - Power BI, Tableau
+  still_building:
+    - JAX (currently PyTorch-primary)
+    - Large-scale pretraining (have trained from scratch only at small scale)
+    - Formal theoretical ML depth
+
+languages_spoken:
+  - language: Indonesian
+    proficiency: Native
+    skills: [reading, listening, writing, speaking]
+  - language: English
+    proficiency: "Fluent (MSc English-medium, IELTS 7.0 overall: L7.5/R7.5/W6.5/S7.0)"
+    skills: [reading, listening, writing, speaking]
+  - language: Japanese
+    proficiency: Intermediate
+    skills: [reading, listening, writing, speaking]
+
+referees:
+  - rank: 1
+    name: "Dr. Ammar Al-Bazi"
+    title: "Senior Lecturer"
+    institution: "Aston Business School, Aston University"
+    email: "a.al-bazi@aston.ac.uk"   # VERIFIED from signed Aston reference letter (Jun 2024). Hyphenated. NOT "a.albazi" / "ammar.al-bazi".
+    relationship: "MSc dissertation supervisor (2023-2024); pre-approved Aston PhD supervisor"
+
+  - rank: 2
+    name: "Dr. Viktor Pekar"
+    title: "Lecturer"
+    institution: "Aston Business & Social Sciences"
+    email: "v.pekar@aston.ac.uk"      # VERIFIED from signed Aston reference letter (Jun 2024). NOT "Dorfler".
+    relationship: "MSc Personal Tutor; taught Machine Learning for Business Analytics + Research Methods"

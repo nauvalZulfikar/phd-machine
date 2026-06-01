@@ -1,0 +1,45 @@
+{
+  "ref": null,
+  "title": "UKRI CDT in Safe AI (SAINTS)",
+  "institution": "University of York",
+  "department": "School of Physics, Engineering and Technology / Computer Science",
+  "supervisor": "TBD (CDT — supervisors matched after admission)",
+  "supervisor_email": null,
+  "deadline": "2026-12-15 (estimated — 2027-28 cycle opens Nov/Dec 2026)",
+  "start_date": "2027-09-01",
+  "duration": "4 years (CDT integrated programme)",
+  "funding": "Stipend £20,780/yr (tax-free) + tuition fees + conference funding",
+  "portal_url": "https://www.york.ac.uk/study/postgraduate-research/centres-doctoral-training/safe-ai-training/safe-ai-phd/",
+  "submission_method": "online_application (2 stages)",
+  "required_docs": [
+    "cv",
+    "cover_letter",
+    "other: Formal Expression of Interest aligned with CDT research themes",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "reference_letters"
+  ],
+  "optional_docs": [
+    "publication_list"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": null,
+    "file_format": "pdf",
+    "max_file_size_mb": null,
+    "notes_to_verify": "York SAINTS Stage 1 doesn't need transcripts; details for 2027-28 cycle TBD"
+  },
+  "eligibility": [
+    "First-class honours OR 2:1 + Master's (you have 1st-class MSc ✅)",
+    "Basic programming skills",
+    "Relevant work experience may substitute for credentials"
+  ],
+  "research_themes": [
+    "AI safety (broad)",
+    "Trustworthy AI",
+    "AI assurance",
+    "Responsible AI"
+  ],
+  "notes": "**2026-27 cycle CLOSED.** Next competition launches Nov/Dec 2026 for 2027-28 entry. Track in autumn 2026.",
+  "url": "https://www.york.ac.uk/study/postgraduate-research/centres-doctoral-training/safe-ai-training/safe-ai-phd/"
+}

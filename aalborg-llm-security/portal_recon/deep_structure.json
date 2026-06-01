@@ -1,0 +1,48 @@
+{
+  "opp_id": "aalborg-llm-security",
+  "url": "https://www.stillinger.aau.dk/vis-stilling/?vacancy=1410023",
+  "steps": [
+    {
+      "step": "landing",
+      "url": "https://www.stillinger.aau.dk/vis-stilling?vacancy=1410023",
+      "title": "Ledig stilling på AAU - Aalborg Universitet",
+      "cookie": null
+    }
+  ],
+  "blockers": [
+    "NO-APPLY-LINK-FOUND: landing page has no obvious apply button/link"
+  ],
+  "form_summary": {
+    "inputs": [],
+    "selects": [],
+    "textareas": [],
+    "file_inputs": [],
+    "submit_buttons": [
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Kontakt"
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Om AAU"
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Genveje"
+      },
+      {
+        "tag": "button",
+        "type": "submit",
+        "text": "Service"
+      }
+    ]
+  },
+  "counts": {
+    "total_fields": 0,
+    "required_fields": 0,
+    "file_uploads": 0
+  }
+}
