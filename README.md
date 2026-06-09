@@ -52,6 +52,26 @@ phd-applications/
 
 ---
 
+## Dashboard API (`server.js`)
+
+Standalone HTTP "receptionist" endpoint consumed by the `web_prtfl` dashboard
+(`http://localhost:3001/phd`). Zero dependencies — Node built-in `http` only.
+Reads live stats from `TRACKER.csv`.
+
+```bash
+node server.js
+# → phd dashboard API listening on http://localhost:4102/api/dashboard
+
+curl http://localhost:4102/api/dashboard   # JSON: project/status/summary/stats/items
+curl http://localhost:4102/health          # liveness probe
+```
+
+- **Port:** `4102` (allocated per ops project)
+- **CORS:** allows `http://localhost:3001`
+- Requires Node 18+ (uses no external packages).
+
+---
+
 ## Pipeline tools (in `career-ops/`)
 
 ```bash
