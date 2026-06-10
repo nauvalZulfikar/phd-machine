@@ -1,0 +1,52 @@
+{
+  "ref": null,
+  "title": "National PhD Programme in Artificial Intelligence — 'AI & Society' area (XLII / 42nd cycle)",
+  "institution": "University of Pisa (lead) — National PhD in AI consortium",
+  "department": "KDD Lab (Knowledge Discovery & Data Mining), Dipartimento di Informatica",
+  "supervisor": "Prof. Dino Pedreschi (scientific lead) / Prof. Salvatore Ruggieri (coordinator) [verify specific advisor on call PDF]",
+  "supervisor_email": "[TODO: verify with user — dino.pedreschi@unipi.it / salvatore.ruggieri@unipi.it likely but confirm]",
+  "deadline": null,
+  "deadline_estimate": "Call A closed ~2026-06-08 (LIKELY PASSED as of 2026-06-10). Confirm whether a Call B window opens this summer.",
+  "start_date": "[TODO: verify on call PDF — typically Nov 2026 / XLII cycle]",
+  "duration": "3 years",
+  "funding": "~€16,243/yr stipend + ≥10% research budget + ~50% stipend uplift for periods abroad. ~46–51 funded positions across the programme.",
+  "portal_url": "https://phd-ai-society.di.unipi.it/en/application/",
+  "submission_method": "online_portal (University of Pisa PhD application system) [verify on call PDF]",
+  "required_docs": [
+    "cv (European/Europass format)",
+    "research_project",
+    "motivation_letter",
+    "transcripts_bachelor",
+    "degree_certificate_bachelor",
+    "transcripts_master",
+    "degree_certificate_master",
+    "language_certificate (English B2 — English-taught-MSc exemption applies; candidate qualifies)",
+    "reference_letters (~2) [verify count on call PDF]",
+    "passport_or_id",
+    "application_fee"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "other: list of preferred research topics / area selection on portal"
+  ],
+  "constraints": {
+    "language": "English",
+    "page_limits": "[TODO: verify on call PDF]",
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Master's degree (or equivalent, EQF 7) — candidate holds MSc Business Analytics, Aston, 1:1",
+    "English proficiency B2; exemption via English-taught MSc — candidate qualifies (Aston MSc taught in English) + IELTS 7.0 overall",
+    "Background in ML / NLP / data science aligned to AI & Society themes — strong fit"
+  ],
+  "research_themes": [
+    "misinformation, disinformation, fake news",
+    "social impact of AI",
+    "responsible AI",
+    "computational social science",
+    "explainable AI"
+  ],
+  "notes": "BULLSEYE thematic fit (KDD Lab is the home of Pedreschi/Ruggieri/Giannotti responsible-AI + social-mining research). ⚠️ Call A (~2026-06-08) likely PASSED — STEP 1 is to confirm the Call B summer window before building anything else. All 'verify on call PDF' fields must be checked against the official XLII call document. Do not invent advisor/email/dates.",
+  "url": "https://phd-ai-society.di.unipi.it/en/"
+}

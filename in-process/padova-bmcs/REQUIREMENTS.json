@@ -1,0 +1,52 @@
+{
+  "ref": null,
+  "title": "PhD in Brain, Mind and Computer Science (BMCS) — interdisciplinary CS + cognitive science + neuroscience",
+  "institution": "University of Padova (Università di Padova)",
+  "department": "Department of Information Engineering (DEI) — BMCS interdisciplinary PhD (Psychology, Neuroscience, CS, Engineering, Social Science)",
+  "supervisor": "Prof. Anna Spagnolli (Coordinator) [VERIFY current coordinator on official XLII call PDF — coordinator may rotate]",
+  "supervisor_email": "[TODO: verify with user — coordinator/contact email not confirmed; general PhD office: phd.application@unipd.it]",
+  "deadline": null,
+  "deadline_estimate": "🔴 URGENT — UNCONFIRMED. Task brief assumed ~2026-06-10 (TODAY). Third-party source (researchersjob.com) reports XLII / AY 2026-27 deadline as 2026-05-20, 13:00 local — i.e. ALREADY CLOSED. The 10-June date seen in search appears to be the PRIOR XLI (2025-26) cycle. VERIFY THE EXACT XLII DEADLINE ON THE OFFICIAL CALL PDF IMMEDIATELY — the window may be closed or closing today.",
+  "start_date": "2026-10-01 [TODO: verify — typical Italian XLII start Oct/Nov 2026]",
+  "duration": "3 years",
+  "funding": "Funded (~€16,200/yr gross stipend, before social charges) + mobility/research budget supplement [VERIFY exact figure and number of funded positions on the official call PDF]",
+  "portal_url": "https://www.unipd.it/en/phd/brain-mind-and-computer-science",
+  "calls_url": "https://www.unipd.it/en/phd-programmes-calls-and-admissions",
+  "submission_method": "online_portal (PICA — pica.cineca.it, standard for Italian university calls) [VERIFY platform on call PDF]",
+  "required_docs": [
+    "cv (European / Europass format)",
+    "research_project (project description; phdportal indicates ~2000 words — VERIFY exact word/page cap on call PDF)",
+    "motivation_letter",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "degree_certificates_bachelor_and_master",
+    "language_certificate (English B2; English-taught-MSc exemption applies — candidate's Aston MSc was English-medium)",
+    "reference_letters (~2 — VERIFY count and whether mandatory)",
+    "passport_or_id",
+    "application_fee (~€30 typical for Italian PhD calls — VERIFY)"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "other: any additional certificates / portfolio the call PDF allows"
+  ],
+  "constraints": {
+    "language": "English (program offered in English; application likely English — VERIFY on call PDF)",
+    "page_limits": "research project ~2000 words per phdportal [VERIFY exact cap on official call PDF]",
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Master's degree (Laurea Magistrale / EQF 7) — candidate holds MSc Business Analytics (Aston, 1:1, English-medium) [VERIFY committee accepts a Business-Analytics MSc for this CS+cognitive-science program]",
+    "English proficiency at B2 (English-medium MSc at Aston supports exemption; IELTS 7.0 overall as backup; phdportal cites TOEFL iBT 80 equivalent)",
+    "Interdisciplinary interest spanning CS, cognitive science and neuroscience"
+  ],
+  "research_themes": [
+    "computer science + cognitive science + neuroscience integration",
+    "human-AI interaction",
+    "cognitive modelling and computational cognition",
+    "interpretability of machine-learning / language models from a cognitive perspective",
+    "behavioural modelling"
+  ],
+  "notes": "🔴 VERIFY-FIRST DEADLINE: conflicting signals — assumed ~2026-06-10 vs third-party-reported 2026-05-20 closure. CONFIRM ON OFFICIAL CALL PDF BEFORE DOING ANYTHING ELSE; the call may be closed. ⚠️ SECONDARY FIT: this is a weaker/secondary target for the candidate. BMCS is heavily cognitive-science/neuroscience + human-AI-interaction; the candidate's strength is applied NLP / LLM behaviour / behavioural modelling, NOT pure cognitive neuroscience. The honest fit angle is interpretability of LLM internal representations bridged to human/cognitive judgement, plus behavioural (discrete-choice/ABM) modelling — a genuine but real interdisciplinary stretch. Coordinator Anna Spagnolli (human-computer interaction / cyberpsychology) marked for verification. Funding figure, exact deadline, submission platform, fee, reference-letter count, and research-project word cap all marked for verification against the call PDF.",
+  "url": "https://www.unipd.it/en/phd/brain-mind-and-computer-science"
+}

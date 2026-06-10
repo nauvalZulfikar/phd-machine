@@ -1,0 +1,57 @@
+{
+  "ref": "[TODO: verify call/area code on Sapienza XLII PDF]",
+  "title": "National PhD in Artificial Intelligence — Security & Cybersecurity area (PNRR national programme)",
+  "institution": "Sapienza University of Rome (lead) + CNR consortium",
+  "department": "National PhD in AI — Security & Cybersecurity area (co-funded ACN for some cyber slots)",
+  "supervisor": "[TODO: verify with user — area-assigned; tutor confirmed after admission]",
+  "supervisor_email": null,
+  "deadline": "2026-06-17T14:00:00+02:00",
+  "deadline_note": "Tied to Sapienza XLII call (2026-06-17 14:00 CET). VERIFY the AI Security & Cybersecurity area runs on THIS call.",
+  "start_date": "[TODO: verify on call PDF — typically 2026-11-01 for XLII]",
+  "alt_start_date_window": null,
+  "duration": "3 years",
+  "funding": "~€16,200/yr gross + mobility budget (ACN-cofunded cyber slots may be higher) — verify on call PDF",
+  "portal_url": "https://phd.uniroma1.it/web/ARTIFICIAL-INTELLIGENCE_nD3764_EN.aspx",
+  "portal_url_secondary": "https://www.phd-ai.it/",
+  "submission_method": "online_portal",
+  "required_docs": [
+    "cv_european",
+    "research_project",
+    "motivation_letter",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "degree_certificate_bachelor",
+    "degree_certificate_master",
+    "english_certificate",
+    "reference_letters",
+    "passport_id",
+    "application_fee"
+  ],
+  "optional_docs": [
+    "publication_list"
+  ],
+  "constraints": {
+    "language": "English",
+    "english_level_required": "B2",
+    "english_exemption": "English-taught MSc qualifies for exemption — Aston MSc Business Analytics was English-medium (verify exemption accepted on call PDF)",
+    "reference_letters_count": "~2 (verify exact count + submission route on call PDF)",
+    "page_limits": "[TODO: verify research project page/word limit on call PDF]",
+    "file_format": "pdf",
+    "max_file_size_mb": "[TODO: verify on portal]",
+    "application_fee": "[TODO: verify Sapienza XLII fee amount on call PDF]"
+  },
+  "eligibility": [
+    "MSc / second-cycle degree (EQF 7) in a relevant field — candidate holds MSc Business Analytics (Aston, 1:1, EQF 7)",
+    "Foreign degrees admitted with equivalence assessment (verify Sapienza foreign-title procedure on call PDF)",
+    "B2 English (English-medium-MSc exemption applies)"
+  ],
+  "research_themes": [
+    "LLM security (backdoors, data poisoning, adversarial robustness)",
+    "Agentic AI safety",
+    "Trustworthy / responsible AI",
+    "Governance and monitoring of deployed ML/LLM systems",
+    "AI for cybersecurity / cybersecurity of AI"
+  ],
+  "notes": "Strongest FORMAL home for LLM-security / agentic-AI-safety in candidate's pipeline. Italian PNRR national programme, Security & Cybersecurity area, Sapienza-administered + CNR consortium; some cyber slots co-funded by ACN (national cyber agency). Standout assets for THIS area: Bank Muamalat (licensed bank) model validation / reliability / staleness monitoring / audit-grade documentation = governance of deployed ML under regulated/adversarial conditions; DeBERTa-v3 transformer fine-tuning (MSc); LLM-Shipper-Profiles RAG with traceable rule-based fallback (reproducible/ablatable). Referees: Ammar Al-Bazi, Viktor Pekar. VERIFY all 'verify on call PDF' items against the official XLII bando before submission.",
+  "url": "https://phd.uniroma1.it/web/ARTIFICIAL-INTELLIGENCE_nD3764_EN.aspx"
+}

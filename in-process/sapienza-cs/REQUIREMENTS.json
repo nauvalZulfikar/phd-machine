@@ -1,0 +1,52 @@
+{
+  "ref": "[TODO: verify exact bando reference number on call PDF]",
+  "title": "PhD in Computer Science (XLII / 42nd cycle, AY 2026/27) — Multilingual NLP / LLM Interpretability",
+  "institution": "Sapienza University of Rome",
+  "department": "Department of Computer Science (Dipartimento di Informatica) — Sapienza NLP group",
+  "supervisor": "Prof. Roberto Navigli",
+  "supervisor_email": "roberto.navigli@uniroma1.it (verify)",
+  "deadline": "2026-06-17T14:00:00+02:00",
+  "deadline_note": "17 June 2026, 14:00 CET (CEST) — verify exact time/timezone on call PDF",
+  "start_date": "[TODO: verify on call PDF — typically 1 Nov 2026 for XLII cycle]",
+  "duration": "3 years",
+  "funding": "Funded (~€16,200/yr gross stipend + mobility/research budget supplement). Verify exact figure on call PDF",
+  "portal_url": "https://phd.uniroma1.it/web/COMPUTER-SCIENCE_nD3507_EN.aspx",
+  "submission_method": "online_portal (Sapienza PhD application system — Infostud / dedicated bando portal)",
+  "required_docs": [
+    "cv (European-format CV / Europass — verify required format on call PDF)",
+    "research_project (research proposal — verify page/word limit on call PDF)",
+    "motivation_letter",
+    "transcripts_bachelor (BSc/BBA degree + transcript)",
+    "transcripts_master (MSc degree + transcript)",
+    "language_certificate (English B2; EXEMPTION for English-taught MSc — candidate qualifies, MSc at Aston was English-medium — verify exemption route on call PDF)",
+    "reference_letters (usually 2 — verify required count and submission method on call PDF)",
+    "passport_or_id",
+    "application_fee_payment_receipt (small fee — verify amount on call PDF)"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "portfolio_or_project_links",
+    "other: any additional titles/certificates valued for evaluation (verify on call PDF)"
+  ],
+  "constraints": {
+    "language": "English (program is English-taught; documents in English or Italian — verify on call PDF)",
+    "page_limits": "[TODO: verify on call PDF — research project length cap]",
+    "file_format": "pdf"
+  },
+  "eligibility": [
+    "Master's degree (laurea magistrale or equivalent, EQF level 7) in CS, Engineering, or related discipline — candidate holds MSc Business Analytics (Aston, EQF 7, First Class); verify CS-adjacency acceptance on call PDF",
+    "Strong academic record",
+    "English proficiency B2 (exemption via English-taught MSc — candidate qualifies)",
+    "Research background in NLP / ML preferred for Sapienza NLP group"
+  ],
+  "research_themes": [
+    "multilingual NLP",
+    "lexical semantics",
+    "large language models (LLMs)",
+    "interpretability of LLM internal representations",
+    "the Minerva Italian LLM",
+    "semantic NLP / word-sense and concept representation"
+  ],
+  "notes": "Sapienza NLP group (Prof. Roberto Navigli) is the target lab fit. Verify on the official call PDF: exact bando reference, research-project length/format, number of reference letters and how they are submitted, start date, stipend figure, application-fee amount, and the English-exemption documentation route. Candidate qualifies for the B2-English exemption because the MSc at Aston University was English-medium. Standard Italian XLII docs apply.",
+  "url": "https://phd.uniroma1.it/web/COMPUTER-SCIENCE_nD3507_EN.aspx"
+}

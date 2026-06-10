@@ -1,0 +1,52 @@
+{
+  "ref": null,
+  "title": "PhD in Computer Science and Engineering (DISI) — Trustworthy / Responsible AI",
+  "institution": "University of Bologna (Alma Mater Studiorum)",
+  "department": "DISI — Department of Computer Science and Engineering",
+  "supervisor": null,
+  "supervisor_email": null,
+  "deadline": null,
+  "deadline_estimate": "2026-06-15 (second-call window, AY 2026-27 / XLII cycle) [VERIFY in round 2]",
+  "start_date": "2026-11-01 [TODO: verify with user — typical Italian XLII start ~Nov 2026]",
+  "duration": "3 years",
+  "funding": "Funded (~€16,200/yr stipend, gross, before social charges) + mobility/research budget supplement [VERIFY exact figure on call PDF]",
+  "portal_url": "https://www.unibo.it/en/study/phd-professional-masters-specialisation-schools-and-other-programmes/phd/2026-2027",
+  "submission_method": "online_portal (Studenti Online — studenti.unibo.it)",
+  "required_docs": [
+    "cv (European format)",
+    "research_project",
+    "motivation_letter",
+    "transcripts_bachelor",
+    "transcripts_master",
+    "degree_certificates_bachelor_and_master",
+    "language_certificate (English B2; English-taught-MSc exemption may apply)",
+    "reference_letters (~2)",
+    "passport_or_id",
+    "application_fee (€10)"
+  ],
+  "optional_docs": [
+    "publication_list",
+    "other: any additional certificates the call PDF allows"
+  ],
+  "constraints": {
+    "language": "English (program is research-oriented; check call PDF for application language)",
+    "page_limits": "[VERIFY on call PDF — Italian calls often cap research project length]",
+    "file_format": "pdf",
+    "max_file_size_mb": null
+  },
+  "eligibility": [
+    "Master's degree (Laurea Magistrale / EQF 7) in CS, Engineering, or related — candidate MSc Business Analytics (Aston, 1:1) [VERIFY discipline accepted by DISI committee]",
+    "English proficiency at B2 (English-medium MSc at Aston supports exemption route)",
+    "Strong academic and research record"
+  ],
+  "research_themes": [
+    "Trustworthy AI",
+    "Responsible AI",
+    "ML robustness",
+    "distributed / decentralised AI",
+    "model reliability and governance",
+    "rigorous experimental evaluation of AI systems"
+  ],
+  "notes": "⚠️ VERIFY-FIRST: Round 1 of the XLII (AY 2026-27) cycle closed 30 Mar 2026. A SECOND call is reported to close ~2026-06-15 BUT it is NOT confirmed that the Computer Science and Engineering (DISI) program is among the curricula re-opened in round 2 — many Italian second calls only cover residual/specific positions. CONFIRM on the official second-call PDF before investing further. Funding figure, exact deadline, page limits, number of reference letters, and start date all marked for verification against the call PDF. No supervisor pre-contact recorded; DISI trustworthy/distributed-AI group lead [TODO: verify with user].",
+  "url": "https://disi.unibo.it/en"
+}
