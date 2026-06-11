@@ -1,0 +1,19 @@
+template: uk-academic
+filename_pattern: nauval_zulfikar_sapienza_national_ai_{doc}.pdf
+max_file_size_mb: 5
+docs:
+- name: cv
+  source: drafts/cv.md
+  kind: cv
+  title: Curriculum Vitae
+  max_pages: 2
+- name: research_project
+  source: drafts/research_project.md
+  kind: full
+  title: Research Project
+  max_pages: 8
+- name: motivation_letter
+  source: drafts/motivation_letter.md
+  kind: full
+  title: Motivation Letter
+  max_pages: 2
