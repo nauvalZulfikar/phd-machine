@@ -93,6 +93,8 @@ def main():
         while time.time()<deadline and not done:
             try:
                 now=time.time()
+                try: page.screenshot(path=str(recon/"live.png"))
+                except Exception: pass
                 files=page.query_selector_all("input[type='file']")   # incl. hidden
                 fields=vis(page.query_selector_all(TXT))
                 pwf=vis(page.query_selector_all("input[type='password']"))
@@ -142,7 +144,21 @@ def main():
                     print("[note] registration page detected — handled by register_filler, skipping.", flush=True)
                     time.sleep(4); continue
 
-                if len(fields)<3 and now-last_apply>6:    # posting/intermediate -> (re)click Apply
+                if len(fields)>=3:                        # logged-in form STEP (e.g. personal details, no uploads yet)
+                    sf=0
+                    for el in fields:
+                        try:
+                            if el.input_value(): continue
+                            kw=field_keyword(page,el)
+                            for pat,pk in TEXT_MAP:
+                                if re.search(pat,kw):
+                                    el.fill(P[pk]); sf+=1; filled+=1
+                                    print(f"  [fill] {pk:11s} <- {kw[:34]!r}", flush=True); break
+                        except Exception: continue
+                    if sf: print(f"[step] filled {sf} field(s) — click Next/Continue for the next step.", flush=True)
+                    time.sleep(4); continue
+
+                if now-last_apply>6:                      # posting page -> (re)click Apply
                     for sel in ["a:has-text('Apply')","button:has-text('Apply')","a:has-text('Solliciteer')"]:
                         b=page.query_selector(sel)
                         if b and b.is_visible():
