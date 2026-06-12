@@ -107,7 +107,7 @@ def main():
         TXT = "input[type='text'], input[type='email'], input[type='tel'], input:not([type]), textarea"
         while time.time() < deadline and not done:
             try:
-                files = visible(page.query_selector_all("input[type='file']"))
+                files = page.query_selector_all("input[type='file']")  # incl. hidden (styled upload btns)
                 fields = visible(page.query_selector_all(TXT))
                 has_pw = len(visible(page.query_selector_all("input[type='password']"))) > 0
 
