@@ -1,21 +1,18 @@
 #!/usr/bin/env python3
-"""Deterministic headed form-filler for PhD application portals.
+"""Deterministic headed application-form filler with auto sign-in.
 
-Human does login/CAPTCHA/fee/email-verify (the part bots can't). This script waits
-patiently, SKIPS login/registration pages, and only auto-fills + screenshots the REAL
-application form — anchored to the presence of file-upload (CV) boxes. It fills standard
-text fields from shared/profile.yaml, attaches the right PDFs, and STOPS at submit.
-Window stays open so the human reviews + clicks submit.
+Human handles ONLY: CAPTCHA / fee / final Submit. This script:
+  - signs in automatically (email + password from env PHD_REG_PW),
+  - re-clicks Apply to reach the application form,
+  - fills standard text fields from profile, uploads the right PDFs (incl. hidden inputs),
+  - STOPS at submit and screenshots. Window stays open for the human to submit.
 
-Run:  .venv/python -u headed_filler.py <opp_folder> <portal_url>
-Persistent profile per opp so a login sticks across runs.
+Run: PHD_REG_PW='...' .venv/python -u headed_filler.py <opp> <job_url>
 """
-import sys, time, pathlib, re
+import sys, os, time, pathlib, re
 from playwright.sync_api import sync_playwright
 
 PHD = pathlib.Path.home() / "coding-projects" / "phd"
-SHARED = PHD / "shared"
-
 P = {
     "full_name": "Nauval Zulfikar", "first_name": "Nauval", "last_name": "Zulfikar",
     "email": "zulfikar.nauval1998@gmail.com", "phone": "+44 7300 469048",
@@ -25,8 +22,8 @@ P = {
     "portfolio": "https://nauvalzulfikar.vercel.app",
 }
 TEXT_MAP = [
-    (r"first.?name|given.?name|voornaam|nome", "first_name"),
-    (r"last.?name|surname|family.?name|achternaam|cognome", "last_name"),
+    (r"first.?name|given.?name|voornaam", "first_name"),
+    (r"last.?name|surname|family.?name|achternaam", "last_name"),
     (r"full.?name|your name|^naam$|^name$", "full_name"),
     (r"e.?mail", "email"),
     (r"phone|mobile|tel|telefoon|telefono", "phone"),
@@ -37,137 +34,130 @@ TEXT_MAP = [
     (r"portfolio|website|personal.?page", "portfolio"),
 ]
 
-def opp_root(opp):
-    return PHD / ("in-process" if (PHD/"in-process"/opp).exists() else "missed") / opp
-
-def opp_docs(opp):
-    d = opp_root(opp) / "documents"
+def opp_root(o):
+    return PHD/("in-process" if (PHD/"in-process"/o).exists() else "missed")/o
+def opp_docs(o):
+    d = opp_root(o)/"documents"
     return d, (sorted(d.glob("*.pdf")) if d.exists() else [])
-
 def field_keyword(page, el):
-    parts = []
-    for attr in ("aria-label", "placeholder", "name", "id"):
-        parts.append(el.get_attribute(attr) or "")
+    parts = [el.get_attribute(a) or "" for a in ("aria-label","placeholder","name","id")]
     fid = el.get_attribute("id")
     if fid:
         lab = page.query_selector(f"label[for='{fid}']")
-        if lab:
-            parts.append(lab.inner_text())
+        if lab: parts.append(lab.inner_text())
     return " ".join(parts).lower()
-
-def visible(els):
-    out = []
+def vis(els):
+    out=[]
     for e in els:
         try:
-            if e.is_visible():
-                out.append(e)
-        except Exception:
-            pass
+            if e.is_visible(): out.append(e)
+        except Exception: pass
     return out
 
 def main():
-    opp = sys.argv[1] if len(sys.argv) > 1 else "leiden-formal-nlp"
-    url = sys.argv[2] if len(sys.argv) > 2 else \
+    opp = sys.argv[1] if len(sys.argv)>1 else "leiden-formal-nlp"
+    url = sys.argv[2] if len(sys.argv)>2 else \
         "https://careers.universiteitleiden.nl/job/PhD-Candidate,-Formal-methods-in-Natural-Language-Processing/16571-en_US"
-    recon = opp_root(opp) / "portal_recon"; recon.mkdir(parents=True, exist_ok=True)
-    profile_dir = PHD / ".browser-profiles" / opp; profile_dir.mkdir(parents=True, exist_ok=True)
+    recon = opp_root(opp)/"portal_recon"; recon.mkdir(parents=True, exist_ok=True)
+    pdir = PHD/".browser-profiles"/opp; pdir.mkdir(parents=True, exist_ok=True)
+    REG_PW = os.environ.get("PHD_REG_PW","")
     docs_dir, pdfs = opp_docs(opp)
-    doc_for = {"cv": None, "cover": None, "research": None, "pub": None}
+    doc_for = {"cv":None,"cover":None,"research":None,"pub":None}
     for pdf in pdfs:
-        n = pdf.name.lower()
-        if "cv" in n: doc_for["cv"] = str(pdf)
-        elif "cover" in n or "motivation" in n: doc_for["cover"] = str(pdf)
-        elif "research" in n or "statement" in n or "proposal" in n or "project" in n: doc_for["research"] = str(pdf)
-        elif "publication" in n: doc_for["pub"] = str(pdf)
-    print(f"[opp] {opp}\n[url] {url}\n[docs] {len(pdfs)} pdf(s) -> {doc_for}", flush=True)
+        n=pdf.name.lower()
+        if "cv" in n: doc_for["cv"]=str(pdf)
+        elif "cover" in n or "motivation" in n: doc_for["cover"]=str(pdf)
+        elif "research" in n or "statement" in n or "proposal" in n or "project" in n: doc_for["research"]=str(pdf)
+        elif "publication" in n: doc_for["pub"]=str(pdf)
+    print(f"[opp] {opp}\n[docs] {len(pdfs)} -> {doc_for}", flush=True)
 
     with sync_playwright() as pw:
         ctx = pw.chromium.launch_persistent_context(
-            user_data_dir=str(profile_dir), headless=False,
-            viewport={"width": 1400, "height": 950},
+            user_data_dir=str(pdir), headless=False,
+            viewport={"width":1400,"height":950},
             args=["--disable-blink-features=AutomationControlled"])
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
         page.goto(url, wait_until="domcontentloaded", timeout=60000)
-        page.screenshot(path=str(recon / "01_loaded.png"), full_page=True)
-        print("[wait] loaded. I SKIP login/registration; I fill ONLY the real application "
-              "form (the one with CV-upload boxes). Do your login/verify in this window.", flush=True)
+        page.screenshot(path=str(recon/"01_loaded.png"), full_page=True)
+        print("[wait] auto sign-in + reach the application form. You handle CAPTCHA/fee/Submit.", flush=True)
+        for sel in ["button:has-text('Accept All Cookies')","button:has-text('Accept all')","button:has-text('Accept')"]:
+            b=page.query_selector(sel)
+            if b and b.is_visible():
+                try: b.click(); time.sleep(1)
+                except Exception: pass
+                break
 
-        # best-effort cookie accept
-        for sel in ["button:has-text('Accept All Cookies')", "button:has-text('Accept all')",
-                    "button:has-text('Accept')", "text=Accept All Cookies"]:
+        TXT="input[type='text'], input[type='email'], input[type='tel'], input:not([type]), textarea"
+        filled=0; done=False; last_apply=0.0; last_signin=0.0; signin_tries=0
+        deadline=time.time()+1500
+        while time.time()<deadline and not done:
             try:
-                b = page.query_selector(sel)
-                if b and b.is_visible():
-                    b.click(); time.sleep(1); break
-            except Exception:
-                pass
+                now=time.time()
+                files=page.query_selector_all("input[type='file']")   # incl. hidden
+                fields=vis(page.query_selector_all(TXT))
+                pwf=vis(page.query_selector_all("input[type='password']"))
 
-        filled = 0; done = False; clicked_apply = False
-        deadline = time.time() + 1500  # 25 min
-        TXT = "input[type='text'], input[type='email'], input[type='tel'], input:not([type]), textarea"
-        while time.time() < deadline and not done:
-            try:
-                files = page.query_selector_all("input[type='file']")  # incl. hidden (styled upload btns)
-                fields = visible(page.query_selector_all(TXT))
-                has_pw = len(visible(page.query_selector_all("input[type='password']"))) > 0
-
-                if files:  # ---- REAL application form (anchored on upload boxes) ----
-                    print(f"[form] application form detected ({len(fields)} fields, "
-                          f"{len(files)} upload slots). Filling.", flush=True)
+                if files:                                # ---- application form ----
+                    print(f"[form] application form ({len(fields)} fields, {len(files)} upload slots). Filling.", flush=True)
                     for el in fields:
                         try:
                             if el.input_value(): continue
-                            kw = field_keyword(page, el)
-                            for pat, pkey in TEXT_MAP:
-                                if re.search(pat, kw):
-                                    el.fill(P[pkey]); filled += 1
-                                    print(f"  [fill] {pkey:11s} <- {kw[:38]!r}", flush=True); break
+                            kw=field_keyword(page,el)
+                            for pat,pk in TEXT_MAP:
+                                if re.search(pat,kw):
+                                    el.fill(P[pk]); filled+=1
+                                    print(f"  [fill] {pk:11s} <- {kw[:36]!r}", flush=True); break
                         except Exception: continue
                     for el in files:
                         try:
-                            kw = field_keyword(page, el); pick = None
-                            if re.search(r"cv|curriculum|resume", kw): pick = doc_for["cv"]
-                            elif re.search(r"cover|motivat|letter", kw): pick = doc_for["cover"]
-                            elif re.search(r"research|statement|proposal|project", kw): pick = doc_for["research"]
-                            elif re.search(r"publicat", kw): pick = doc_for["pub"]
+                            kw=field_keyword(page,el); pick=None
+                            if re.search(r"cv|curriculum|resume",kw): pick=doc_for["cv"]
+                            elif re.search(r"cover|motivat|letter",kw): pick=doc_for["cover"]
+                            elif re.search(r"research|statement|proposal|project",kw): pick=doc_for["research"]
+                            elif re.search(r"publicat",kw): pick=doc_for["pub"]
                             if pick:
                                 el.set_input_files(pick)
-                                print(f"  [upload] {pathlib.Path(pick).name} <- {kw[:34]!r}", flush=True)
+                                print(f"  [upload] {pathlib.Path(pick).name} <- {kw[:30]!r}", flush=True)
                         except Exception: continue
-                    done = True; break
+                    done=True; break
 
-                if has_pw:  # login / registration — pre-fill name+email, DON'T stop
-                    for el in fields:
-                        try:
-                            if el.input_value(): continue
-                            kw = field_keyword(page, el)
-                            for pat, pkey in TEXT_MAP:
-                                if pkey in ("email","first_name","last_name","full_name") and re.search(pat, kw):
-                                    el.fill(P[pkey]); print(f"  [auth-fill] {pkey} <- {kw[:30]!r}", flush=True); break
-                        except Exception: continue
+                if len(pwf)==1:                          # ---- Sign In page: auto login ----
+                    if REG_PW and now-last_signin>12 and signin_tries<4:
+                        for el in fields:
+                            try:
+                                if not el.input_value() and re.search(r"e.?mail", field_keyword(page,el)):
+                                    el.fill(P["email"])
+                            except Exception: pass
+                        try: pwf[0].fill(REG_PW)
+                        except Exception: pass
+                        for sel in ["button:has-text('Sign In')","button:has-text('Sign in')",
+                                    "button:has-text('Log in')","button:has-text('Login')","input[type='submit']"]:
+                            b=page.query_selector(sel)
+                            if b and b.is_visible():
+                                print(f"[signin] attempt {signin_tries+1}", flush=True); b.click(); break
+                        last_signin=now; signin_tries+=1; time.sleep(5); continue
                     time.sleep(3); continue
 
-                if len(fields) < 3 and not clicked_apply:  # posting page -> click Apply once
-                    for sel in ["a:has-text('Apply')","button:has-text('Apply')",
-                                "a:has-text('Solliciteer')","button:has-text('Solliciteer')"]:
-                        b = page.query_selector(sel)
+                if len(pwf)>=2:                           # registration page (shouldn't happen post-account)
+                    print("[note] registration page detected — handled by register_filler, skipping.", flush=True)
+                    time.sleep(4); continue
+
+                if len(fields)<3 and now-last_apply>6:    # posting/intermediate -> (re)click Apply
+                    for sel in ["a:has-text('Apply')","button:has-text('Apply')","a:has-text('Solliciteer')"]:
+                        b=page.query_selector(sel)
                         if b and b.is_visible():
-                            print(f"  [click] Apply", flush=True); b.click(); clicked_apply = True
-                            time.sleep(4); break
+                            print("[click] Apply", flush=True); b.click(); last_apply=now; time.sleep(4); break
                 time.sleep(3)
             except Exception as e:
-                print(f"  [warn] {str(e)[:80]}", flush=True); time.sleep(3)
+                print(f"  [warn] {str(e)[:70]}", flush=True); time.sleep(3)
 
-        shot = recon / "headed_fill_stopped_at_submit.png"
-        page.screenshot(path=str(shot), full_page=True)
+        shot=recon/"headed_fill_stopped_at_submit.png"; page.screenshot(path=str(shot), full_page=True)
         if done:
-            print(f"[done] filled {filled} field(s) + uploaded docs on the application form. "
-                  f"STOPPED before submit -> {shot}. Review on-screen & click Submit yourself.", flush=True)
+            print(f"[done] filled {filled} field(s) + uploaded docs. STOPPED before submit -> {shot}. "
+                  "Review on-screen & click Submit.", flush=True)
         else:
-            print(f"[timeout] no upload-form reached in 25 min. Screenshot -> {shot}. "
-                  "Window stays open; continue manually.", flush=True)
-        time.sleep(1800)
-        ctx.close()
+            print(f"[timeout] never reached upload form. Screenshot -> {shot}.", flush=True)
+        time.sleep(1800); ctx.close()
 
-if __name__ == "__main__":
+if __name__=="__main__":
     main()
