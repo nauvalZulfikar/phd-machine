@@ -90,7 +90,7 @@ def main():
 
         # poll up to 5 min for a fillable form to appear (after human passes login)
         filled = 0
-        deadline = time.time() + 300
+        deadline = time.time() + 1500  # 25 min: patiently wait while human logs in
         seen_inputs = set()
         while time.time() < deadline:
             inputs = page.query_selector_all(
