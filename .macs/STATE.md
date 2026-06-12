@@ -1,5 +1,15 @@
 ---
 ts: 2026-06-12
+turn: "A; gua tetep pengen browser non-headless biar bisa liat + klik submit" (+ gmail cred)
+status:
+  done: Did NOT persist gmail password (classifier blocked correctly; advised user to rotate it + noted it's likely account pw not app-pw, and IMAP unneeded since user watches+clicks). Confirmed VNC viable: com.apple.screensharing loaded, console logged in (shaka-mac-mini), display 1280x720, connect target 100.81.47.91. Upgraded tools/headed_filler.py with self-screenshots (01_loaded + stopped_at_submit). Launched HEADED Chromium on Mac Mini console for Leiden — page loaded clean (no Cloudflare), Apply button visible, screenshot verified. Browser live, polling for form fields.
+  next: User VNCs to 100.81.47.91, clicks Apply + logs in/verifies email; script auto-fills + stops at submit; user clicks submit. Then replicate for Bologna/Sapienza/PoliMi/Cambridge/Aalborg with per-portal saved sessions.
+  blocked: Auto-fill only triggers once user reaches the form (5-min poll window); signup/CAPTCHA/fee/verify-email/submit remain human (by design).
+persisted: [tools/headed_filler.py, in-process/leiden-formal-nlp/portal_recon/01_loaded.png]
+secret_handling: gmail pw NOT written to disk (blocked); user advised to rotate.
+---
+---
+ts: 2026-06-12
 turn: "daftarin to each application, buka browser, stop at submit" — resolved via display fork
 status:
   done: Established Mac Mini is headless (screencapture fails / no GUI for user). Decided WORKFLOW=Mac-Mini-preps + user-executes-on-own-laptop. Wrote APPLY_FILLSHEET.md (per-portal exact values + PDF upload mapping, 8 live portals + email-only + closed list) and open_apply_tabs.command (deadline-ordered tab opener for user's laptop). Built tools/headed_filler.py (deterministic Playwright filler) — parked; unusable on headless box but kept for future VNC use.

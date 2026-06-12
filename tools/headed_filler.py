@@ -84,8 +84,9 @@ def main():
         )
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
         page.goto(url, wait_until="domcontentloaded", timeout=60000)
-        print("[nav] loaded. If a cookie banner / login / Apply button appears, "
-              "handle login yourself. I will poll for form fields and fill them.")
+        page.screenshot(path=str(recon / "01_loaded.png"), full_page=True)
+        print(f"[nav] loaded -> {recon/'01_loaded.png'}. If a cookie banner / login / Apply "
+              "button appears, handle login yourself. Polling for form fields to fill.", flush=True)
 
         # poll up to 5 min for a fillable form to appear (after human passes login)
         filled = 0
