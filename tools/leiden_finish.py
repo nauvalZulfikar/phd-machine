@@ -116,20 +116,31 @@ def fill_txt(page, name, val):
         el.fill(val, timeout=5000); log(f"  [fill] {name}={val}")
     except Exception as e: log(f"  [warn] {name}: {str(e)[:34]}")
 
-def picklist(page, input_id, val):
-    el=page.query_selector(f'[id="{input_id}"]')
-    if not el: log(f"  [warn] picklist {input_id} not found"); return
+def picklist(page, label_kw, val):
+    base=page.evaluate("""(kw)=>{for(const l of document.querySelectorAll('label')){
+        if((l.innerText||'').toLowerCase().includes(kw)){const f=l.getAttribute('for');
+        if(f) return f.split(':')[0];}} return null;}""", label_kw)
+    if not base: log(f"  [warn] picklist '{label_kw}' label not found"); return
+    el=page.query_selector(f'[id="{base}:_input"]')
+    if not el: log(f"  [warn] picklist '{label_kw}' input {base} not found"); return
     try:
-        el.scroll_into_view_if_needed(timeout=2000); el.click(timeout=4000); time.sleep(0.6)
-        el.fill(val, timeout=4000); time.sleep(1.2)
-        # try clicking a matching option, else keyboard select
-        opt=page.query_selector(f"li:has-text('{val}')") or page.query_selector(f"[role=option]:has-text('{val}')")
-        if opt and opt.is_visible(): opt.click(); log(f"  [picklist] {input_id} -> {val} (clicked)")
+        el.scroll_into_view_if_needed(timeout=2000); el.click(timeout=4000); time.sleep(0.5)
+        el.fill(val, timeout=4000); time.sleep(1.4)
+        # SF typeahead suggestion list -> click exact/first match, else keyboard
+        clicked=page.evaluate("""(args)=>{const [b,v]=args;
+            const lists=[...document.querySelectorAll('[id^="'+b+'"] li,[id^="'+b+'"] [role=option],. acaSuggestList li,ul li')]
+              .filter(e=>e.offsetParent && (e.innerText||'').trim());
+            for(const e of lists){if((e.innerText||'').trim().toLowerCase()===v.toLowerCase()){
+              e.dispatchEvent(new MouseEvent('mousedown',{bubbles:true}));e.dispatchEvent(new MouseEvent('click',{bubbles:true,view:window}));return e.innerText.trim();}}
+            for(const e of lists){if((e.innerText||'').trim().toLowerCase().includes(v.toLowerCase())){
+              e.dispatchEvent(new MouseEvent('mousedown',{bubbles:true}));e.dispatchEvent(new MouseEvent('click',{bubbles:true,view:window}));return e.innerText.trim();}}
+            return '';}""", [base,val])
+        if clicked: log(f"  [picklist] {label_kw} -> {clicked}")
         else:
-            page.keyboard.press("ArrowDown"); time.sleep(0.3); page.keyboard.press("Enter")
-            log(f"  [picklist] {input_id} -> {val} (kbd)")
+            page.keyboard.press("ArrowDown"); time.sleep(0.4); page.keyboard.press("Enter")
+            log(f"  [picklist] {label_kw} -> {val} (kbd fallback)")
         time.sleep(0.6)
-    except Exception as e: log(f"  [warn] picklist {input_id}: {str(e)[:40]}")
+    except Exception as e: log(f"  [warn] picklist {label_kw}: {str(e)[:40]}")
 
 def main():
     RECON.mkdir(parents=True, exist_ok=True)
@@ -154,12 +165,21 @@ def main():
         fill_txt(page,"referent2_functie","Senior Lecturer, Aston University")
         fill_txt(page,"referent2_email","v.pekar@aston.ac.uk")
         log("=== PICKLISTS ===")
-        picklist(page,"82:_input","Male")
-        picklist(page,"106:_input","English")
-        picklist(page,"129:_input","Website")
+        picklist(page,"gender","Male")
+        picklist(page,"communication language","English")
+        picklist(page,"how did you hear","Website")
         time.sleep(2)
+        page.screenshot(path=str(RECON/"finish_prefill.png"), full_page=True)
+        # PERSIST: click Save (not Apply/Submit) so nothing is lost on reload
+        saved=False
+        for sel in ["button:has-text('Save')","a:has-text('Save')","input[value='Save']"]:
+            b=page.query_selector(sel)
+            if b and b.is_visible():
+                try: b.click(); saved=True; log("[SAVE] clicked Save"); break
+                except Exception as e: log(f"[warn] save: {str(e)[:40]}")
+        time.sleep(8)  # let SF persist server-side
         page.screenshot(path=str(RECON/"finish.png"), full_page=True)
-        log("[done] uploads+fields done. STOPPED before submit. Review finish.png.")
+        log(f"[done] uploads+fields+picklists done, saved={saved}. STOPPED before final Apply/Submit.")
         time.sleep(3000); ctx.close()
 
 if __name__=="__main__": main()
