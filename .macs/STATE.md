@@ -1,5 +1,14 @@
 ---
 ts: 2026-06-12
+turn: user at Mac Mini physically (no VNC); Leiden proof run + filler bugfix
+status:
+  done: First Leiden run exposed bug — filler stopped on the Sign In page (filled login email, broke on first field). Verified via screenshot headed_fill_stopped_at_submit.png (Leiden Sign In). Rewrote tools/headed_filler.py: anchors "real form" on file-upload boxes, SKIPS login/registration (pre-fills name+email but doesn't stop), auto-accepts cookies, auto-clicks Apply. Relaunched (PID 15392): clicked Apply, pre-filled login email, now polling 25min. Monitor bl76sxx4x watching log.
+  next: User creates account + verifies email + reaches real application form; script auto-fills + uploads 4 PDFs + stops at submit; user submits. Then replicate per-portal.
+  blocked: signup/CAPTCHA/email-verify/fee/submit remain human (by design).
+persisted: [tools/headed_filler.py, in-process/leiden-formal-nlp/portal_recon/headed_fill_stopped_at_submit.png, in-process/leiden-formal-nlp/portal_recon/01_loaded.png]
+---
+---
+ts: 2026-06-12
 turn: "A; gua tetep pengen browser non-headless biar bisa liat + klik submit" (+ gmail cred)
 status:
   done: Did NOT persist gmail password (classifier blocked correctly; advised user to rotate it + noted it's likely account pw not app-pw, and IMAP unneeded since user watches+clicks). Confirmed VNC viable: com.apple.screensharing loaded, console logged in (shaka-mac-mini), display 1280x720, connect target 100.81.47.91. Upgraded tools/headed_filler.py with self-screenshots (01_loaded + stopped_at_submit). Launched HEADED Chromium on Mac Mini console for Leiden — page loaded clean (no Cloudflare), Apply button visible, screenshot verified. Browser live, polling for form fields.
