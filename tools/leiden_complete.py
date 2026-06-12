@@ -56,24 +56,30 @@ def reach_form(page):
             break
     deadline=time.time()+120; tries=0
     while time.time()<deadline:
-        if page.query_selector("text=My Documents") or page.query_selector("input[type='file']"):
-            return True
-        pwf=[e for e in page.query_selector_all("input[type='password']") if e.is_visible()]
-        if len(pwf)==1 and REG_PW and tries<4:
-            for el in page.query_selector_all("input[type='text'], input[type='email']"):
-                try:
-                    if not el.input_value() and re.search(r"e.?mail", kw_of(page,el)): el.fill(P["email"])
+        try:
+            if page.query_selector("text=My Documents") or page.query_selector("input[type='file']"):
+                return True
+            pwf=[e for e in page.query_selector_all("input[type='password']") if e.is_visible()]
+            if len(pwf)==1 and REG_PW and tries<4:
+                for el in page.query_selector_all("input[type='text'], input[type='email']"):
+                    try:
+                        if not el.input_value() and re.search(r"e.?mail", kw_of(page,el)): el.fill(P["email"])
+                    except Exception: pass
+                try: pwf[0].fill(REG_PW)
                 except Exception: pass
-            try: pwf[0].fill(REG_PW)
-            except Exception: pass
-            for sel in ["button:has-text('Sign In')","button:has-text('Sign in')","input[type='submit']"]:
+                for sel in ["button:has-text('Sign In')","button:has-text('Sign in')","input[type='submit']"]:
+                    b=page.query_selector(sel)
+                    if b and b.is_visible(): log(f"[signin] try {tries+1}"); b.click(); break
+                tries+=1
+                try: page.wait_for_load_state("networkidle", timeout=15000)
+                except Exception: pass
+                time.sleep(3); continue
+            for sel in ["a:has-text('Apply')","button:has-text('Apply')"]:
                 b=page.query_selector(sel)
-                if b and b.is_visible(): log(f"[signin] try {tries+1}"); b.click(); break
-            tries+=1; time.sleep(5); continue
-        for sel in ["a:has-text('Apply')","button:has-text('Apply')"]:
-            b=page.query_selector(sel)
-            if b and b.is_visible(): log("[click] Apply"); b.click(); time.sleep(4); break
-        time.sleep(2)
+                if b and b.is_visible(): log("[click] Apply"); b.click(); time.sleep(4); break
+            time.sleep(2)
+        except Exception as e:
+            log(f"[reach warn] {str(e)[:50]}"); time.sleep(2)
     return False
 
 def dump_and_upload(page):
@@ -98,30 +104,36 @@ def dump_and_upload(page):
         log(f"   file-input: name={fi.get_attribute('name')!r} id={fi.get_attribute('id')!r} accept={fi.get_attribute('accept')!r}")
 
     uploaded=0
-    pick_for = lambda kw: (CV if re.search(r"resume|cv|curriculum",kw) else
-                           COVER if re.search(r"cover|motivat|letter",kw) else
-                           RES if re.search(r"research|statement|proposal|project|other|document",kw) else None)
-    # Strategy 1: direct set_input_files on found inputs
-    if all_file_inputs:
-        for fr,fi in all_file_inputs:
-            kw=kw_of(fr,fi)
-            pick=pick_for(kw) or CV
-            try: fi.set_input_files(pick); uploaded+=1; log(f"   [upload] {pathlib.Path(pick).name} -> input({kw[:30]!r})")
-            except Exception as e: log(f"   [warn] direct upload: {str(e)[:50]}")
-    # Strategy 2: SuccessFactors '+' attach icons (id like '66:_attachIcon')
-    if uploaded==0:
-        targets=[("66",CV),("68",COVER),("70",RES),("72",PUB)]
-        for fid,doc in targets:
-            try:
-                btn=page.query_selector(f'[id="{fid}:_attachIcon"]') or page.query_selector(f'[id="{fid}:_attach"] .addAttachments')
-                if not btn:
-                    log(f"   [skip] no + icon for {fid}"); continue
-                with page.expect_file_chooser(timeout=12000) as fc:
-                    btn.click(timeout=5000)
-                fc.value.set_files(doc); uploaded+=1
-                log(f"   [upload+] {pathlib.Path(doc).name} -> attach {fid}"); time.sleep(5)
-            except Exception as e:
-                log(f"   [warn] +icon {fid}: {str(e)[:60]}")
+    # SuccessFactors '+' attach icons. Click creates a hidden <input type=file>; catch via
+    # a filechooser listener AND fall back to the newly-created input directly.
+    targets=[("66",CV),("68",COVER),("70",RES),("72",PUB)]
+    for fid,doc in targets:
+        got=[False]
+        def handle(fc, _doc=doc, _got=got):
+            try: fc.set_files(_doc); _got[0]=True
+            except Exception: pass
+        page.on("filechooser", handle)
+        try:
+            btn=(page.query_selector(f'[id="{fid}:_attach"] .attachActions')
+                 or page.query_selector(f'[id="{fid}:_attach"] .addAttachments')
+                 or page.query_selector(f'[id="{fid}:_attachIcon"]'))
+            if btn:
+                try: btn.click(timeout=4000)
+                except Exception as e: log(f"   [warn] click {fid}: {str(e)[:40]}")
+            time.sleep(3)
+            page.screenshot(path=str(RECON/f"after_click_{fid}.png"))
+        finally:
+            try: page.remove_listener("filechooser", handle)
+            except Exception: pass
+        if got[0]:
+            uploaded+=1; log(f"   [upload+] {pathlib.Path(doc).name} -> attach {fid}"); time.sleep(5); continue
+        # fallback: hidden input may now exist
+        fi=page.query_selector(f'[id="{fid}:_attach"] input[type="file"]') or page.query_selector('input[type="file"]')
+        if fi:
+            try: fi.set_input_files(doc); uploaded+=1; log(f"   [upload-direct] {pathlib.Path(doc).name} -> {fid}"); time.sleep(5)
+            except Exception as e: log(f"   [warn] direct {fid}: {str(e)[:40]}")
+        else:
+            log(f"   [warn] no chooser/input for {fid}")
     return uploaded
 
 def fill_text(page):
@@ -159,6 +171,12 @@ def main():
         page.screenshot(path=str(RECON/"complete_01_form.png"), full_page=True)
         up=dump_and_upload(page)
         time.sleep(2)
+        # expand the other collapsed sections so their fields become fillable
+        for label in ["Profile Information","Job-Specific Information","Personal Information"]:
+            b=page.query_selector(f"button:has-text('{label}')") or page.query_selector(f"text={label}")
+            if b:
+                try: b.click(); log(f"[expand] {label}"); time.sleep(1.5)
+                except Exception: pass
         fl=fill_text(page)
         time.sleep(2)
         page.screenshot(path=str(RECON/"complete_02_filled.png"), full_page=True)
